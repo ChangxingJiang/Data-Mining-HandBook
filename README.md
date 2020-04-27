@@ -44,8 +44,8 @@
 * 函数的作用域(选学)
 #### Extra01 - 算法思维基础
 #### Example-01 - 鸡兔同笼问题
-#### Test-01 - 登录问题
-#### Test-02 - 牛吃草问题
+#### Test-01 - [登录问题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Test-01-%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98.md)
+#### Test-02 - [牛吃草问题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Test-02-%E7%89%9B%E5%90%83%E8%8D%89%E9%97%AE%E9%A2%98.md)
 ### Week-02 - Python语言基础（二）
 #### Day06 - 正则表达式
 * 字符串的高级操作 
@@ -76,7 +76,7 @@
 * 生成器
 * 迭代器
 #### Example-02 - 全唐诗文本格式整理(无对象应用)
-#### Test-03 - 直播间弹幕数据清洗
+#### Test-03 - [直播间弹幕数据清洗](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Test-03-%E7%9B%B4%E6%92%AD%E9%97%B4%E5%BC%B9%E5%B9%95%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97.md)
 ### Week-03 : Python语言基础（三）
 #### Day11 - 面对对象编程基础
 * 类与对象
@@ -115,6 +115,6 @@
 > 练习题：中文分词
 #### Extra05 - Pillow
 #### Example-03 : 诗词格律分析工具
-#### Test-04 - 地图查询工具
-#### Test-05 - 24点算法实现
+#### Test-04 - [地图查询工具](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Test-04-%E5%9C%B0%E5%90%8D%E6%9F%A5%E8%AF%A2%E5%99%A8.md)
+#### Test-05 - [24点算法实现](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Test-05-24%E7%82%B9%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0.md)
 #### Test-06 - 电梯算法(仅算法部分)
