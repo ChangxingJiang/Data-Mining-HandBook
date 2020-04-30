@@ -74,6 +74,7 @@
 > [Exercise08](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise08-Python%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97.md) :
 >程序暂停1秒、输出文本格式日期
 ### Day09 : 线程和进程
+[进程与线程(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B.md)
 * 线程和进程的概念
 * 使用进程
 * 使用线程
@@ -93,6 +94,7 @@
 ### Test-03 : [直播间弹幕数据清洗](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Test03-%E7%9B%B4%E6%92%AD%E9%97%B4%E5%BC%B9%E5%B9%95%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97.md)
 ## Week-03 : Python语言基础（三）
 ### Day11 : 面对对象编程基础
+[面向对象编程基础(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.md)
 * 类与对象
 * 定义类
 * 使用对象
@@ -100,6 +102,7 @@
 > [Exercise11](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise11-%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.md) :
 >定义一个圆类Circle，要求根据半径实例化，并包含可以返回圆的圆积、周长的方法
 ### Day12 : 面对对象编程进阶
+[面对对象进阶(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6.md)
 * 属性
 * 方法
 * 运算符重载
@@ -118,6 +121,7 @@
 > [Exercise13](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise13-%E8%AE%BF%E9%97%AE%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90.md) :
 >完成一次网络请求、某个API的调用
 ### Day14 : SQL语言基础
+[SQL教程(W3SCHOOL)](https://www.w3school.com.cn/sql/index.asp)
 * DDL : 数据定义语言
 * DML : 数据操作语言
 * DCL : 数据控制语言
