@@ -8,11 +8,14 @@
 ### Day01 : Hello World
 * Python简介 : 
 [Python简介(菜鸟教程)](https://www.runoob.com/python/python-intro.html)
-* 搭建Python开发环境 : [Windows环境(CSDN博客)](https://www.cnblogs.com/lvtaohome/p/11121377.html)
-* Windows环境变量
-* Hello World : [Hello World(CSDN博客)](https://blog.csdn.net/yindusu/article/details/90711368)
+* 搭建Python开发环境 : 
+[Windows环境(CSDN博客)](https://www.cnblogs.com/lvtaohome/p/11121377.html) 、
+Windows的Path环境变量
+* Hello World : 
+[Hello World(CSDN博客)](https://blog.csdn.net/yindusu/article/details/90711368)
 ### Day02 : IDE
-* 输入和输出 : [输入和输出(菜鸟教程)](https://www.runoob.com/python3/python3-inputoutput.html)
+* 输入和输出 : 
+[输入和输出(菜鸟教程)](https://www.runoob.com/python3/python3-inputoutput.html)
 * Github用法
 * pip包安装方法
 * IDE : 
