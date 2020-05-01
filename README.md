@@ -2,7 +2,7 @@
 > **作者**:长行\
 > **说明**:本教程以周为阶段，每周包括5天的知识内容(Day)、1天的案例实现(Example)和1天的小测验(Test)；此外还可能包含选学部分(Extra)。
 > 案例的难度比小测验的难度更高；每周可能有多个小测验，只要任选其一完成即可。\
-> [作业提交项目](https://github.com/Changxing97/Python-Data-mining-Homework)
+> [作业提交地址](https://github.com/Changxing97/Python-Data-mining-Homework)
 
 ## 前言 : 环境配置
 ### Day01 : Hello World
@@ -10,14 +10,16 @@
 [Python简介(菜鸟教程)](https://www.runoob.com/python/python-intro.html)
 * 搭建Python开发环境 : 
 [Windows环境(CSDN博客)](https://www.cnblogs.com/lvtaohome/p/11121377.html) 、
-Windows的Path环境变量
+[Windows的Path环境变量](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Windows%E7%9A%84Path%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.md)
 * Hello World : 
 [Hello World(CSDN博客)](https://blog.csdn.net/yindusu/article/details/90711368)
 ### Day02 : IDE
 * 输入和输出 : 
-[输入和输出(菜鸟教程)](https://www.runoob.com/python3/python3-inputoutput.html)
-* Github用法
-* pip包安装方法
+[接收用户输入(博客园)](https://www.cnblogs.com/tizer/p/10952153.html)
+* Github用法 : 
+[Github Desktop教程(简书)](https://www.jianshu.com/p/06a960d991aa) 、
+* pip包安装方法 : 
+[pip使用国内镜像(CSDN)](https://blog.csdn.net/dss875914213/article/details/86500146)
 * IDE : 
 [Jupyter(官网)](https://jupyter.org/install) , 
 [PyCharm(官网)](https://www.jetbrains.com/pycharm/download/#section=windows) 
