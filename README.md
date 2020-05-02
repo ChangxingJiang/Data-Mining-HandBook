@@ -5,24 +5,25 @@
 > [作业提交地址](https://github.com/Changxing97/Python-Data-mining-Homework)
 
 ## 前言 : 环境配置
-### Day01 : Hello World
+### Day01 : 搭建Python环境
 * Python简介 : 
 [Python简介(菜鸟教程)](https://www.runoob.com/python/python-intro.html)
-* 搭建Python开发环境 : 
-[Windows环境(CSDN博客)](https://www.cnblogs.com/lvtaohome/p/11121377.html) 、
-[Windows的Path环境变量](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Windows%E7%9A%84Path%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.md)
-* Hello World : 
-[Hello World(CSDN博客)](https://blog.csdn.net/yindusu/article/details/90711368)
-### Day02 : IDE
-* 输入和输出 : 
-[接收用户输入(博客园)](https://www.cnblogs.com/tizer/p/10952153.html)
 * Github用法 : 
 [Github Desktop教程(简书)](https://www.jianshu.com/p/06a960d991aa) 、
+[Github作业提交方法](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Github%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4%E6%96%B9%E6%B3%95.md)
 * pip包安装方法 : 
-[pip使用国内镜像(CSDN)](https://blog.csdn.net/dss875914213/article/details/86500146)
+[pip使用国内镜像(腾讯云)](https://cloud.tencent.com/developer/article/1185891)
+* 搭建Python开发环境 : 
+[Windows环境(CSDN博客)](https://www.cnblogs.com/lvtaohome/p/11121377.html) 、
+[Windows的Path环境变量](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Windows%E7%9A%84Path%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.md)
+### Day02 : IDE
 * IDE : 
 [Jupyter(官网)](https://jupyter.org/install) , 
 [PyCharm(官网)](https://www.jetbrains.com/pycharm/download/#section=windows) 
+* Hello World : 
+[Hello World(CSDN博客)](https://blog.csdn.net/yindusu/article/details/90711368)
+* 输入和输出 : 
+[接收用户输入(博客园)](https://www.cnblogs.com/tizer/p/10952153.html)
 > [Exercise01](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise01-Hello%20World.md) :
 >Jupyter中实现的Hello World(.ipynb)、
 >其他IDE中实现的Hello World(.py)、
@@ -40,7 +41,7 @@
 >华氏温度转换为摄氏温度、计算圆的周长和面积、计算有效互动比
 ### Day04 : 程序运行流程
 * 分支结构 : [分支结构(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84.md)
-* 循环结构 ： [循环结构(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84.md)
+* 循环结构 : [循环结构(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84.md)
 > [Exercise03](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise03-%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B.md) :
 >百分制成绩转换为等级制成绩、输入三条边长判断能否构成三角形、判断是否为质数、打印九九乘法表、判断是否未互质数
 ### Day05 : 常用数据类型操作
@@ -63,9 +64,6 @@
 >将计算有效互动比的方法写为函数并调用、迭代实现菲波那切数列
 ### Day07 : Python常用内置函数和模块
 [Python内置函数总结(CSDN)](https://blog.csdn.net/JackLiu16/article/details/79513345)
-* os
-* time
-* datetime
 > [Exercise08](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise08-Python%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97.md) :
 >程序暂停1秒、输出文本格式日期
 ### Extra01 : 算法思维基础
