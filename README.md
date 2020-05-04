@@ -26,8 +26,8 @@
 [Hello World(CSDN博客)](https://blog.csdn.net/yindusu/article/details/90711368)
 * 输入和输出 : 
 [接收用户输入(博客园)](https://www.cnblogs.com/tizer/p/10952153.html)
-> [Exercise01](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise01-Hello%20World.md) 
->[(答案)]() :
+> [Exercise01](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Exercise01-Hello%20World.md) 
+>[(答案)](https://github.com/Changxing97/Python-Data-mining-Tutorial/tree/master/Week-00/Exercise01) :
 >Jupyter中实现的Hello World(.ipynb)、
 >其他IDE中实现的Hello World(.py)、
 >询问用户姓名的功能(任意提交形式)
