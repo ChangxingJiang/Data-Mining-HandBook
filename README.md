@@ -32,12 +32,9 @@
 >其他IDE中实现的Hello World(.py)、
 >询问用户姓名的功能(任意提交形式)
 ## Week1 : Python语言基础（一）
-### Day03 : 语言元素
-* 变量和类型 :
- [常用变量类型与基础运算](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E8%BF%90%E7%AE%97.ipynb)
-* 变量命名 : [变量命名规则(C语言中文网)](http://c.biancheng.net/view/2172.html)
-* 数值变量基础操作 : [数字(Number)(菜鸟教程)](https://www.runoob.com/python3/python3-number.html)
-* 字符串基础操作 : [字符串(菜鸟教程)](https://www.runoob.com/python3/python3-string.html)
+### Day03 : 基础语言元素
+* 变量 : 使用变量、变量类型(检查变量类型、变量类型转换)、变量命名
+* 变量基本操作 : 数值变量、字符串变量
 * 运算符 : [运算符(菜鸟教程)](https://www.runoob.com/python/python-operators.html)
 * 注释 : [注释用法详解(博客园)](https://www.cnblogs.com/manongajie/p/12656388.html)
 > [Exercise02](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise02-%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0.md) :
