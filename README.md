@@ -17,9 +17,11 @@
 [Windows环境(CSDN博客)](https://www.cnblogs.com/lvtaohome/p/11121377.html) 、
 [Windows的Path环境变量](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Windows%E7%9A%84Path%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.md)
 ### Day02 : IDE
-* IDE : 
-[Jupyter(官网)](https://jupyter.org/install) , 
-[PyCharm(官网)](https://www.jetbrains.com/pycharm/download/#section=windows) 
+* Jupyter : 
+[官网地址](https://jupyter.org/install) 、
+[Nbextensions插件](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Jupyter%20Nbextensions%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95.md)
+* PyCharm : 
+[官网地址](https://www.jetbrains.com/pycharm/download/#section=windows) 
 * Hello World : 
 [Hello World(CSDN博客)](https://blog.csdn.net/yindusu/article/details/90711368)
 * 输入和输出 : 
