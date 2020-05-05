@@ -35,7 +35,7 @@
 ### Day03 : 基础语言元素
 * 变量 : 使用变量、变量类型(检查变量类型、变量类型转换)、变量命名
 * 变量基本操作 : 数值变量、字符串变量
-* 运算符 : [运算符(菜鸟教程)](https://www.runoob.com/python/python-operators.html)
+* 运算符 : 算术运算符、赋值运算符、比较运算符、逻辑运算符、成员运算符、身份运算符、位运算符(选学)
 * 注释 : [注释用法详解(博客园)](https://www.cnblogs.com/manongajie/p/12656388.html)
 > [Exercise02](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise02-%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0.md) :
 >华氏温度转换为摄氏温度、计算圆的周长和面积、计算有效互动比
