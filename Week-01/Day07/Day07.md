@@ -83,6 +83,7 @@ Python到目前为止（3.8.2）共计提供了68个内置函数，这些函数�
 | oct(x) | 将一个整数转变为一个前缀为'0o'的八进制字符串 |
 ### 作用域相关
 作用域相关的内置函数包括获以字典的形式获取局部变量和全局变量。
+
 | 内置函数 | 功能 |
 | ------ | ------ |
 | globals() | 返回当前全局变量的字典 |
@@ -107,7 +108,6 @@ Python到目前为止（3.8.2）共计提供了68个内置函数，这些函数�
 | type(object) | 返回对象的类型 |
 | type(name,bases,dict) | 返回一个新的type对象 |
 | vars([object]) | 返回模块、类、实例或任何其他具有\_\_dict\_\_属性的对象的\_\_dict\_\_属性 |
-| hash(object) | 返回该对象的哈希值 |
 #### 对象关系
 | 函数 | 功能 |
 | ------ | ------ |
@@ -126,12 +126,38 @@ Python到目前为止（3.8.2）共计提供了68个内置函数，这些函数�
 | ------ | ------ |
 | callable(object) | 如果参数object是可调用的就返回True |
 ### 其他
+#### 编译执行
+| 函数 | 功能 |
+| ------ | ------ |
+| compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1) | 将source编译成代码或AST对象；代码对象可以被exec()或eval()执行 |
+| eval(expression[, globals[, locals]]) | 将字符串类型的代码(expression)执行并求值 |
+| exec(expression[, globals[, locals]]) | 将字符串类型的代码(expression)执行并返回None |
 #### 控制台输入/输出
 | 函数 | 功能 |
 | ------ | ------ |
 | input([prompt]) | 从控制台输入中读取一行，将其转换为字符串并返回 |
 | print(\*objects, sep=' ', end='\n', file=sys.stdout, flush=False) | 将objects打印到控制台中，以sep分隔并在末尾加上end |
-
+#### 内存相关
+| 函数 | 功能 |
+| ------ | ------ |
+| hash(object) | 返回该对象的哈希值 |
+| id(object) | 返回对象的“标识值”，在对象的生命周期中是唯一且恒定的 |
+#### 文件相关
+| 函数 | 功能 |
+| ------ | ------ |
+| open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None) | 打开文件并返回对应的文件对象 |
+#### 模块导入
+| 函数 | 功能 |
+| ------ | ------ |
+| \_\_import\_\_(name, globals=None, locals=None, fromlist=(), level=0) | 导入模块包 |
+#### 帮助系统
+| 函数 | 功能 |
+| ------ | ------ |
+| helo([object]) | 启动内置的帮助系统（主要用于IDLE） |
+#### 代码调试
+| 函数 | 功能 |
+| ------ | ------ |
+| breakpoint(\*args, \*\*kws) | 函数会在调用时进入调试器中 |
 
 
 
