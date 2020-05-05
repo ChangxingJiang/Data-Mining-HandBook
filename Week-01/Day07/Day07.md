@@ -126,38 +126,21 @@ Python到目前为止（3.8.2）共计提供了68个内置函数，这些函数�
 | ------ | ------ |
 | callable(object) | 如果参数object是可调用的就返回True |
 ### 其他
-#### 编译执行
-| 函数 | 功能 |
-| ------ | ------ |
-| compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1) | 将source编译成代码或AST对象；代码对象可以被exec()或eval()执行 |
-| eval(expression[, globals[, locals]]) | 将字符串类型的代码(expression)执行并求值 |
-| exec(expression[, globals[, locals]]) | 将字符串类型的代码(expression)执行并返回None |
-#### 控制台输入/输出
-| 函数 | 功能 |
-| ------ | ------ |
-| input([prompt]) | 从控制台输入中读取一行，将其转换为字符串并返回 |
-| print(\*objects, sep=' ', end='\n', file=sys.stdout, flush=False) | 将objects打印到控制台中，以sep分隔并在末尾加上end |
-#### 内存相关
-| 函数 | 功能 |
-| ------ | ------ |
-| hash(object) | 返回该对象的哈希值 |
-| id(object) | 返回对象的“标识值”，在对象的生命周期中是唯一且恒定的 |
-#### 文件相关
-| 函数 | 功能 |
-| ------ | ------ |
-| open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None) | 打开文件并返回对应的文件对象 |
-#### 模块导入
-| 函数 | 功能 |
-| ------ | ------ |
-| \_\_import\_\_(name, globals=None, locals=None, fromlist=(), level=0) | 导入模块包 |
-#### 帮助系统
-| 函数 | 功能 |
-| ------ | ------ |
-| helo([object]) | 启动内置的帮助系统（主要用于IDLE） |
-#### 代码调试
-| 函数 | 功能 |
-| ------ | ------ |
-| breakpoint(\*args, \*\*kws) | 函数会在调用时进入调试器中 |
+除了以上的内置函数类型之外，还有用于编译执行、控制台输入输出、内存相关、文件读写等其他类型的内置函数。
+
+| 函数 | 类别 | 功能 |
+| ------ | ------ | ------ |
+| compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1) | 编译执行 | 将source编译成代码或AST对象；代码对象可以被exec()或eval()执行 |
+| eval(expression[, globals[, locals]]) | 编译执行 | 将字符串类型的代码(expression)执行并求值 |
+| exec(expression[, globals[, locals]]) | 编译执行 | 将字符串类型的代码(expression)执行并返回None |
+| input([prompt]) | 控制台输入输出 | 从控制台输入中读取一行，将其转换为字符串并返回 |
+| print(\*objects, sep=' ', end='\n', file=sys.stdout, flush=False) | 控制台输入输出 | 将objects打印到控制台中，以sep分隔并在末尾加上end |
+| hash(object) | 内存相关 | 返回该对象的哈希值 |
+| id(object) | 内存相关 | 返回对象的“标识值”，在对象的生命周期中是唯一且恒定的 |
+| open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None) | 文件读写 | 打开文件并返回对应的文件对象 |
+| \_\_import\_\_(name, globals=None, locals=None, fromlist=(), level=0) | 模块导入 | 导入模块包 |
+| help([object]) | 代码调试 | 启动内置的帮助系统（主要用于IDLE） |
+| breakpoint(\*args, \*\*kws) | 代码调试 | 函数会在调用时进入调试器中 |
 
 
 
