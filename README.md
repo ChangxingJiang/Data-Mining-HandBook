@@ -62,8 +62,9 @@
 * 函数的返回值
 > [Exercise05](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise05-%E5%87%BD%E6%95%B0.md) :
 >将计算有效互动比的方法写为函数并调用、迭代实现菲波那切数列
-### Day07 : Python常用内置函数和模块
-[Python内置函数总结(CSDN)](https://blog.csdn.net/JackLiu16/article/details/79513345)
+### [Day07](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Day07/Day07.md) : Python常用内置函数和模块
+* Python常用内置函数 : 数据类型相关、数学运算相关、作用域相关、迭代器相关、类与对象相关、其他
+* Python常用内置模块
 > [Exercise08](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise08-Python%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97.md) :
 >程序暂停1秒、输出文本格式日期
 ### Extra01 : 算法思维基础
