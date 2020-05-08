@@ -37,6 +37,7 @@
 * 变量基本操作 : 数值变量、字符串变量
 * 运算符 : 算术运算符、赋值运算符、比较运算符、逻辑运算符、成员运算符、身份运算符、位运算符(选学)
 * 注释 : 单行注释、多行注释
+> 参考资料 : [常用变量类型与基础运算](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Day03/%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E8%BF%90%E7%AE%97.ipynb) \
 > [Exercise02](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise02-%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0.md) :
 >华氏温度转换为摄氏温度、计算圆的周长和面积、计算有效互动比
 ### Day04 : 程序运行流程
