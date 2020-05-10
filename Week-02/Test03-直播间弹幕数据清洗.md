@@ -2,7 +2,7 @@
 > **作者**：长行
 
 #### 实现要求
-清洗当前文件夹下的“萝莉酱直播间时间切片弹幕.json”，清洗要求如下：
+清洗当前文件夹下的“聆听丶芒果鱼直播间时间切片弹幕.json”，清洗要求如下：
  * 将弹幕类型为(列表中的第1项)为“NM”的弹幕的弹幕内容(列表中的第4项)取出，存为一条弹幕一行的txt格式。
  * 合并文本中连续的标点符号(将大于等于2个连续的相同标点符号均替换为1个)
  * 合并文本中连续的中文汉字(将大于等于3个连续的中文汉字均替换为3个)
@@ -15,14 +15,14 @@
 将全角字符转换为半角字符的函数
 ```python
 def str_2_byte_to_1_byte(string):
-   """ 将全角字符转化为半角字符
-   :param string: <str> 需要转化为半角的字符串
-   :return: <str> 转化完成的字符串
-   """
-   result = ""
-   for uchar in string:
-       inside_code = ord(uchar)
-       if inside_code == 12288:  # 全角空格直接转换
+    """ 将全角字符转化为半角字符
+    :param string: <str> 需要转化为半角的字符串
+    :return: <str> 转化完成的字符串
+    """
+    result = ""
+    for uchar in string:
+        inside_code = ord(uchar)
+        if inside_code == 12288:  # 全角空格直接转换
             inside_code = 32
         elif 65281 <= inside_code <= 65374:  # 全角字符（除空格）根据关系转化
             inside_code -= 65248
