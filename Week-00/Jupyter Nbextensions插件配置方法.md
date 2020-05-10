@@ -1,5 +1,6 @@
 # Jupyter Nbextensions插件配置方法
-> **作者**：长行\
+> **作者**：长行
+>
 > **时间**：2020.05.04
 
 ## Nbextensions简介

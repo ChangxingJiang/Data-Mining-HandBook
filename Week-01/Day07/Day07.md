@@ -1,6 +1,7 @@
 # Day07 : Python常用内置函数和模块
 
-> **作者**：长行\
+> **作者**：长行
+>
 > **时间**：2020.05.08
 
 ## Python常用内置函数
@@ -207,3 +208,35 @@ print(list(range(1, 5, 2)))  # 输出值: [1, 3]
 | ab   | 以二进制、追加方式打开文件(指针在文件结尾;如果文件不存在，则创建新文件) |
 | a+   | 以追加读写方式打开文件(指针在文件结尾;如果文件不存在，则创建新文件) |
 | ab+  | 以二进制、追加读写方式打开文件(指针在文件结尾;如果文件不存在，则创建新文件) |
+
+## Python常用内置模块
+
+除了内置函数以外，Python还提供了大量的内置模块，下面我们主要了解一些在初学阶段常用的内置模块的用法。
+
+### re 正则表达式模块
+
+re是regular expression的缩写，支持正则表达式的一系列查找、替换、分隔等操作。其中，查询我们通常会使用serach或findall方法；替换我们通常会使用sub方法；分隔我们通常会使用split方法。
+
+```python
+import re
+sentence = "This is a sentence."
+print(re.findall("en.", sentence))  # 输出值:['ent', 'enc']
+print(re.search("en.", sentence))  # 输出值:<re.Match object; span=(11, 14), match='ent'>
+print(re.sub("en", "[NEW]", sentence))  # 输出值:This is a s[NEW]t[NEW]ce.
+print(re.split("en", sentence))  # 输出值:['This is a s', 't', 'ce.']
+```
+
+### time 时间模块
+time模块支持与时间有关的一系列操作，较为常用的包括strftime(输出格式化时间)和
+
+```python
+import time
+print(time.strftime('%Y-%m-%d %H:%M:%S'))  # 输出值: 2020-05-09 09:50:51
+print(time.time())  # 输出值: 1588989051.660889
+time.sleep(1)
+```
+
+
+
+
+
