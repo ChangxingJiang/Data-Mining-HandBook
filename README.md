@@ -98,11 +98,17 @@
 * openpyxl
 > [Exercise10](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise10-Excel%E6%96%87%E6%A1%A3%E8%AF%BB%E5%86%99.md) :
 >读取Json文件写入到Excel
-### Day12 : 函数的高级高级用法
+### Day12 : 错误和调试
+[错误、调试和测试(廖雪峰)](https://www.liaoxuefeng.com/wiki/1016959663602400/1017598814713792)
+* 错误处理
+* 调试
+* 单元测试
+* 文档测试
+### Extra02 : 函数的高级用法
 * 函数的作用域(选学)
 * lambda函数
 * 装饰器函数
-### Extra02 : Python的高级特性
+### Extra03 : Python的高级特性
 * 切片器
 * 迭代器
 * 列表生成式
@@ -150,10 +156,10 @@
 * Python操作数据库
 > [Exercise15](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise15-Mysql%E5%BA%94%E7%94%A8.md) :
 >读取数据库写入到Excel、读取数据库写入到Json
-### Extra03 : numpy
-### Extra04 : HanLP
+### Extra04 : numpy
+### Extra05 : HanLP
 > 练习题:中文分词
-### Extra05 : Pillow
+### Extra06 : Pillow
 ### Example-03 : 诗词格律分析工具
 ### Test-04 : [地图查询工具](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Test04-%E5%9C%B0%E5%90%8D%E6%9F%A5%E8%AF%A2%E5%99%A8.md)
 ### Test-05 : [24点算法实现](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Test05-24%E7%82%B9%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0.md)
