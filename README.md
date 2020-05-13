@@ -163,4 +163,4 @@
 ### Example-03 : 诗词格律分析工具
 ### Test-04 : [地图查询工具](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Test04-%E5%9C%B0%E5%90%8D%E6%9F%A5%E8%AF%A2%E5%99%A8.md)
 ### Test-05 : [24点算法实现](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Test05-24%E7%82%B9%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0.md)
-### Test-06 : 电梯算法(仅算法部分)
+
