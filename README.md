@@ -94,7 +94,7 @@
 * 使用线程
 > [Exercise09](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise09-%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B.md) :
 >多线程报数实验
-### Day11 : Excel文档读写
+### [Day11](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Day-11/Day11.md) : Excel文档读写
 * openpyxl
 > [Exercise10](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise10-Excel%E6%96%87%E6%A1%A3%E8%AF%BB%E5%86%99.md) :
 >读取Json文件写入到Excel
