@@ -84,7 +84,7 @@ if __name__ == "__main__":
         # 处理普通诗文行情况
         else:
             # 普通诗文行数据清洗
-            line = line.replace("¤", "。")
+            line = line.replace("¤", "。")  # 将错误句号替换为标准句号
             line = re.sub("(?<=[），。])[知古斋主]$", "", line)  # 剔除校注者名称
 
             if not re.search("[，。？！]", line):
@@ -94,8 +94,16 @@ if __name__ == "__main__":
             else:
                 content += line
 
+    poem_list.append({
+        "卷编号": book_num,
+        "诗编号": poem_num,
+        "标题": title,
+        "作者": author,
+        "内容": content
+    })
+
     # 将清洗后的全唐诗输出到文件
     with open("全唐诗(清洗后).txt", "w+", encoding="UTF-8") as file:
         for poem_item in poem_list:
-            file.write(" ".join([str(poem_item["卷编号"]), str(poem_item["诗编号"]), poem_item["标题"], poem_item["作者"],
+            file.write(",".join([str(poem_item["卷编号"]), str(poem_item["诗编号"]), poem_item["标题"], poem_item["作者"],
                                  poem_item["内容"]]) + "\n")
