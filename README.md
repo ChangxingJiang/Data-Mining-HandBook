@@ -8,26 +8,15 @@
 
 ## 前言 : 环境配置
 ### Day01 : 搭建Python环境
-* Python简介 : 
-[Python简介(菜鸟教程)](https://www.runoob.com/python/python-intro.html)
-* Github用法 : 
-[Github Desktop教程(简书)](https://www.jianshu.com/p/06a960d991aa) 、
-[Github作业提交方法](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Github%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4%E6%96%B9%E6%B3%95.md)
-* pip包安装方法 : 
-[pip使用国内镜像(腾讯云)](https://cloud.tencent.com/developer/article/1185891)
-* 搭建Python开发环境 : 
-[Windows环境(CSDN博客)](https://www.cnblogs.com/lvtaohome/p/11121377.html) 、
-[Windows的Path环境变量](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Windows%E7%9A%84Path%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.md)
+* Python简介 : [Python简介(菜鸟教程)](https://www.runoob.com/python/python-intro.html)
+* Github用法 : [Github Desktop教程(简书)](https://www.jianshu.com/p/06a960d991aa) 、[Github作业提交方法](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Github%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4%E6%96%B9%E6%B3%95.md)
+* pip包安装方法 : [pip使用国内镜像(腾讯云)](https://cloud.tencent.com/developer/article/1185891)
+* 搭建Python开发环境 : [Windows环境(CSDN博客)](https://www.cnblogs.com/lvtaohome/p/11121377.html) 、[Windows的Path环境变量](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Windows%E7%9A%84Path%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.md)
 ### Day02 : IDE
-* Jupyter : 
-[官网地址](https://jupyter.org/install) 、
-[Nbextensions插件](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Jupyter%20Nbextensions%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95.md)
-* PyCharm : 
-[官网地址](https://www.jetbrains.com/pycharm/download/#section=windows) 
-* Hello World : 
-[Hello World(CSDN博客)](https://blog.csdn.net/yindusu/article/details/90711368)
-* 输入和输出 : 
-[接收用户输入(博客园)](https://www.cnblogs.com/tizer/p/10952153.html)
+* Jupyter : [官网地址](https://jupyter.org/install) 、[Nbextensions插件](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Jupyter%20Nbextensions%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95.md)
+* PyCharm : [官网地址](https://www.jetbrains.com/pycharm/download/#section=windows) 
+* Hello World : [Hello World(CSDN博客)](https://blog.csdn.net/yindusu/article/details/90711368)
+* 输入和输出 : [接收用户输入(博客园)](https://www.cnblogs.com/tizer/p/10952153.html)
 > [Exercise01](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Exercise01-Hello%20World.md) 
 >[(答案)](https://github.com/Changxing97/Python-Data-mining-Tutorial/tree/master/Week-00/Exercise01) :
 >Jupyter中实现的Hello World(.ipynb)、
@@ -39,9 +28,9 @@
 * 变量基本操作 : 数值变量、字符串变量
 * 运算符 : 算术运算符、赋值运算符、比较运算符、逻辑运算符、成员运算符、身份运算符、位运算符(选学)
 * 注释 : 单行注释、多行注释
-> 参考资料 : [常用变量类型与基础运算](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Day03/%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E8%BF%90%E7%AE%97.ipynb) \
-> [Exercise02](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise02-%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0.md) :
->华氏温度转换为摄氏温度、计算圆的周长和面积、计算有效互动比
+> 参考资料 : [常用变量类型与基础运算](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Day03/%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E8%BF%90%E7%AE%97.ipynb) 
+> 
+>[Exercise02](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise02-%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0.md) : 华氏温度转换为摄氏温度、计算圆的周长和面积、计算有效互动比
 ### Day04 : 程序运行流程
 * 分支结构 : [分支结构(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84.md)
 * 循环结构 : [循环结构(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84.md)
@@ -58,6 +47,7 @@
 >返回文件后缀名、逗号分隔列表元素
 ### Day06 : 函数
 [函数和模块的作用(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8.md)
+
 * 函数的作用
 * 函数的定义
 * 函数的调用
@@ -98,12 +88,9 @@
 * openpyxl
 > [Exercise10](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise10-Excel%E6%96%87%E6%A1%A3%E8%AF%BB%E5%86%99.md) :
 >读取Json文件写入到Excel
-### Day12 : 错误和调试
-[错误、调试和测试(廖雪峰)](https://www.liaoxuefeng.com/wiki/1016959663602400/1017598814713792)
-* 错误处理
+### [Day12](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-02/Day-12/Day-12.md) : 错误和调试
+* 错误处理 : try...except...
 * 调试
-* 单元测试
-* 文档测试
 ### Extra02 : 函数的高级用法
 * 函数的作用域(选学)
 * lambda函数
