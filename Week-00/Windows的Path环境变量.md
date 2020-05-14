@@ -5,6 +5,7 @@
 
 无论在搭建Python还是Java的环境时，都需要设置Windows的Path环境变量，那么Path环境变量究竟起到什么样的作用呢？
 首先，当我们没有在Path环境变量中设置Python的路径时，执行python的任意命令都会得到如下结果。
+
 ```
 C:\Users\Changxing>python --version
 'python' 不是内部或外部命令，也不是可运行的程序或批处理文件。
