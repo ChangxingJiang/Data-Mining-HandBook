@@ -113,7 +113,6 @@
 * 迭代器
 * 列表生成式
 * 生成器
-* 迭代器
 ### Example-02 : 全唐诗文本格式整理(无对象应用)
 ### Test-03 : [直播间弹幕数据清洗](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Test03-%E7%9B%B4%E6%92%AD%E9%97%B4%E5%BC%B9%E5%B9%95%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97.md)
 ## Week-03 : Python语言基础（三）
