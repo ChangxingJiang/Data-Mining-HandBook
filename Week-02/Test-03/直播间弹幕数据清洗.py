@@ -74,15 +74,15 @@ def data_cleaning(source, del_space=False, del_t=True, del_r=True, del_n=True, s
         source = source.lower()
     if merge_3_chinese:
         # 合并连续的相同的中文汉字
-        for chinese_character in re.findall("([\u4e00-\u9fa5])\\1{3,}", source):
+        for chinese_character in re.findall(r"([\u4e00-\u9fa5])\1{3,}", source):
             source = re.sub("[" + chinese_character[0] + "]{3,}", chinese_character * 3, source)
     if merge_3_english:
         # 合并连续的英文字母(将大于等于3个连续的英文字母均替换为3个)
-        for chinese_character in re.findall("([A-Za-z])\\1{3,}", source):
+        for chinese_character in re.findall(r"([A-Za-z])\1{3,}", source):
             source = re.sub("[" + chinese_character[0] + "]{3,}", chinese_character * 3, source)
     if merge_3_number:
         # 合并连续的数字(将大于等于3个连续的英文字母均替换为3个)
-        for chinese_character in re.findall("([0-9])\\1{3,}", source):
+        for chinese_character in re.findall(r"([0-9])\1{3,}", source):
             source = re.sub("[" + chinese_character[0] + "]{3,}", chinese_character * 3, source)
     if merge_3_punctuation:
         punctuation_list = "".join(PUNCTUATION_LIST)
