@@ -173,11 +173,8 @@
 
 ### Day15 : 访问网络资源
 
-* 计算机网络基础
-* HTTP协议
-* 访问网络资源
-* 异常处理
-* API的调用
+* 网络请求的过程与基本信息：[HTTP请求的完全过程(CSDN)](https://blog.csdn.net/ailunlee/article/details/90600174)
+* 使用requests模块实现网络请求：[request模块详解(博客园)](https://www.cnblogs.com/lanyinhao/p/9634742.html) （看到代理部分之前即可）
 
 > [Exercise13](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise13-%E8%AE%BF%E9%97%AE%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90.md) : 完成一次网络请求、某个API的调用
 
