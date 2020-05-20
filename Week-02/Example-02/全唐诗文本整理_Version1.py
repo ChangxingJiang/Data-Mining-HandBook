@@ -47,11 +47,11 @@ if __name__ == "__main__":
             if title is not None:
                 content = re.sub("[\n]+$", "", content)
                 poem_list.append({
-                    "卷编号": book_num,
-                    "诗编号": poem_num,
-                    "标题": title,
-                    "作者": author,
-                    "内容": content
+                    "book_num": book_num,
+                    "poem_num": poem_num,
+                    "title": title,
+                    "author": author,
+                    "content": content
                 })
 
             # 解析卷编号
@@ -102,11 +102,11 @@ if __name__ == "__main__":
     # 将最后一首诗写入到临时变量
     content = re.sub("[\n]+$", "", content)
     poem_list.append({
-        "卷编号": book_num,
-        "诗编号": poem_num,
-        "标题": title,
-        "作者": author,
-        "内容": content
+        "book_num": book_num,
+        "poem_num": poem_num,
+        "title": title,
+        "author": author,
+        "content": content
     })
 
     print("共解析诗文数:", len(poem_list))

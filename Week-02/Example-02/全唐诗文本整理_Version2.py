@@ -36,11 +36,11 @@ if __name__ == "__main__":
 
             # 将当前诗文添加到诗文列表中
             poem_list.append({
-                "卷编号": 0,
-                "诗编号": 0,
-                "标题": None,
-                "作者": "未知",
-                "内容": ""
+                "book_num": 0,
+                "poem_num": 0,
+                "title": None,
+                "author": "未知",
+                "content": ""
             })
 
             # 解析卷编号
