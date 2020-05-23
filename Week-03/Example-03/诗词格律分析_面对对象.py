@@ -167,63 +167,74 @@ def inspect_sticky(last_second_type, this_first_type):
     return is_tone_same(last_second_type[-2], this_first_type[-2])
 
 
-def poem_analyse(title, author, content):
-    sentences = [sentence for sentence in re.split("[，。？！]", content) if sentence != ""]
-    punctuations = re.findall("[，。？！]", content)
+class Poem:
+    def __init__(self, title, author, content):
+        self.title = title
+        self.author = author
+        self.content = content.replace("\n", "").replace("\r", "")
 
-    # 检查诗文的句子数量是否为绝句或律诗
-    if len(sentences) != 4 and len(sentences) != 8:
-        print("《" + title + "》", author, "诗句句数不是绝句或律诗")
-        return False
+        self.sentences = [sentence for sentence in re.split("[，。？！]", self.content) if sentence != ""]
+        self.punctuations = re.findall("[，。？！]", content)
 
-    # 检查诗文中句子的字数是否为五言或七言
-    if not all([len(sentence) == 5 or len(sentence) == 7 for sentence in sentences]):
-        print("《" + title + "》", author, "诗文中句子的字数不是五言或七言")
-        return False
+        self.is_in_rhythm = True  # 是否为近体诗
+        self.not_reason = ""
 
-    # 计算诗句中每个字的平仄情况
-    sentence_tone_list = list()
-    for sentence in sentences:
-        sentence_tone_list.append("".join([get_tone(character) for character in sentence]))
+        # 检查诗文的句子数量是否为绝句或律诗
+        if len(self.sentences) != 4 and len(self.sentences) != 8:
+            self.not_reason = "《" + self.title + "》" + self.author + " 诗句句数不是绝句或律诗"
+            self.is_in_rhythm = False
 
-    # 判断是否押平声韵
-    if not all([sentence_tone_list[i][-1] in ["平", "中"] for i in range(len(sentences)) if i % 2 == 1]):
-        print("《" + title + "》", author, "诗文没有押韵或押仄声韵")
-        return False
+        # 检查诗文中句子的字数是否为五言或七言
+        if not all([len(sentence) == 5 or len(sentence) == 7 for sentence in self.sentences]):
+            self.not_reason = "《" + self.title + "》 " + self.author + " 诗文中句子的字数不是五言或七言"
+            self.is_in_rhythm = False
 
-    print("《" + title + "》", author)
+        # 计算诗句中每个字的平仄情况
+        sentence_tone_list = list()
+        for sentence in self.sentences:
+            sentence_tone_list.append("".join([get_tone(character) for character in sentence]))
 
-    last_second_type = ""
+        # 判断是否押平声韵
+        if not all([sentence_tone_list[i][-1] in ["平", "中"] for i in range(len(self.sentences)) if i % 2 == 1]):
+            self.not_reason = "《" + self.title + "》 " + self.author + "诗文没有押韵或押仄声韵"
+            self.is_in_rhythm = False
 
-    for i in range(int(len(sentences) / 2)):
-        first_sentence = sentences[2 * i + 0]  # 出句内容
-        second_sentence = sentences[2 * i + 1]  # 对句内容
+        self.output = ""
+        self.output += "《" + title + "》" + author + "\n"
 
-        first_tone = sentence_tone_list[2 * i + 0]  # 出句的平仄
-        second_tone = sentence_tone_list[2 * i + 1]  # 对句的平仄
+        last_second_type = ""
 
-        second_rhythm = "（" + get_rhythm(second_sentence[-1]) + "）"  # 对句的韵脚
+        for i in range(int(len(self.sentences) / 2)):
+            first_sentence = self.sentences[2 * i + 0]  # 出句内容
+            second_sentence = self.sentences[2 * i + 1]  # 对句内容
 
-        first_correct, first_type, first_explanation = inspect_sentence_tone(first_tone)
-        second_correct, second_type, second_explanation = inspect_sentence_tone(second_tone)
+            first_tone = sentence_tone_list[2 * i + 0]  # 出句的平仄
+            second_tone = sentence_tone_list[2 * i + 1]  # 对句的平仄
 
-        other_analysis = ""
-        if first_correct and second_correct:
-            if not inspect_corresponding(first_type, second_type):  # 判断是否对
-                other_analysis += "【失对】"
-            if last_second_type is not None and inspect_sticky(last_second_type, first_type):  # 判断是否黏
-                other_analysis += "【失黏】"
+            second_rhythm = "（" + get_rhythm(second_sentence[-1]) + "）"  # 对句的韵脚
 
-        last_second_type = second_type
+            first_correct, first_type, first_explanation = inspect_sentence_tone(first_tone)
+            second_correct, second_type, second_explanation = inspect_sentence_tone(second_tone)
 
-        output_sentence = first_sentence + punctuations[2 * i + 0] + second_sentence + punctuations[2 * i + 1]  # 第一行输出
-        output_analysis = first_tone + "　" + second_tone + second_rhythm  # 第二行输出
-        output_analysis += " —— " + other_analysis + first_explanation + " " + second_explanation
+            other_analysis = ""
+            if first_correct and second_correct:
+                if not inspect_corresponding(first_type, second_type):  # 判断是否对
+                    other_analysis += "【失对】"
+                if last_second_type is not None and inspect_sticky(last_second_type, first_type):  # 判断是否黏
+                    other_analysis += "【失黏】"
 
-        print(output_sentence)
-        print(output_analysis)
+            last_second_type = second_type
 
-    return True
+            output_sentence = first_sentence + self.punctuations[2 * i + 0] + second_sentence + self.punctuations[
+                2 * i + 1]  # 第一行输出
+            output_analysis = first_tone + "　" + second_tone + second_rhythm  # 第二行输出
+            output_analysis += " —— " + other_analysis + first_explanation + " " + second_explanation
+
+            self.output += output_sentence + "\n"
+            self.output += output_analysis + "\n"
+
+    def __str__(self):
+        return self.output
 
 
 if __name__ == "__main__":
@@ -233,6 +244,11 @@ if __name__ == "__main__":
 
     for poem_item in poem_json["data"]:
 
-        if poem_analyse(poem_item["title"], poem_item["author"], poem_item["content"].replace("\n", "")):
+        poem = Poem(poem_item["title"], poem_item["author"], poem_item["content"])
+
+        if poem.is_in_rhythm:
+            print(poem)
             print("点击回车继续...")
             input()
+        else:
+            print(poem.not_reason)
