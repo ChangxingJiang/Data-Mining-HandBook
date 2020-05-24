@@ -79,7 +79,7 @@
 > [Exercise08](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise08-Python%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97.md) :
 >程序暂停1秒、输出文本格式日期
 
-### 选修001 : 算法思维基础
+### 选学001 : 算法思维基础
 
 ### 案例001 : 鸡兔同笼问题
 
@@ -126,13 +126,13 @@
 * 错误处理 : try...except...
 * 调试
 
-### 选修002 : 函数的高级用法
+### 选学002 : 函数的高级用法
 
 * 函数的作用域(选学)
 * lambda函数
 * 装饰器函数
 
-### 选修003 : Python的高级特性
+### 选学003 : Python的高级特性
 
 * 切片器
 * 迭代器
@@ -195,13 +195,13 @@
 
 > [Exercise15](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise15-Mysql%E5%BA%94%E7%94%A8.md) : 读取数据库写入到Excel、读取数据库写入到Json
 
-### 选修004 : numpy
+### 选学004 : numpy
 
-### 选修005 : HanLP
+### 选学005 : HanLP
 
 > 练习题:中文分词
 
-### 选修006 : Pillow
+### 选学006 : Pillow
 
 ### 案例003 : 诗词格律分析工具
 
