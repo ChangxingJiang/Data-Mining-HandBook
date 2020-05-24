@@ -6,203 +6,67 @@
 >
 > [作业提交地址](https://github.com/Changxing97/Python-Data-mining-Homework)
 
+## 配套教程
 
+统计学的Python实现：20个适合Python入门阶段的案例
 
-### 第00周 : 环境配置
+NLP教程：22天NLP入门教程
 
-##### 第001天 - 搭建Python环境 : Python简介、Github用法、搭建Python开发环境、pip用法
+## 9周数据挖掘教程
 
-##### 第002天 - Python IDE ： 
+#### 第00周 : 环境配置
 
-* Jupyter : [官网地址](https://jupyter.org/install) 、[Nbextensions插件](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Jupyter%20Nbextensions%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95.md)
-* PyCharm : [官网地址](https://www.jetbrains.com/pycharm/download/#section=windows) 
-* Hello World : [Hello World(CSDN博客)](https://blog.csdn.net/yindusu/article/details/90711368)
-* 输入和输出 : [接收用户输入(博客园)](https://www.cnblogs.com/tizer/p/10952153.html)
+第001天 - 搭建Python环境 : Python简介、Github用法、搭建Python开发环境、pip用法
 
-> [Exercise01](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Exercise01-Hello%20World.md) [(答案)](https://github.com/Changxing97/Python-Data-mining-Tutorial/tree/master/Week-00/Exercise01) : Jupyter中实现的Hello World(.ipynb)、其他IDE中实现的Hello World(.py)、询问用户姓名的功能(任意提交形式)
+第002天 - Python IDE ：[Jupyter](https://jupyter.org/install)([Nbextensions插件](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Jupyter%20Nbextensions%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95.md)) 、[PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows) 、Hello World、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-00/Exercise01-Hello%20World.md)
 
-### 第01周 : Python语言基础(一)
+#### 第01周 : Python语言基础(一)
 
-##### [第003天](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Day03/Day03.md) : 基础语言元素
+[第003天](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Day03/Day03.md) - 基础语言元素 : 变量、变量的基本操作、运算符、注释、[常用变量类型与基础运算](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Day03/%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E8%BF%90%E7%AE%97.ipynb)、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise02-%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0.md)
 
-* 变量 : 使用变量、变量类型(检查变量类型、变量类型转换)、变量命名
-* 变量基本操作 : 数值变量、字符串变量
-* 运算符 : 算术运算符、赋值运算符、比较运算符、逻辑运算符、成员运算符、身份运算符、位运算符(选学)
-* 注释 : 单行注释、多行注释
+第004天 - 程序运行流程 : 分支结构、循环结构、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise03-%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B.md)
 
-> 参考资料 : [常用变量类型与基础运算](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Day03/%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E8%BF%90%E7%AE%97.ipynb) 
-> 
->[Exercise02](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise02-%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0.md) : 华氏温度转换为摄氏温度、计算圆的周长和面积、计算有效互动比
+第005天 - 常用数据类型操作 : 字符串操作、列表操作、字典操作、集合操作、元组操作、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise04-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%93%8D%E4%BD%9C.md)
 
-##### 第004天 : 程序运行流程
+第006天 - 函数 : 函数的作用、函数的定义、函数的调用、函数的参数、函数的返回值、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise05-%E5%87%BD%E6%95%B0.md)
 
-* 分支结构 : [分支结构(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84.md)
-* 循环结构 : [循环结构(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84.md)
+[第007天](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Day07/Day07.md) - Python常用内置函数和模块 : 常用内置函数、常用内置模块、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise08-Python%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97.md)
 
-> [Exercise03](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise03-%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B.md) :
->百分制成绩转换为等级制成绩、输入三条边长判断能否构成三角形、判断是否为质数、打印九九乘法表、判断是否未互质数
+##### 案例 : 001-鸡兔同笼问题、[002-登录问题(测试)](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Test01-%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98.md)、[003-牛吃草问题(测试)](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Test02-%E7%89%9B%E5%90%83%E8%8D%89%E9%97%AE%E9%A2%98.md)
 
-##### 第005天 : 常用数据类型操作
+> 选学 : 001-算法思维基础
 
-[字符串和常用数据结构(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
+#### 第02周 : Python语言基础(二)
 
-* 字符串常用操作
-* 列表常用操作
-* 字典常用操作
-* 集合常用操作(选学)
-* 元组常用操作(选学)
+第008天 - 正则表达式 : 字符串高级操作、正则表达式基础、Python使用正则表达式、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise06-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
 
-> [Exercise04](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise04-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%93%8D%E4%BD%9C.md) :
->返回文件后缀名、逗号分隔列表元素
+第009天 - 数据存储 : 文件读写、csv读写、json读写、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise07-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8.md)
 
-##### 第006天 : 函数
+第010天 - 线程和进程 : 线程和进程、使用进程、使用线程、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise09-%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B.md)
 
-[函数和模块的作用(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8.md)
+[第011天](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Day-11/Day11.md) - Excel文档读写 : openpyxl、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise10-Excel%E6%96%87%E6%A1%A3%E8%AF%BB%E5%86%99.md)
 
-* 函数的作用
-* 函数的定义
-* 函数的调用
-* 函数的参数
-* 函数的返回值
+[第012天](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-02/Day-12/Day-12.md) - 错误和调试 : 错误处理、调试
 
-> [Exercise05](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Exercise05-%E5%87%BD%E6%95%B0.md) :
->将计算有效互动比的方法写为函数并调用、迭代实现菲波那切数列
+##### 案例 : [004-全唐诗文本格式整理](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Example-02/案例_全唐诗文本整理.md)、[005-直播间弹幕数据清洗(测试)](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Test03-%E7%9B%B4%E6%92%AD%E9%97%B4%E5%BC%B9%E5%B9%95%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97.md)
 
-##### [第007天](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Day07/Day07.md) : Python常用内置函数和模块
+> 选学：002-函数的高级用法(作用域/lambda函数/装饰器函数)、003-Python的高级特性(切片器/迭代器/列表生成式)
 
-* Python常用内置函数 : 数据类型相关、数学运算相关、作用域相关、迭代器相关、类与对象相关、其他
-* Python常用内置模块
+#### 第03周 : Python语言基础(三)
 
-> [Exercise08](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise08-Python%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97.md) :
->程序暂停1秒、输出文本格式日期
+第013天 - 面对对象编程基础 : 类与对象、定义类、使用对象、抽样、峰状、继承、多态、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise11-%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.md)
 
-##### 选学001 : 算法思维基础
+第014天 - 面对对象编程进阶 : 属性、方法、运算符重载、关联、继承、依赖、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise12-%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E8%BF%9B%E9%98%B6.md)
 
-##### 案例001 : 鸡兔同笼问题
+第015天 - 访问网络资源 : HTTP请求、requests模块、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise13-%E8%AE%BF%E9%97%AE%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90.md)
 
-##### 测试001 : [登录问题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Test01-%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98.md)
+第016天 - SQL语言基础 : SQL语言基础(DDL/DML/DCL)、[Navicat Premium](http://www.navicat.com.cn/)、[DataGrip](https://www.jetbrains.com/datagrip/)、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise14-SQL%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80.md)
 
-##### 测试002 : [牛吃草问题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-01/Test02-%E7%89%9B%E5%90%83%E8%8D%89%E9%97%AE%E9%A2%98.md)
+第017天 - MySQL应用 : Python操作MySQL、[练习题](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise15-Mysql%E5%BA%94%E7%94%A8.md)
 
-### 第02周 : Python语言基础（二）
+##### 案例 : 006-诗词格律分析工具、[007-地图查询工具(测试)](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Test04-%E5%9C%B0%E5%90%8D%E6%9F%A5%E8%AF%A2%E5%99%A8.md)、[008-24点算法实现(测试)](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Test05-24%E7%82%B9%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0.md)
 
-##### 第008天 : 正则表达式
+> 选学 : 004-numpy、005-HanLP、006-Pillow
 
-* 字符串的高级操作
-* 使用正则表达式 : [正则表达式(博客园)](https://www.cnblogs.com/zery/p/3438845.html)
-* 正则表达式基础 : [Python正则表达式(菜鸟教程)](https://www.runoob.com/python/python-reg-expressions.html)
 
-> [Exercise06](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise06-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md) : 手机号提取、判断是否为邮箱地址、提取网页源代码中的url
-
-##### 第009天 : 数据存储
-
-* 文件读写 : [文件读写(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/11.%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8.md)
-* csv格式 : [csv文件的读写(CSDN)](https://blog.csdn.net/katyusha1/article/details/81606175)
-* json格式 : [json文件的读写(CSDN)](https://blog.csdn.net/whjkm/article/details/81159888)
-
-> [Exercise07](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise07-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8.md) : 转存Json格式数据
-
-##### 第010天 : 线程和进程
-
-[进程与线程(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B.md)
-
-* 线程和进程的概念
-* 使用进程
-* 使用线程
-
-> [Exercise09](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise09-%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B.md) : 多线程报数实验
-
-##### [第011天](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Day-11/Day11.md) : Excel文档读写
-
-* openpyxl
-
-> [Exercise10](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Exercise10-Excel%E6%96%87%E6%A1%A3%E8%AF%BB%E5%86%99.md) : 读取Json文件写入到Excel
-
-##### [第012天](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-02/Day-12/Day-12.md) : 错误和调试
-
-* 错误处理 : try...except...
-* 调试
-
-##### 选学002 : 函数的高级用法
-
-* 函数的作用域(选学)
-* lambda函数
-* 装饰器函数
-
-##### 选学003 : Python的高级特性
-
-* 切片器
-* 迭代器
-* 列表生成式
-* 生成器
-
-##### [案例002](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Example-02/案例_全唐诗文本整理.md) : 全唐诗文本格式整理(无对象应用)
-
-##### 测试003 : [直播间弹幕数据清洗](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-02/Test03-%E7%9B%B4%E6%92%AD%E9%97%B4%E5%BC%B9%E5%B9%95%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97.md)
-
-### 第03周 : Python语言基础（三）
-
-##### 第013天 : 面对对象编程基础
-
-[面向对象编程基础(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.md)
-
-* 类与对象
-* 定义类
-* 使用对象
-* 抽象、峰状、继承、多态
-
-> [Exercise11](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise11-%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.md) : 定义一个圆类Circle，要求根据半径实例化，并包含可以返回圆的圆积、周长的方法
-
-##### 第014天 : 面对对象编程进阶
-
-[面对对象进阶(Python100天)](https://github.com/Changxing97/Python-100-Days/blob/master/Day01-15/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6.md)
-
-* 属性
-* 方法
-* 运算符重载
-* 关联、继承、依赖
-
-> [Exercise12](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise12-%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E8%BF%9B%E9%98%B6.md) : 编写一个媒体类Media，要求如下:
->
-> * 包含一个计数器的属性，可以统计一共实例化了多少个媒体
-> * 实例化时获取媒体名、媒体网址，并包含可以返回媒体名、媒体网址的方法
-> * 重写媒体类的\_\_str__方法，另其返回媒体名
-
-##### 第015天 : 访问网络资源
-
-* 网络请求的过程与基本信息：[HTTP请求的完全过程(CSDN)](https://blog.csdn.net/ailunlee/article/details/90600174)
-* 使用requests模块实现网络请求：[request模块详解(博客园)](https://www.cnblogs.com/lanyinhao/p/9634742.html) （看到代理部分之前即可）
-
-> [Exercise13](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise13-%E8%AE%BF%E9%97%AE%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90.md) : 完成一次网络请求、某个API的调用
-
-##### 第016天 : SQL语言基础
-
-[SQL教程(W3SCHOOL)](https://www.w3school.com.cn/sql/index.asp)
-
-* DDL : 数据定义语言
-* DML : 数据操作语言
-* DCL : 数据控制语言
-* 数据库操作软件:Navicat Premium 12、DataGrip
-
-> [Exercise14](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise14-SQL%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80.md) : 创建自己数据库、创建查询
-
-##### 第017天 : MySQL应用
-
-* Python操作数据库
-
-> [Exercise15](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Exercise15-Mysql%E5%BA%94%E7%94%A8.md) : 读取数据库写入到Excel、读取数据库写入到Json
-
-##### 选学004 : numpy
-
-##### 选学005 : HanLP
-
-> 练习题:中文分词
-
-##### 选学006 : Pillow
-
-##### 案例003 : 诗词格律分析工具
-
-##### 测试004 : [地图查询工具](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Test04-%E5%9C%B0%E5%90%8D%E6%9F%A5%E8%AF%A2%E5%99%A8.md)
-
-##### 测试005 : [24点算法实现](https://github.com/Changxing97/Python-Data-mining-Tutorial/blob/master/Week-03/Test05-24%E7%82%B9%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0.md)
 
