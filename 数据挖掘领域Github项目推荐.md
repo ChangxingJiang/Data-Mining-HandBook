@@ -37,3 +37,13 @@ Github项目地址：https://github.com/goto456/stopwords
 > **1470星标** (2020.05.24)
 >
 > 包含文本格式（一行一词）的”百度停用词表“、”哈工大停用词表“、”四川大学机器智能实验室停用词表“和作者自己整理的停用词表。
+
+#### HarvestText 文本挖掘和预处理工具
+
+Github项目地址：https://github.com/blmoistawinde/HarvestText
+
+文档地址：https://harvesttext.readthedocs.io/en/latest/
+
+> **569星标** (2020.05.24)
+>
+> 包含文本清洗、新词发现、情感分析、关系网络、简易问答系统等功能，Demo和文档都写得比较清楚，方便学习使用。
