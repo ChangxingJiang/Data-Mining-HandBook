@@ -13,28 +13,28 @@ import itertools
 import random
 
 
-def get_all_card_probability():
-    """
-    生成所有可能的24点牌组列表
-
-    :return: <list> 每个元素为一个可能的牌组（共计13^4=28561个元素）；每个元素均为一个元组，元组中的元素为牌的点数
-    """
-    probability_list = list()
-    for i in range(1, 14):
-        for j in range(1, 14):
-            for k in range(1, 14):
-                for m in range(1, 14):
-                    probability_list.append((i, j, k, m))
-    return probability_list
-
-
-def get_one_card_probability():
-    """
-    随机生成一个24点牌组
-
-    :return: <tuple> 元组中的元素为牌的点数
-    """
-    return [random.randint(1, 13) for _ in range(4)]
+# def get_all_card_probability():
+#     """
+#     生成所有可能的24点牌组列表
+#
+#     :return: <list> 每个元素为一个可能的牌组（共计13^4=28561个元素）；每个元素均为一个元组，元组中的元素为牌的点数
+#     """
+#     probability_list = list()
+#     for i in range(1, 14):
+#         for j in range(1, 14):
+#             for k in range(1, 14):
+#                 for m in range(1, 14):
+#                     probability_list.append((i, j, k, m))
+#     return probability_list
+#
+#
+# def get_one_card_probability():
+#     """
+#     随机生成一个24点牌组
+#
+#     :return: <tuple> 元组中的元素为牌的点数
+#     """
+#     return [random.randint(1, 13) for _ in range(4)]
 
 
 if __name__ == "__main__":

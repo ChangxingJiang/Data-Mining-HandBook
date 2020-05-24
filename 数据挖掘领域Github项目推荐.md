@@ -4,7 +4,17 @@
 >
 > **时间**：2020.05.24
 
-## 数据采集相关
+## Python基础
+
+#### Python练习册，每天一个小程序
+
+Github项目地址：https://github.com/Yixiaohan/show-me-the-code
+
+> **11010星标** (2020.05.24)
+>
+> 25个实用性较高的案例，包括一些实用性的技巧；但是案例也有些难度，适合于对Python基础语法已经比较熟悉的人，不适合完全的初学者。
+
+## 数据采集
 
 #### 网易云音乐 API
 
@@ -18,7 +28,7 @@ Github文档地址：https://binaryify.github.io/NeteaseCloudMusicApi/#/
 >
 > 可以直接在Node.js中调用，也可以依据文档中对API的说明自行使用API。
 
-## NLP相关
+## NLP
 
 #### 中文常用停用词表
 
