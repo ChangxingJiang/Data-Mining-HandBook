@@ -10,8 +10,6 @@ Author: 长行
 """
 
 import itertools
-import random
-
 
 # def get_all_card_probability():
 #     """
@@ -40,18 +38,16 @@ import random
 if __name__ == "__main__":
     # 遍历生成所有可能的算式
     formula_list = list()
-    for mark_1 in ["+", "-", "*", "/"]:
-        for mark_2 in ["+", "-", "*", "/"]:
-            for mark_3 in ["+", "-", "*", "/"]:
-                for bracket in ["d%sd%sd%sd", "(d%sd)%sd%sd", "(d%sd%sd)%sd", "d%s(d%sd)%sd", "d%s(d%sd%sd)",
-                                "(d%sd)%s(d%sd)", "d%sd%s(d%sd)"]:
-                    formula_list.append((bracket % (mark_1, mark_2, mark_3)).replace("d", "%d"))
+    for marks in itertools.product(["+", "-", "*", "/"], repeat=3):
+        for bracket in ["{0}%s{1}%s{2}%s{3}", "({0}%s{1})%s{2}%s{3}", "({0}%s{1}%s{2})%s{3}", "{0}%s({1}%s{2})%s{3}",
+                        "{0}%s({1}%s{2}%s{3})", "({0}%s{1})%s({2}%s{3})", "{0}%s{1}%s({2}%s{3})"]:
+            formula_list.append((bracket % marks))
 
     card_probability = (3, 3, 8, 8)  # 定义需要解决的牌组
 
     for card_order in set(itertools.permutations(card_probability, 4)):  # 遍历所有可能的卡牌顺序（最多24种可能）
         for formula in formula_list:  # 遍历所有可能的算式（448种可能）
-            final_formula = formula % card_order
+            final_formula = formula.format(*card_order)
             try:
                 if round(eval(final_formula), 3) == 24:
                     print(final_formula)
