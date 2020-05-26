@@ -66,7 +66,7 @@
 
 第017天 - MySQL应用 : Python操作MySQL、[练习题](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Day-017/Exercise15-Mysql%E5%BA%94%E7%94%A8.md)
 
-**案例 : 0301-诗词格律分析工具、[0302-地图查询工具(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Example-0302/%E6%A1%88%E4%BE%8B007%E8%AE%B2%E8%A7%A3_%E5%9C%B0%E5%90%8D%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7.md)、[0303-24点算法实现(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Example-0303/%E6%A1%88%E4%BE%8B008%E8%AE%B2%E8%A7%A3_24%E7%82%B9%E6%B8%B8%E6%88%8F%E7%AE%97%E6%B3%95.md)**
+**案例 : [0301-诗词格律分析工具](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Example-0301/%E6%A1%88%E4%BE%8B0301%E8%AE%B2%E8%A7%A3_%E8%BF%91%E4%BD%93%E8%AF%97%E6%A0%BC%E5%BE%8B%E5%88%86%E6%9E%90.md)、[0302-地图查询工具(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Example-0302/%E6%A1%88%E4%BE%8B007%E8%AE%B2%E8%A7%A3_%E5%9C%B0%E5%90%8D%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7.md)、[0303-24点算法实现(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Example-0303/%E6%A1%88%E4%BE%8B008%E8%AE%B2%E8%A7%A3_24%E7%82%B9%E6%B8%B8%E6%88%8F%E7%AE%97%E6%B3%95.md)**
 
 > 选学 : 004-numpy、005-HanLP、006-Pillow
 
