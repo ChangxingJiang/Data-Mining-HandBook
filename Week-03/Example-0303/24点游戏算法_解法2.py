@@ -76,41 +76,49 @@ def delete_formula(formula_list, n):
             break
 
 
+def total_formula(card_probability, combine_1, answer_1, combine_2, answer_2, combine_3, answer_3):
+    """
+    依据运算过程反推完整算式
+    """
+    formula_dict = list()
+    for card in card_probability:
+        formula_dict.append([card, str(card)])
+    formula_dict.append([answer_1, reverse_formula(get_formula(formula_dict, combine_1[0]),
+                                                   get_formula(formula_dict, combine_1[1]),
+                                                   answer_1)])
+    delete_formula(formula_dict, combine_1[0])
+    delete_formula(formula_dict, combine_1[1])
+    formula_dict.append([answer_2, reverse_formula(get_formula(formula_dict, combine_2[0]),
+                                                   get_formula(formula_dict, combine_2[1]),
+                                                   answer_2)])
+    delete_formula(formula_dict, combine_2[0])
+    delete_formula(formula_dict, combine_2[1])
+    formula = reverse_formula(get_formula(formula_dict, combine_3[0]),
+                              get_formula(formula_dict, combine_3[1]),
+                              answer_3)
+    return formula
+
+
 def solve(card_probability):
-    card_probability = list(card_probability)
+    card_probability = list(card_probability)  # 生成临时列表
     answer = []
-    for combine_1 in set(itertools.combinations(card_probability, 2)):  # 在4个数中任意抽取2个数
+    for combine_1 in set(itertools.combinations(card_probability, 2)):  # 在临时列表的4个数中任意抽取2个数
         for answer_1 in all_maybe_count_answer(combine_1[0], combine_1[1]):
             card_list_1 = copy.deepcopy(card_probability)
-            card_list_1.remove(combine_1[0])  # 移除抽取的扑克牌
-            card_list_1.remove(combine_1[1])  # 移除抽取的扑克牌
-            card_list_1.append(answer_1)  # 添加抽取两张牌的计算结果
-            for combine_2 in set(itertools.combinations(card_list_1, 2)):  # 在3个数中任意抽取2个数
+            card_list_1.remove(combine_1[0])  # 从临时列表移除抽到的数1
+            card_list_1.remove(combine_1[1])  # 从临时列表移除抽到的数2
+            card_list_1.append(answer_1)  # 添加计算结果到临时列表
+            for combine_2 in set(itertools.combinations(card_list_1, 2)):  # 在临时列表的3个数中任意抽取2个数
                 for answer_2 in all_maybe_count_answer(combine_2[0], combine_2[1]):
                     card_list_2 = copy.deepcopy(card_list_1)
-                    card_list_2.remove(combine_2[0])  # 移除抽取的数字
-                    card_list_2.remove(combine_2[1])  # 移除抽取的数字
-                    card_list_2.append(answer_2)  # 添加抽取数字的计算结果
-                    for combine_3 in set(itertools.combinations(card_list_2, 2)):  # 在2个数中任意抽取2个数
+                    card_list_2.remove(combine_2[0])  # 从临时列表移除抽到的数1
+                    card_list_2.remove(combine_2[1])  # 从临时列表移除抽到的数2
+                    card_list_2.append(answer_2)  # 添加计算结果到临时列表
+                    for combine_3 in set(itertools.combinations(card_list_2, 2)):  # 抽取临时列表剩下的2个数
                         for answer_3 in all_maybe_count_answer(combine_3[0], combine_3[1]):
                             if round(answer_3, 3) == 24:
-                                formula_dict = list()
-                                for card in card_probability:
-                                    formula_dict.append([card, str(card)])
-                                formula_dict.append([answer_1, reverse_formula(get_formula(formula_dict, combine_1[0]),
-                                                                               get_formula(formula_dict, combine_1[1]),
-                                                                               answer_1)])
-                                delete_formula(formula_dict, combine_1[0])
-                                delete_formula(formula_dict, combine_1[1])
-                                formula_dict.append([answer_2, reverse_formula(get_formula(formula_dict, combine_2[0]),
-                                                                               get_formula(formula_dict, combine_2[1]),
-                                                                               answer_2)])
-                                delete_formula(formula_dict, combine_2[0])
-                                delete_formula(formula_dict, combine_2[1])
-                                formula = reverse_formula(get_formula(formula_dict, combine_3[0]),
-                                                          get_formula(formula_dict, combine_3[1]),
-                                                          answer_3)
-                                answer.append(formula)
+                                answer.append(total_formula(card_probability, combine_1, answer_1, combine_2,
+                                                            answer_2, combine_3, answer_3))  # 生成完整算式
     return answer
 
 
