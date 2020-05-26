@@ -34,7 +34,7 @@
 
 [第007天](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-01/Day-007/%E7%AC%AC007%E5%A4%A9%E6%95%99%E7%A8%8B.md) - Python常用内置函数和模块 : [常用内置函数](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-01/Day-007/Python%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E.md)、常用内置模块、[练习题](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-01/Day-007/Exercise08-Python%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97.md)
 
-##### 案例 : 0101-鸡兔同笼问题、[0102-登录问题(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-01/Example-0102/%E6%A1%88%E4%BE%8B002%E8%AE%B2%E8%A7%A3_%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98.md)、[0103-牛吃草问题(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-01/Example-0103/%E6%A1%88%E4%BE%8B003%E8%AE%B2%E8%A7%A3_%E7%89%9B%E5%90%83%E8%8D%89%E9%97%AE%E9%A2%98.md)
+**案例 : 0101-鸡兔同笼问题、[0102-登录问题(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-01/Example-0102/%E6%A1%88%E4%BE%8B002%E8%AE%B2%E8%A7%A3_%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98.md)、[0103-牛吃草问题(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-01/Example-0103/%E6%A1%88%E4%BE%8B003%E8%AE%B2%E8%A7%A3_%E7%89%9B%E5%90%83%E8%8D%89%E9%97%AE%E9%A2%98.md)**
 
 > 选学 : 001-算法思维基础
 
@@ -50,7 +50,7 @@
 
 [第012天](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-02/Day-012/%E7%AC%AC012%E5%A4%A9%E6%95%99%E7%A8%8B.md) - 错误和调试 : 错误处理、调试
 
-##### 案例 : [0201-全唐诗文本格式整理](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-02/Example-0201/%E6%A1%88%E4%BE%8B004%E8%AE%B2%E8%A7%A3_%E5%85%A8%E5%94%90%E8%AF%97%E6%96%87%E6%9C%AC%E6%95%B4%E7%90%86.md)、[0202-直播间弹幕数据清洗(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-02/Example-0202/%E6%A1%88%E4%BE%8B005%E8%AE%B2%E8%A7%A3_%E7%9B%B4%E6%92%AD%E5%BC%B9%E5%B9%95%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97.md)
+**案例 : [0201-全唐诗文本格式整理](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-02/Example-0201/%E6%A1%88%E4%BE%8B004%E8%AE%B2%E8%A7%A3_%E5%85%A8%E5%94%90%E8%AF%97%E6%96%87%E6%9C%AC%E6%95%B4%E7%90%86.md)、[0202-直播间弹幕数据清洗(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-02/Example-0202/%E6%A1%88%E4%BE%8B005%E8%AE%B2%E8%A7%A3_%E7%9B%B4%E6%92%AD%E5%BC%B9%E5%B9%95%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97.md)**
 
 > 选学：002-函数的高级用法(作用域/lambda函数/装饰器函数)、003-Python的高级特性(切片器/迭代器/列表生成式)
 
@@ -66,7 +66,7 @@
 
 第017天 - MySQL应用 : Python操作MySQL、[练习题](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Day-017/Exercise15-Mysql%E5%BA%94%E7%94%A8.md)
 
-##### 案例 : 0301-诗词格律分析工具、[0302-地图查询工具(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Example-0302/%E6%A1%88%E4%BE%8B007%E8%AE%B2%E8%A7%A3_%E5%9C%B0%E5%90%8D%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7.md)、[0303-24点算法实现(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Example-0303/%E6%A1%88%E4%BE%8B008%E8%AE%B2%E8%A7%A3_24%E7%82%B9%E6%B8%B8%E6%88%8F%E7%AE%97%E6%B3%95.md)
+**案例 : 0301-诗词格律分析工具、[0302-地图查询工具(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Example-0302/%E6%A1%88%E4%BE%8B007%E8%AE%B2%E8%A7%A3_%E5%9C%B0%E5%90%8D%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7.md)、[0303-24点算法实现(测试)](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-03/Example-0303/%E6%A1%88%E4%BE%8B008%E8%AE%B2%E8%A7%A3_24%E7%82%B9%E6%B8%B8%E6%88%8F%E7%AE%97%E6%B3%95.md)**
 
 > 选学 : 004-numpy、005-HanLP、006-Pillow
 
@@ -82,7 +82,7 @@
 
 第022天 : 0405-拉勾网企业招聘岗位采集
 
-案例 : 0406-知网期刊论文列表采集(测试)、0407-豆瓣电影TOP250详情信息采集(测试)
+**案例 : 0406-知网期刊论文列表采集(测试)、0407-豆瓣电影TOP250详情信息采集(测试)**
 
 > 选学 : 0408-微博热搜榜
 
@@ -98,4 +98,4 @@
 
 第027天 : 0505-虎牙直播弹幕采集
 
-案例 : 0506-Bilibili视频评论(测试)、0507-网易云音乐评论(测试)
+**案例 : 0506-Bilibili视频评论(测试)、0507-网易云音乐评论(测试)**
