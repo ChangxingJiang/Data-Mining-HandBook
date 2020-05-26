@@ -86,9 +86,9 @@ def get_tone(character):
 
 def inspect_sentence_tone(sentence_tone):
     """
-    判断诗句是否为拗句
+    判断诗句是否入律
 
-    :return: <bool> 诗句是否正确, <bool> 是否需要对句救, <str> 诗句情况详细说明
+    :return: <bool> 诗句是否入律, <bool> 是否需要对句救, <str> 诗句情况详细说明
     """
     if re.match("[平仄中]?[平中]?[平仄中][仄中][平中][平中][仄中]", sentence_tone):  # (仄)仄平平仄
         return True, "仄仄平平仄", "平仄脚正格"
@@ -129,9 +129,6 @@ def is_tone_same(tone_1, tone_2):
 def is_tone_differ(tone_1, tone_2):
     """
     判断两个字平仄是否不同
-    :param tone_1:
-    :param tone_2:
-    :return:
     """
     if (tone_1 == "仄" or tone_1 == "中") and (tone_2 == "平" or tone_2 == "中"):
         return True
