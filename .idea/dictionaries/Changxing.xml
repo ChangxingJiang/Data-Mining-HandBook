@@ -5,6 +5,7 @@
       <w>autopep</w>
       <w>autosavetime</w>
       <w>autoscroll</w>
+      <w>chromedriver</w>
       <w>codefolding</w>
       <w>csdn</w>
       <w>datestamper</w>
@@ -16,6 +17,8 @@
       <w>isort</w>
       <w>lxml</w>
       <w>matplotlib</w>
+      <w>movielist</w>
+      <w>moviename</w>
       <w>navicat</w>
       <w>nbextensions</w>
       <w>opencv</w>
