@@ -72,7 +72,7 @@
 
 #### 第04周 : Python爬虫基础(一)
 
-第018天 : [0401-微博热搜榜采集]([https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0401/%E6%A1%88%E4%BE%8B0401%E8%AE%B2%E8%A7%A3_%E5%BE%AE%E5%8D%9A%E7%83%AD%E6%90%9C%E6%A6%9C%E9%87%87%E9%9B%86.md](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0401/案例0401讲解_微博热搜榜采集.md))
+第018天 : [0401-微博热搜榜采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0401/%E6%A1%88%E4%BE%8B0401%E8%AE%B2%E8%A7%A3_%E5%BE%AE%E5%8D%9A%E7%83%AD%E6%90%9C%E6%A6%9C%E9%87%87%E9%9B%86.md)
 
 第019天 : 0402-猫眼电影实时票房榜采集
 
