@@ -64,11 +64,19 @@
 
 #### 中文自然语言处理资源库(20.7k星标)
 
-> Github项目名：[funNLP](https://github.com/fighting41love/funNLP)
+> [项目名] [funNLP](https://github.com/fighting41love/funNLP)
 >
-> Github作者：fighting41love
+> [作者] fighting41love
 
 其中包含各类中文词库、工具包和学习资料等内容，部分工具包附有调用方法的说明。
+
+#### 中文词向量资源库(7.2k星标)
+
+> [项目名] [Chinese-Word-Vectors](https://github.com/Embedding/Chinese-Word-Vectors)
+>
+> [作者]  [Embedding](https://github.com/Embedding)
+
+包括100多个不同corpus、context features、representations的预训练的中文词向量模型，可用于词向量的分析。其中，语料包括百度百科、人民日报、知乎问答、微博等，可满足不同领域的词向量需求。
 
 #### 中文常用停用词表
 

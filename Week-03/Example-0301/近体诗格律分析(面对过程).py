@@ -195,6 +195,8 @@ def poem_analyse(title, author, content):
 
     last_second_type = ""
 
+
+
     for i in range(int(len(sentences) / 2)):
         first_sentence = sentences[2 * i + 0]  # 出句内容
         second_sentence = sentences[2 * i + 1]  # 对句内容
