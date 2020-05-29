@@ -72,19 +72,15 @@
 
 #### 第04周 : Python爬虫基础(一)
 
-第018天 : [0401-微博热搜榜采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0401/%E6%A1%88%E4%BE%8B0401%E8%AE%B2%E8%A7%A3_%E5%BE%AE%E5%8D%9A%E7%83%AD%E6%90%9C%E6%A6%9C%E9%87%87%E9%9B%86.md)
+第1个案例 : [0401-微博热搜榜采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0401/%E6%A1%88%E4%BE%8B0401%E8%AE%B2%E8%A7%A3_%E5%BE%AE%E5%8D%9A%E7%83%AD%E6%90%9C%E6%A6%9C%E9%87%87%E9%9B%86.md)
 
-第019天 : [0402-猫眼电影实时票房榜采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0402/%E6%A1%88%E4%BE%8B0402%E8%AE%B2%E8%A7%A3_%E7%8C%AB%E7%9C%BC%E7%BD%91%E6%92%AD%E7%83%AD%E5%BA%A6%E9%87%87%E9%9B%86.md)
+第2个案例 : [0402-猫眼电影实时票房榜采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0402/%E6%A1%88%E4%BE%8B0402%E8%AE%B2%E8%A7%A3_%E7%8C%AB%E7%9C%BC%E7%BD%91%E6%92%AD%E7%83%AD%E5%BA%A6%E9%87%87%E9%9B%86.md)
 
-第020天 : [0403-豆瓣电影TOP250采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0403/%E6%A1%88%E4%BE%8B0403%E8%AE%B2%E8%A7%A3_%E8%B1%86%E7%93%A3TOP250%E7%94%B5%E5%BD%B1%E9%87%87%E9%9B%86.md)
+第3个案例 : [0403-豆瓣电影TOP250采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0403/%E6%A1%88%E4%BE%8B0403%E8%AE%B2%E8%A7%A3_%E8%B1%86%E7%93%A3TOP250%E7%94%B5%E5%BD%B1%E9%87%87%E9%9B%86.md)
 
-第021天 : [0404-Bilibili的UP主发布视频信息采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0404/%E6%A1%88%E4%BE%8B0404%E8%AE%B2%E8%A7%A3_B%E7%AB%99UP%E4%B8%BB%E5%8F%91%E5%B8%83%E8%A7%86%E9%A2%91%E4%BF%A1%E6%81%AF%E9%87%87%E9%9B%86.md)
-
-第022天 : 0405-拉勾网企业招聘岗位采集
+第4个案例 : [0404-Bilibili的UP主发布视频信息采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0404/%E6%A1%88%E4%BE%8B0404%E8%AE%B2%E8%A7%A3_B%E7%AB%99UP%E4%B8%BB%E5%8F%91%E5%B8%83%E8%A7%86%E9%A2%91%E4%BF%A1%E6%81%AF%E9%87%87%E9%9B%86.md)
 
 **案例 : 0406-知网期刊论文列表采集(测试)、0407-豆瓣电影TOP250详情信息采集(测试)**
-
-> 选学 : 0408-微博热搜榜
 
 #### 第05周 : Python爬虫基础(二)
 
