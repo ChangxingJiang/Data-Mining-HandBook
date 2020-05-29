@@ -78,7 +78,7 @@
 
 第020天 : [0403-豆瓣电影TOP250采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0403/%E6%A1%88%E4%BE%8B0403%E8%AE%B2%E8%A7%A3_%E8%B1%86%E7%93%A3TOP250%E7%94%B5%E5%BD%B1%E9%87%87%E9%9B%86.md)
 
-第021天 : 0404-Bilibili的UP主发布视频信息采集
+第021天 : [0404-Bilibili的UP主发布视频信息采集](https://github.com/ChangxingJiang/Python-Data-mining-Tutorial/blob/master/Week-04/Example-0404/%E6%A1%88%E4%BE%8B0404%E8%AE%B2%E8%A7%A3_B%E7%AB%99UP%E4%B8%BB%E5%8F%91%E5%B8%83%E8%A7%86%E9%A2%91%E4%BF%A1%E6%81%AF%E9%87%87%E9%9B%86.md)
 
 第022天 : 0405-拉勾网企业招聘岗位采集
 
