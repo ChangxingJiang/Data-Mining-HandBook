@@ -99,6 +99,8 @@ if __name__ == "__main__":
 
         print(page_num)
 
+        break
+
     print(movie_list)
 
     # 将临时变量中的数据存储到Json文件
