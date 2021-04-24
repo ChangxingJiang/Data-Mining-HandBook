@@ -30,7 +30,7 @@ def spider():
     mysql = tool.db.MySQL(host=MYSQL_HOST, database=MYSQL_DATABASE, user=MYSQL_USER, password=MYSQL_PASSWORD)
 
     # 从数据库中读取赛事列表
-    event_list = mysql.select("event", columns=["event_id", "event_name", "wanplus_event_id"], where="WHERE event_id>=251")
+    event_list = mysql.select("event", columns=["event_id", "event_name", "wanplus_event_id"], where="event_id>=251")
 
     # 遍历所有赛事
     for event_id, event_name, wanplus_event_id in event_list:
