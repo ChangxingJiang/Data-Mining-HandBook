@@ -26,9 +26,9 @@
 
 ### 知识扩展
 
-点到超平面的距离公式推导详见：[点到超平面距离公式的推导过程]
+2-范数的定义及性质详见：[常见范数的定义和性质](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E3%80%90%E9%85%8D%E5%A5%97%E7%9F%A5%E8%AF%86%E3%80%91%E5%B8%B8%E8%A7%81%E8%8C%83%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%80%A7%E8%B4%A8.md)
 
-2-范数的定义及性质详见：[常见范数的定义和性质]
+点到超平面的距离公式推导详见：[点到超平面距离公式的推导过程](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E3%80%90%E9%85%8D%E5%A5%97%E7%9F%A5%E8%AF%86%E3%80%91%E7%82%B9%E5%88%B0%E8%B6%85%E5%B9%B3%E9%9D%A2%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F%E7%9A%84%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B.md)
 
 ## 2.3.1：感知机学习算法的原始形式
 
@@ -74,6 +74,8 @@ $$
 
 #### Python实现：感知机学习算法的原始形式
 
+[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%8E%9F%E5%A7%8B%E5%BD%A2%E5%BC%8F.py)
+
 ```python
 dataset = [[(3, 3), 1], [(4, 3), 1], [(1, 1), -1]]  # 训练数据集
 
@@ -113,20 +115,16 @@ if __name__ == "__main__":
 
 ### 问题解答
 
-**【问题】** 为什么一定存在$||\hat{w}_{opt}||=1$？
+**【问题】**为什么一定存在$||\hat{w}_{opt}||=1$？
 
 不妨设超平面的扩充权重向量为
-
 $$
 \hat{w}'_{opt}=({w'}_{opt}^T,b')^T = (w'^{(1)}_{opt},w'^{(2)}_{opt},\cdots,w'^{(n)}_{opt},b')^T
 $$
-
 有$||\hat{w}'_{opt}||!=1$，于是有
-
 $$
 \hat{w}_{opt} =  (\frac{w'^{(1)}_{opt}}{||\hat{w}'_{opt}||},\frac{w'^{(2)}_{opt}}{||\hat{w}'_{opt}||},\cdots,\frac{w'^{(n)}_{opt}}{||\hat{w}'_{opt}||},\frac{b'}{||\hat{w}'_{opt}||})^T
 $$
-
 此时，存在$\hat{w}_{opt}$令$||\hat{w}_{opt}||=1$。得证。
 
 例如：$x^{(1)}+x^{(2)}-3$的扩充权重向量为$\hat{w'} = (1,1,-3)^T$，$||\hat{w'}||=\sqrt{11}$，于是有$\hat{w}=(\frac{1}{\sqrt{11}},\frac{1}{\sqrt{11}},\frac{-3}{\sqrt{11}})^T$，使$||\hat{w}||=1$。
@@ -135,7 +133,7 @@ $$
 
 ### 问题解答
 
-**【问题】** 为什么要有感知机学习算法的对偶形式？
+**【问题】**为什么要有感知机学习算法的对偶形式？
 
 结论是感知机学习算法的对偶形式在一定条件下的运算效率更高。下面我们展开讨论。
 
@@ -144,6 +142,8 @@ $$
 因为原始形式和对偶形式的迭代步骤是相互对应的，所以一般来说，原始形式更适合维度少、数量高的训练数据，对偶形式更适合维度高、数量少的训练数据。
 
 #### Python实现：感知机学习算法的对偶形式
+
+[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F.py)
 
 ```python
 dataset = [[(3, 3), 1], [(4, 3), 1], [(1, 1), -1]]  # 训练数据集
