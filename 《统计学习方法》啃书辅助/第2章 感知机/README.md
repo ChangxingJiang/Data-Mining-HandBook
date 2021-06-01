@@ -1,3 +1,5 @@
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
 # 《统计学习方法》啃书辅助：第2章 感知机
 
 ## 2.1 感知机模型
@@ -37,6 +39,7 @@
 #### 从梯度到更新方法的说明
 
 对于某个参数组合$(w_0,b_0)$，因为误分类点集合$M$是固定的，所以梯度$\nabla L(w_0,b_0)$也是固定的，梯度在$w$上的分量$\nabla w L(w_0,b_0)$就是损失函数对$w$的偏导数，梯度在$b$上的分量$\nabla_b L(w_0,b_0)$就是损失函数对$b$的偏导数，于是有梯度
+
 $$
 \nabla_w L(w_0,b_0) = L'_w(w_0,b_0) = - \sum_{x_i \in M} y_i x_i
 $$
@@ -46,6 +49,7 @@ $$
 $$
 
 因为完整地计算出梯度需要用到所有的样本点，时间成本较高，所以这里我们使用时间速度快的随机梯度下降法。在每次迭代过程中，不是一次使$M$中所有误分类点的梯度下降，而是一次随机选取一个误分类点，使其梯度下降。对于单个误分类点$(x_i,y_i)$，有梯度
+
 $$
 \nabla_w L(w_0,b_0) = L'_w(w_0,b_0) = - y_i x_i
 $$
@@ -55,6 +59,7 @@ $$
 $$
 
 据此更新$w$和$b$：
+
 $$
 w \leftarrow w + \eta(-\nabla_w L(w_0,b_0))  = w + \eta y_i x_i
 $$
