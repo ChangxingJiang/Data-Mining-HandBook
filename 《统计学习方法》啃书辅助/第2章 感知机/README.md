@@ -1,6 +1,3 @@
-<script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 # 《统计学习方法》啃书辅助：第2章 感知机
 
 ## 2.1 感知机模型
@@ -116,16 +113,20 @@ if __name__ == "__main__":
 
 ### 问题解答
 
-**【问题】**为什么一定存在$||\hat{w}_{opt}||=1$？
+**【问题】** 为什么一定存在$||\hat{w}_{opt}||=1$？
 
 不妨设超平面的扩充权重向量为
+
 $$
 \hat{w}'_{opt}=({w'}_{opt}^T,b')^T = (w'^{(1)}_{opt},w'^{(2)}_{opt},\cdots,w'^{(n)}_{opt},b')^T
 $$
+
 有$||\hat{w}'_{opt}||!=1$，于是有
+
 $$
 \hat{w}_{opt} =  (\frac{w'^{(1)}_{opt}}{||\hat{w}'_{opt}||},\frac{w'^{(2)}_{opt}}{||\hat{w}'_{opt}||},\cdots,\frac{w'^{(n)}_{opt}}{||\hat{w}'_{opt}||},\frac{b'}{||\hat{w}'_{opt}||})^T
 $$
+
 此时，存在$\hat{w}_{opt}$令$||\hat{w}_{opt}||=1$。得证。
 
 例如：$x^{(1)}+x^{(2)}-3$的扩充权重向量为$\hat{w'} = (1,1,-3)^T$，$||\hat{w'}||=\sqrt{11}$，于是有$\hat{w}=(\frac{1}{\sqrt{11}},\frac{1}{\sqrt{11}},\frac{-3}{\sqrt{11}})^T$，使$||\hat{w}||=1$。
@@ -134,7 +135,7 @@ $$
 
 ### 问题解答
 
-**【问题】**为什么要有感知机学习算法的对偶形式？
+**【问题】** 为什么要有感知机学习算法的对偶形式？
 
 结论是感知机学习算法的对偶形式在一定条件下的运算效率更高。下面我们展开讨论。
 
