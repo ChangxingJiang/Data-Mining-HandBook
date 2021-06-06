@@ -1,4 +1,4 @@
-# 【sklearn用法详解】距离计算（DistanceMetric）
+# 【sklearn用法详解】距离计算(DistanceMetric)
 
 > 包含内容：`sklearn.neighbors.DistanceMetric`及其子类
 >
