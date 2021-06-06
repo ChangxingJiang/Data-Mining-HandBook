@@ -30,7 +30,7 @@ def partial_derivative(func, arr, dx=1e-6):
 
 
 def gradient_descent(func, n, eta, epsilon, maximum=1000):
-    """01_梯度下降法
+    """梯度下降法
 
     :param func: [function] n元目标函数
     :param n: [int] 目标函数元数
