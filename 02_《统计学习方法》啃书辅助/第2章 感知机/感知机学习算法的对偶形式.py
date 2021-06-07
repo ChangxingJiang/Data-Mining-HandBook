@@ -19,7 +19,7 @@ def count_gram(x):
 def perceptron_primitive_form(x, y, eta):
     """感知机学习算法的对偶形式
 
-     :param x: 输出变量
+     :param x: 输入变量
     :param y: 输出变量
     :param eta: 学习率
     :return: 感知机模型的a(alpha)和b
