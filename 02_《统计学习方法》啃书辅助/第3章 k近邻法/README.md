@@ -36,6 +36,8 @@
 
 k近邻法没有显性的学习过程，预处理训练数据集是为了构造Ball Tree或KD Tree，以更高效地找到最接近被计算实例的k个点。
 
+[*源码地址*](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/k%E8%BF%91%E9%82%BB%E6%B3%95%E7%9A%84%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB.py)
+
 ```python
 from abc import ABCMeta
 from abc import abstractmethod
@@ -107,6 +109,8 @@ class KNNBase(metaclass=ABCMeta):
 
 #### Lp距离（Python实现）
 
+[*源码地址*](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/Lp%E8%B7%9D%E7%A6%BB.py)
+
 ```python
 def lp_distance(p, array1, array2):
     """计算Lp距离
@@ -125,6 +129,8 @@ def lp_distance(p, array1, array2):
 
 #### 欧氏距离（Python实现）
 
+*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E6%AC%A7%E6%B0%8F%E8%B7%9D%E7%A6%BB.py)*
+
 ```python
 def euclidean_distance(array1, array2):
     """计算欧氏距离
@@ -141,6 +147,8 @@ def euclidean_distance(array1, array2):
 ```
 
 #### 曼哈顿距离（Python实现）
+
+*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB.py)*
 
 ```python
 def euclidean_distance(array1, array2):
@@ -162,6 +170,8 @@ def euclidean_distance(array1, array2):
 > 【算法3.3 补充说明】在每一次递归中，即使已经将当前结点保存的实例点作为“当前最近点”（3.a），也仍然需要检查另一个子结点对应的区域内是否存在更近点（3.b）。
 
 #### 线性扫描实现的k近邻计算（Python实现）
+
+*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E7%BA%BF%E6%80%A7%E6%89%AB%E6%8F%8F%E5%AE%9E%E7%8E%B0%E7%9A%84k%E8%BF%91%E9%82%BB%E8%AE%A1%E7%AE%97.py)*
 
 ```python
 import collections
@@ -209,6 +219,8 @@ kd树是存储k维空间数据的树形数据结构，并支持快速地近邻�
 * len(P)：返回kd树P中元素的数量。在Python中，我们用`__len__`这个特殊方法来实现它。
 
 #### KD树（原生Python实现）
+
+*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/kd%E6%A0%91(%E5%8E%9F%E7%94%9FPython%E5%AE%9E%E7%8E%B0).py)*
 
 ```python
 import heapq
@@ -310,6 +322,8 @@ class KDTree:
 
 【官方API文档】[sklearn.neighbors.DistanceMetric官方API文档](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric)
 
+*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E5%9F%BA%E4%BA%8Ekd%E6%A0%91%E5%AE%9E%E7%8E%B0%E7%9A%84k%E8%BF%91%E9%82%BB%E8%AE%A1%E7%AE%97.py)*
+
 ```python
 import collections
 from sklearn.neighbors import KDTree
@@ -340,6 +354,8 @@ class KDTreeKNN:
 #### 简单交叉验证计算k最优的KNN分类器（sklearn.neighbors.KNeighborsClassifier实现）
 
 【官方API文档】[sklearn.neighbors.KNeighborsClassifier官方API文档](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier)
+
+[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E7%AE%80%E5%8D%95%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E8%AE%A1%E7%AE%97k%E6%9C%80%E4%BC%98%E7%9A%84KNN%E5%88%86%E7%B1%BB%E5%99%A8.py)
 
 ```python
 from sklearn.datasets import make_blobs
@@ -377,6 +393,8 @@ def build_best_knn(x, y):
 #### S折交叉验证计算k最优的KNN分类器（sklearn.model_selection.cross_val_score实现）
 
 【官方API文档】[sklearn.model_selection.cross_val_score官方API文档](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html?highlight=cross_val_score#sklearn.model_selection.cross_val_score)
+
+[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/S%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E8%AE%A1%E7%AE%97k%E6%9C%80%E4%BC%98%E7%9A%84KNN%E5%88%86%E7%B1%BB%E5%99%A8.py)
 
 ```python
 from sklearn.datasets import make_blobs
