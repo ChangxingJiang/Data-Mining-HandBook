@@ -128,6 +128,8 @@ $$
 
 哈希表存储先验概率和条件概率。
 
+*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC4%E7%AB%A0%20%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AD%98%E5%82%A8.py)*
+
 ```python
 import collections
 
@@ -160,6 +162,8 @@ class NaiveBayesAlgorithm:
 ```
 
 二维数组存储先验概率和条件概率。
+
+*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC4%E7%AB%A0%20%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%AD%98%E5%82%A8.py)*
 
 ```python
 class NaiveBayesAlgorithm:
@@ -227,6 +231,8 @@ class NaiveBayesAlgorithm:
 ```
 
 #### 贝叶斯估计（原生Python实现）
+
+*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC4%E7%AB%A0%20%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%B0%E8%AE%A1.py)*
 
 ```python
 class NaiveBayesAlgorithmWithSmoothing:
@@ -304,6 +310,8 @@ class NaiveBayesAlgorithmWithSmoothing:
 * 伯努利朴素贝叶斯：假设连续型特征服从多重伯努利分布。
 
 #### 支持连续型特征的朴素贝叶斯（sklearn实现）
+
+*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC4%E7%AB%A0%20%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/%E6%94%AF%E6%8C%81%E8%BF%9E%E7%BB%AD%E5%9E%8B%E7%89%B9%E5%BE%81%E7%9A%84%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF(sklearn%E5%AE%9E%E7%8E%B0).py)*
 
 ```python
 >>> from sklearn.datasets import load_breast_cancer
