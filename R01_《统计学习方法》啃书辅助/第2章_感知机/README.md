@@ -66,9 +66,11 @@ $$
 
 #### 感知机学习算法的原始形式（Python实现）
 
-[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%8E%9F%E5%A7%8B%E5%BD%A2%E5%BC%8F.py)
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/perceptron/_original_form.py)】code.perceptron.original_form_of_perceptron
 
 ```python
+# source : https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/perceptron/_original_form.py
+
 def original_form_of_perceptron(x, y, eta):
     """感知机学习算法的原始形式
 
@@ -93,7 +95,10 @@ def original_form_of_perceptron(x, y, eta):
             return w0, b0
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0_%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%8E%9F%E5%A7%8B%E5%BD%A2%E5%BC%8F.py)】测试
+
 ```python
+>>> from code.perceptron import original_form_of_perceptron
 >>> dataset = [[(3, 3), (4, 3), (1, 1)], [1, 1, -1]]
 >>> original_form_of_perceptron(dataset[0], dataset[1], eta=1)
 ([1, 1], -3)
@@ -131,7 +136,11 @@ $$
 
 #### 计算Gram矩阵（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/perceptron/_gram.py)】code.perceptron.count_gram
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/perceptron/_gram.py
+
 def count_gram(x):
     """计算Gram矩阵
 
@@ -152,12 +161,15 @@ def count_gram(x):
 
 #### 感知机学习算法的对偶形式（Python实现）
 
-[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F.py)
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/perceptron/_dual_form.py)】code.perceptron.dual_form_perceptron
 
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/perceptron/_dual_form.py
+
+from . import count_gram  # code.perceptron.count_gram
+
 def dual_form_perceptron(x, y, eta):
     """感知机学习算法的对偶形式
-
     :param x: 输入变量
     :param y: 输出变量
     :param eta: 学习率
@@ -184,7 +196,10 @@ def dual_form_perceptron(x, y, eta):
             return a0, b0
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0_%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F.py)】测试
+
 ```python
+>>> from code.perceptron import dual_form_perceptron
 >>> dataset = [[(3, 3), (4, 3), (1, 1)], [1, 1, -1]]  # 训练数据集
 >>> dual_form_perceptron(dataset[0], dataset[1], eta=1)
 ([2, 0, 5], -3)

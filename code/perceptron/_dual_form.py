@@ -1,4 +1,4 @@
-from . import count_gram  # code.perceptron._gram
+from . import count_gram  # code.perceptron.count_gram
 
 
 def dual_form_perceptron(x, y, eta):
@@ -28,8 +28,3 @@ def dual_form_perceptron(x, y, eta):
                 break
         else:
             return a0, b0
-
-
-if __name__ == "__main__":
-    dataset = [[(3, 3), (4, 3), (1, 1)], [1, 1, -1]]  # 训练数据集
-    print(dual_form_perceptron(dataset[0], dataset[1], eta=1))  # ([2, 0, 5], -3)
