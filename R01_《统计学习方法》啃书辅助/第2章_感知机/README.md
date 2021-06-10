@@ -22,9 +22,9 @@
 
 ## 2.2 感知机学习策略
 
-【延伸知识】[常见范数的定义和性质](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E3%80%90%E9%85%8D%E5%A5%97%E7%9F%A5%E8%AF%86%E3%80%91%E5%B8%B8%E8%A7%81%E8%8C%83%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%80%A7%E8%B4%A8.md)
+【延伸知识】[常见范数的定义和性质](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0_%E6%84%9F%E7%9F%A5%E6%9C%BA/%E3%80%90%E9%85%8D%E5%A5%97%E7%9F%A5%E8%AF%86%E3%80%91%E5%B8%B8%E8%A7%81%E8%8C%83%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%80%A7%E8%B4%A8.md)
 
-【延伸知识】[点到超平面距离公式的推导过程](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E3%80%90%E9%85%8D%E5%A5%97%E7%9F%A5%E8%AF%86%E3%80%91%E7%82%B9%E5%88%B0%E8%B6%85%E5%B9%B3%E9%9D%A2%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F%E7%9A%84%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B.md)
+【延伸知识】[点到超平面距离公式的推导过程](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0_%E6%84%9F%E7%9F%A5%E6%9C%BA/%E3%80%90%E9%85%8D%E5%A5%97%E7%9F%A5%E8%AF%86%E3%80%91%E7%82%B9%E5%88%B0%E8%B6%85%E5%B9%B3%E9%9D%A2%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F%E7%9A%84%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B.md)
 
 ## 2.3.1：感知机学习算法的原始形式
 
@@ -69,7 +69,7 @@ $$
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/perceptron/_original_form.py)】code.perceptron.original_form_of_perceptron
 
 ```python
-# source : https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/perceptron/_original_form.py
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/perceptron/_original_form.py
 
 def original_form_of_perceptron(x, y, eta):
     """感知机学习算法的原始形式
