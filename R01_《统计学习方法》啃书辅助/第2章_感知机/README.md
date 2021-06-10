@@ -69,7 +69,7 @@ $$
 [源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%8E%9F%E5%A7%8B%E5%BD%A2%E5%BC%8F.py)
 
 ```python
-def perceptron_primitive_form(x, y, eta):
+def original_form_of_perceptron(x, y, eta):
     """感知机学习算法的原始形式
 
     :param x: 输入变量
@@ -77,18 +77,15 @@ def perceptron_primitive_form(x, y, eta):
     :param eta: 学习率
     :return: 感知机模型的w和b
     """
-    if len(x) != len(y):
-        raise ValueError("输入变量和输出变量数量不同")
-
-    size = len(x)  # 样本点数量
-    n = len(x[0])  # 特征向量维度数
-    w0, b0 = [0] * n, 0  # 选取初值w0,b0
+    n_samples = len(x)  # 样本点数量
+    n_features = len(x[0])  # 特征向量维度数
+    w0, b0 = [0] * n_features, 0  # 选取初值w0,b0
 
     while True:  # 不断迭代直至没有误分类点
-        for i in range(size):
+        for i in range(n_samples):
             xi, yi = x[i], y[i]
-            if yi * (sum(w0[j] * xi[j] for j in range(n)) + b0) <= 0:
-                w1 = [w0[j] + eta * yi * xi[j] for j in range(n)]
+            if yi * (sum(w0[j] * xi[j] for j in range(n_features)) + b0) <= 0:
+                w1 = [w0[j] + eta * yi * xi[j] for j in range(n_features)]
                 b1 = b0 + eta * yi
                 w0, b0 = w1, b1
                 break
@@ -98,7 +95,7 @@ def perceptron_primitive_form(x, y, eta):
 
 ```python
 >>> dataset = [[(3, 3), (4, 3), (1, 1)], [1, 1, -1]]
->>> perceptron_primitive_form(dataset[0], dataset[1], eta=1)
+>>> original_form_of_perceptron(dataset[0], dataset[1], eta=1)
 ([1, 1], -3)
 ```
 
@@ -132,9 +129,7 @@ $$
 
 因为原始形式和对偶形式的迭代步骤是相互对应的，所以一般来说，原始形式更适合维度少、数量高的训练数据，对偶形式更适合维度高、数量少的训练数据。
 
-#### 感知机学习算法的对偶形式（Python实现）
-
-[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F.py)
+#### 计算Gram矩阵（Python实现）
 
 ```python
 def count_gram(x):
@@ -143,40 +138,41 @@ def count_gram(x):
     :param x: 输入变量
     :return: 输入变量的Gram矩阵
     """
-    size = len(x)  # 样本点数量
-    n = len(x[0])  # 特征向量维度数
-    gram = [[0] * size for _ in range(size)]  # 初始化Gram矩阵
+    n_samples = len(x)  # 样本点数量
+    n_features = len(x[0])  # 特征向量维度数
+    gram = [[0] * n_samples for _ in range(n_samples)]  # 初始化Gram矩阵
 
     # 计算Gram矩阵
-    for i in range(size):
-        for j in range(i, size):
-            gram[i][j] = gram[j][i] = sum(x[i][k] * x[j][k] for k in range(n))
+    for i in range(n_samples):
+        for j in range(i, n_samples):
+            gram[i][j] = gram[j][i] = sum(x[i][k] * x[j][k] for k in range(n_features))
 
     return gram
+```
 
+#### 感知机学习算法的对偶形式（Python实现）
 
-def perceptron_primitive_form(x, y, eta):
+[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0%20%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F.py)
+
+```python
+def dual_form_perceptron(x, y, eta):
     """感知机学习算法的对偶形式
 
-     :param x: 输入变量
+    :param x: 输入变量
     :param y: 输出变量
     :param eta: 学习率
     :return: 感知机模型的a(alpha)和b
     """
-    if len(x) != len(y):
-        raise ValueError("输入变量和输出变量数量不同")
-
-    size = len(x)  # 样本点数量
-    a0, b0 = [0] * size, 0  # 选取初值a0(alpha),b0
-
-    gram = count_gram(x)  # 计算gram矩阵
+    n_samples = len(x)  # 样本点数量
+    a0, b0 = [0] * n_samples, 0  # 选取初值a0(alpha),b0
+    gram = count_gram(x)  # 计算Gram矩阵
 
     while True:  # 不断迭代直至没有误分类点
-        for i in range(size):
+        for i in range(n_samples):
             yi = y[i]
 
             val = 0
-            for j in range(size):
+            for j in range(n_samples):
                 xj, yj = x[j], y[j]
                 val += a0[j] * yj * gram[i][j]
 
@@ -190,7 +186,7 @@ def perceptron_primitive_form(x, y, eta):
 
 ```python
 >>> dataset = [[(3, 3), (4, 3), (1, 1)], [1, 1, -1]]  # 训练数据集
->>> perceptron_primitive_form(dataset[0], dataset[1], eta=1)
+>>> dual_form_perceptron(dataset[0], dataset[1], eta=1)
 ([2, 0, 5], -3)
 ```
 
