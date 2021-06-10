@@ -1,6 +1,9 @@
 """
 采集WanPlus中的赛事列表，并将结果存入到数据库中；
 需要设置采集的年份及每年包含的赛事页面数。
+
+目标列表：YEAR_PAGE_NUM_LIST
+结果列表：event数据表
 """
 
 # 目标Url : http://www.wanplus.com/lol/event?t=3&year=2014&page=1
