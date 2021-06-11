@@ -1,3 +1,4 @@
+from ._build_best_knn_s_fold_cross_validation import build_best_knn_s_fold_cross_validation
 from ._build_best_knn_simple_cross_validation import build_best_knn_simple_cross_validation
 from ._eucliean_distance import euclidean_distance
 from ._kd_tree import KDTree
@@ -12,4 +13,5 @@ __all__ = ["lp_distance",
            "LinearSweepKNN",
            "KDTree",
            "KDTreeKNN",
-           "build_best_knn_simple_cross_validation"]
+           "build_best_knn_simple_cross_validation",
+           "build_best_knn_s_fold_cross_validation"]

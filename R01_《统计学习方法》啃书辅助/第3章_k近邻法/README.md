@@ -32,48 +32,6 @@
 > arg \max_{x} f(x)
 > $$
 
-#### k近邻算法的抽象基类（Python实现）
-
-k近邻法没有显性的学习过程，预处理训练数据集是为了构造Ball Tree或KD Tree，以更高效地找到最接近被计算实例的k个点。
-
-[*源码地址*](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/k%E8%BF%91%E9%82%BB%E6%B3%95%E7%9A%84%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB.py)
-
-```python
-from abc import ABCMeta
-from abc import abstractmethod
-
-
-class KNNBase(metaclass=ABCMeta):
-    """k近邻法的抽象基类"""
-
-    def __init__(self, x, y, k, distance_func):
-        """
-        :param x: 输入变量
-        :param y: 输出变量
-        :param k: 最接近的结点数
-        :param distance_func: 距离计算方法
-        """
-        self.x, self.y, self.k, self.distance_func = x, y, k, distance_func
-        self._pretreatment()  # 预处理训练数据集
-
-    def count(self, x):
-        """计算实例x所属的类y"""
-        nears = self._get_nearest(x)
-        return self._decision_rule(nears)
-
-    @abstractmethod
-    def _decision_rule(self, nears):
-        """决策规则"""
-
-    @abstractmethod
-    def _pretreatment(self):
-        """预处理训练数据集"""
-
-    @abstractmethod
-    def _get_nearest(self, x):
-        """寻找距离实例x最近的k个点"""
-```
-
 ## 3.2： k近邻模型
 
 > 【补充说明】**多数表决规则的分类函数**
@@ -109,60 +67,57 @@ class KNNBase(metaclass=ABCMeta):
 
 #### Lp距离（Python实现）
 
-[*源码地址*](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/Lp%E8%B7%9D%E7%A6%BB.py)
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_lp_distance.py)】code.knn.lp_distance
 
 ```python
-def lp_distance(p, array1, array2):
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_lp_distance.py
+
+def lp_distance(p, x1, x2):
     """计算Lp距离
 
     :param p: [int] 参数p
-    :param array1: [tuple/list] 第1个向量
-    :param array2: [tuple/list] 第2个向量
-    :return:
+    :param x1: [tuple/list] 第1个向量
+    :param x2: [tuple/list] 第2个向量
+    :return: Lp距离
     """
-    n1, n2 = len(array1), len(array2)
-    if n1 == n2:
-        return pow(sum(pow(abs(array1[i] - array2[i]), p) for i in range(n1)), 1 / p)
-    else:
-        raise ValueError("向量维度数不一致")
+    n_features = len(x1)
+    return pow(sum(pow(abs(x1[i] - x2[i]), p) for i in range(n_features)), 1 / p)
 ```
 
 #### 欧氏距离（Python实现）
 
-*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E6%AC%A7%E6%B0%8F%E8%B7%9D%E7%A6%BB.py)*
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_eucliean_distance.py)】code.knn.euclidean_distance
 
 ```python
-def euclidean_distance(array1, array2):
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_eucliean_distance.py
+
+def euclidean_distance(x1, x2):
     """计算欧氏距离
 
-    :param array1: [tuple/list] 第1个向量
-    :param array2: [tuple/list] 第2个向量
-    :return:
+    :param x1: [tuple/list] 第1个向量
+    :param x2: [tuple/list] 第2个向量
+    :return: 欧氏距离
     """
-    n1, n2 = len(array1), len(array2)
-    if n1 == n2:
-        return pow(sum(pow(array1[i] - array2[i], 2) for i in range(n1)), 1 / 2)
-    else:
-        raise ValueError("向量维度数不一致")
+    n_features = len(x1)
+    return pow(sum(pow(x1[i] - x2[i], 2) for i in range(n_features)), 1 / 2)
 ```
 
 #### 曼哈顿距离（Python实现）
 
-*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB.py)*
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_manhattan_distance.py)】code.knn.manhattan_distance
 
 ```python
-def euclidean_distance(array1, array2):
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_manhattan_distance.py
+
+def manhattan_distance(x1, x2):
     """计算曼哈顿距离
 
-    :param array1: [tuple/list] 第1个向量
-    :param array2: [tuple/list] 第2个向量
-    :return:
+    :param x1: [tuple/list] 第1个向量
+    :param x2: [tuple/list] 第2个向量
+    :return: 曼哈顿距离
     """
-    n1, n2 = len(array1), len(array2)
-    if n1 == n2:
-        return sum(abs(array1[i] - array2[i]) for i in range(n1))
-    else:
-        raise ValueError("向量维度数不一致")
+    n_features = len(x1)
+    return sum(abs(x1[i] - x2[i]) for i in range(n_features))
 ```
 
 ## 3.3： k近邻法的实现——kd树
@@ -171,9 +126,11 @@ def euclidean_distance(array1, array2):
 
 #### 线性扫描实现的k近邻计算（Python实现）
 
-*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E7%BA%BF%E6%80%A7%E6%89%AB%E6%8F%8F%E5%AE%9E%E7%8E%B0%E7%9A%84k%E8%BF%91%E9%82%BB%E8%AE%A1%E7%AE%97.py)*
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_linear_sweep_knn.py)】code.knn.LinearSweepKNN
 
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_linear_sweep_knn.py
+
 import collections
 import heapq
 
@@ -187,7 +144,8 @@ class LinearSweepKNN:
         """计算实例x所属的类y
         时间复杂度：O(N+KlogN) 线性扫描O(N)；自底向上构建堆O(N)；每次取出堆顶元素O(logN)，取出k个共计O(KlogN)
         """
-        distances = [(self.distance_func(x, self.x[i]), self.y[i]) for i in range(len(self.x))]
+        n_samples = len(self.x)
+        distances = [(self.distance_func(x, self.x[i]), self.y[i]) for i in range(n_samples)]
         heapq.heapify(distances)
         count = collections.Counter()
         for _ in range(self.k):
@@ -195,7 +153,11 @@ class LinearSweepKNN:
         return count.most_common(1)[0][0]
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0_k%E8%BF%91%E9%82%BB%E6%B3%95/%E7%BA%BF%E6%80%A7%E6%89%AB%E6%8F%8F%E5%AE%9E%E7%8E%B0%E7%9A%84k%E8%BF%91%E9%82%BB%E8%AE%A1%E7%AE%97.py)】测试
+
 ```python
+>>> from code.knn import LinearSweepKNN
+>>> from code.knn import euclidean_distance
 >>> dataset = [[(3, 3), (4, 3), (1, 1)], [1, 1, -1]]  # 训练数据集
 >>> knn = LinearSweepKNN(dataset[0], dataset[1], k=2, distance_func=euclidean_distance)
 >>> knn.count((3, 4))
@@ -220,11 +182,12 @@ kd树是存储k维空间数据的树形数据结构，并支持快速地近邻�
 
 #### KD树（原生Python实现）
 
-*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/kd%E6%A0%91(%E5%8E%9F%E7%94%9FPython%E5%AE%9E%E7%8E%B0).py)*
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_kd_tree.py)】code.knn.KDTree
 
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_kd_tree.py
+
 import heapq
-import time
 
 class KDTree:
     class _Node:
@@ -322,9 +285,11 @@ class KDTree:
 
 【官方API文档】[sklearn.neighbors.DistanceMetric官方API文档](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric)
 
-*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E5%9F%BA%E4%BA%8Ekd%E6%A0%91%E5%AE%9E%E7%8E%B0%E7%9A%84k%E8%BF%91%E9%82%BB%E8%AE%A1%E7%AE%97.py)*
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_kd_tree_knn.py)】code.knn.KDTreeKNN
 
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_kd_tree_knn.py
+
 import collections
 from sklearn.neighbors import KDTree
 
@@ -344,7 +309,10 @@ class KDTreeKNN:
         return count.most_common(1)[0][0]
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0_k%E8%BF%91%E9%82%BB%E6%B3%95/%E5%9F%BA%E4%BA%8Ekd%E6%A0%91%E5%AE%9E%E7%8E%B0%E7%9A%84k%E8%BF%91%E9%82%BB%E8%AE%A1%E7%AE%97.py)】测试
+
 ```python
+>>> from code.knn import KDTreeKNN
 >>> dataset = [[(3, 3), (4, 3), (1, 1)], [1, 1, -1]]  # 训练数据集
 >>> knn = KDTreeKNN(dataset[0], dataset[1], k=2)
 >>> knn.count((3, 4))
@@ -355,14 +323,15 @@ class KDTreeKNN:
 
 【官方API文档】[sklearn.neighbors.KNeighborsClassifier官方API文档](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier)
 
-[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E7%AE%80%E5%8D%95%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E8%AE%A1%E7%AE%97k%E6%9C%80%E4%BC%98%E7%9A%84KNN%E5%88%86%E7%B1%BB%E5%99%A8.py)
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_build_best_knn_simple_cross_validation.py)】code.knn.build_best_knn_simple_cross_validation
 
 ```python
-from sklearn.datasets import make_blobs
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_build_best_knn_simple_cross_validation.py
+
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
-def build_best_knn(x, y):
+def build_best_knn_simple_cross_validation(x, y):
     """简单交叉验证计算k最优的KNN分类器"""
     x1, x2, y1, y2 = train_test_split(x, y, test_size=0.2, random_state=0)  # 拆分训练集&验证集(80%)和测试集(20%)
     x11, x12, y11, y12 = train_test_split(x1, y1, test_size=0.25, random_state=0)  # 拆分训练集(60%)和验证集(20%)
@@ -378,12 +347,16 @@ def build_best_knn(x, y):
     return best_k, best_knn.score(x2, y2)
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0_k%E8%BF%91%E9%82%BB%E6%B3%95/%E7%AE%80%E5%8D%95%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E8%AE%A1%E7%AE%97k%E6%9C%80%E4%BC%98%E7%9A%84KNN%E5%88%86%E7%B1%BB%E5%99%A8.py)】测试
+
 ```python
+>>> from sklearn.datasets import make_blobs
+>>> from code.knn import build_best_knn_simple_cross_validation
 >>> # 生成随机样本数据
     X, Y = make_blobs(n_samples=1000, n_features=10, centers=5,
                       cluster_std=5000, center_box=(-10000, 10000), random_state=0)
 >>> # 计算k最优的KNN分类器
-    final_k, final_score = build_best_knn(X, Y)
+    final_k, final_score = build_best_knn_simple_cross_validation(X, Y)
 >>> final_k
 75
 >>> final_score
@@ -394,15 +367,16 @@ def build_best_knn(x, y):
 
 【官方API文档】[sklearn.model_selection.cross_val_score官方API文档](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html?highlight=cross_val_score#sklearn.model_selection.cross_val_score)
 
-[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/S%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E8%AE%A1%E7%AE%97k%E6%9C%80%E4%BC%98%E7%9A%84KNN%E5%88%86%E7%B1%BB%E5%99%A8.py)
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_build_best_knn_s_fold_cross_validation.py)】code.knn.build_best_knn_s_fold_cross_validation
 
 ```python
-from sklearn.datasets import make_blobs
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_build_best_knn_s_fold_cross_validation.py
+
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
-def build_best_knn(x, y):
+def build_best_knn_s_fold_cross_validation(x, y):
     """S折交叉验证计算k最优的KNN分类器"""
     x1, x2, y1, y2 = train_test_split(x, y, test_size=0.2, random_state=0)  # 拆分训练集(80%)和测试集(20%)
     best_k, best_score = 0, 0
@@ -417,12 +391,16 @@ def build_best_knn(x, y):
     return best_k, best_knn.score(x2, y2)
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC3%E7%AB%A0_k%E8%BF%91%E9%82%BB%E6%B3%95/S%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E8%AE%A1%E7%AE%97k%E6%9C%80%E4%BC%98%E7%9A%84KNN%E5%88%86%E7%B1%BB%E5%99%A8.py)】测试
+
 ```python
+>>> from sklearn.datasets import make_blobs
+>>> from code.knn import build_best_knn_s_fold_cross_validation
 >>> # 生成随机样本数据
     X, Y = make_blobs(n_samples=1000, n_features=10, centers=5,
                       cluster_std=5000, center_box=(-10000, 10000), random_state=0)
 >>> # 计算k最优的KNN分类器
-    final_k, final_score = build_best_knn(X, Y)
+    final_k, final_score = build_best_knn_s_fold_cross_validation(X, Y)
 >>> final_k
 74
 >>> final_score
