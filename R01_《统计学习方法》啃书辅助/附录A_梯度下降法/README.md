@@ -72,6 +72,7 @@ def partial_derivative(func, arr, dx=1e-6):
 ```
 
 ```python
+>>> from code.gradient_descent import partial_derivative
 >>> partial_derivative(lambda x: x[0] ** 2, [3])
 [6.000000000838668]
 >>> partial_derivative(lambda x: ((x[0] + 3) ** 2 + (x[1] + 4) ** 2) / 2, [0, 0])
@@ -106,6 +107,7 @@ def golden_section_for_line_search(func, a0, b0, epsilon):
 ```
 
 ```python
+>>> from code.gradient_descent import golden_section_for_line_search
 >>> golden_section_for_line_search(lambda x: x ** 2, -10, 5, epsilon=1e-6)
 5.263005013597177e-06
 ```
@@ -113,6 +115,8 @@ def golden_section_for_line_search(func, a0, b0, epsilon):
 #### 梯度下降法（Python实现）
 
 ```python
+from ._partial_derivative import partial_derivative
+
 def gradient_descent(func, n_features, eta, epsilon, maximum=1000):
     """梯度下降法
 
@@ -135,6 +139,7 @@ def gradient_descent(func, n_features, eta, epsilon, maximum=1000):
 ```
 
 ```python
+>>> from code.gradient_descent import gradient_descent
 >>> gradient_descent(lambda x: x[0] ** 2, 1, eta=0.1, epsilon=1e-6)
 [0.0]
 >>> gradient_descent(lambda x: ((x[0] + 3) ** 2 + (x[1] + 4) ** 2) / 2, 2, eta=0.1, epsilon=1e-6)
@@ -144,6 +149,9 @@ def gradient_descent(func, n_features, eta, epsilon, maximum=1000):
 #### 最速下降法（Python实现）
 
 ```python
+from ._golden_section_for_line_search import golden_section_for_line_search
+from ._partial_derivative import partial_derivative
+
 def steepest_descent(func, n_features, epsilon, distance=3, maximum=1000):
     """梯度下降法
 
@@ -180,6 +188,7 @@ def steepest_descent(func, n_features, epsilon, distance=3, maximum=1000):
 ```
 
 ```python
+>>> from code.gradient_descent import steepest_descent
 >>> steepest_descent(lambda x: x[0] ** 2, 1, epsilon=1e-6)
 [0]
 >> steepest_descent(lambda x: ((x[0] + 3) ** 2 + (x[1] + 4) ** 2) / 2, 2, epsilon=1e-6)
