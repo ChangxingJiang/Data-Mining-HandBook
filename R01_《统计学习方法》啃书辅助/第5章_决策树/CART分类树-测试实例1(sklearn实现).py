@@ -1,31 +1,10 @@
-import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import export_text
 
-
-def load_example():
-    return [np.array([["青年", "否", "否", "一般"],
-                      ["青年", "否", "否", "好"],
-                      ["青年", "是", "否", "好"],
-                      ["青年", "是", "是", "一般"],
-                      ["青年", "否", "否", "一般"],
-                      ["中年", "否", "否", "一般"],
-                      ["中年", "否", "否", "好"],
-                      ["中年", "是", "是", "好"],
-                      ["中年", "否", "是", "非常好"],
-                      ["中年", "否", "是", "非常好"],
-                      ["老年", "否", "是", "非常好"],
-                      ["老年", "否", "是", "好"],
-                      ["老年", "是", "否", "好"],
-                      ["老年", "是", "否", "非常好"],
-                      ["老年", "否", "否", "一般"]]),
-            np.array(["否", "否", "是", "是", "否",
-                      "否", "否", "是", "是", "是",
-                      "是", "是", "是", "是", "否"])]
-
+from code.example import load_li_5_1
 
 if __name__ == "__main__":
-    X, Y = load_example()
+    X, Y = load_li_5_1()
 
     N = len(X)
     n = len(X[0])
@@ -44,5 +23,4 @@ if __name__ == "__main__":
 
     clf = DecisionTreeClassifier()
     clf.fit(X, Y)
-    print(export_text(clf, feature_names=["年龄", "有工作", "有自己的房子", "信贷情况"],show_weights=True))
-
+    print(export_text(clf, feature_names=["年龄", "有工作", "有自己的房子", "信贷情况"], show_weights=True))

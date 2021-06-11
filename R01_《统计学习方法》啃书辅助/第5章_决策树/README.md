@@ -59,7 +59,8 @@
 ```python
 import numpy as np
 
-def load_example():
+def load_li_5_1():
+    """《统计学习方法》李航 例5.1 P.71"""
     return [np.array([["青年", "否", "否", "一般"],
                       ["青年", "否", "否", "好"],
                       ["青年", "是", "否", "好"],
@@ -97,7 +98,9 @@ def entropy(y, base=2):
 ```
 
 ```python
->>> X, Y = load_example()
+>>> from code.dicision_tree import entropy
+>>> from code.example import load_li_5_1
+>>> X, Y = load_li_5_1()
 >>> entropy(Y)  # H(D)
 0.9709505944546686
 ```
@@ -126,7 +129,9 @@ def conditional_entropy(x, y, base=2):
 ```
 
 ```python
->>> X, Y = load_example()
+>>> from code.dicision_tree import conditional_entropy
+>>> from code.example import load_li_5_1
+>>> X, Y = load_li_5_1()
 >>> conditional_entropy([X[i][0] for i in range(len(X))], Y)  # H(D|X=x_1)
 0.8879430945988998
 ```
@@ -134,12 +139,17 @@ def conditional_entropy(x, y, base=2):
 #### 信息增益（Python实现）
 
 ```python
+from ._conditional_extropy import conditional_entropy
+from ._entropy import entropy
+
 def information_gain(x, y, idx, base=2):
     """计算特征A(第idx个特征)对训练数据集D(输入数据x,输出数据y)的信息增益"""
     return entropy(y, base=base) - conditional_entropy([x[i][idx] for i in range(len(x))], y, base=base)
 ```
 
 ```python
+>>> from code.dicision_tree import information_gain
+>>> from code.example import load_li_5_1
 >>> X, Y = load_example()
 >>> information_gain(X, Y, idx=0)  # g(D,A1)
 0.08300749985576883
@@ -148,12 +158,17 @@ def information_gain(x, y, idx, base=2):
 #### 信息增益比（Python实现）
 
 ```python
+from ._entropy import entropy
+from ._information_gain import information_gain
+
 def information_gain_ratio(x, y, idx, base=2):
     """计算特征A(第idx个特征)对训练数据集D(输入数据x,输出数据y)的信息增益比"""
     return information_gain(x, y, idx, base=base) / entropy([x[i][idx] for i in range(len(x))], base=base)
 ```
 
 ```python
+>>> from code.dicision_tree import information_gain_ratio
+>>> from code.example import load_li_5_1
 >>> X, Y = load_example()
 >>> information_gain_ratio(X, Y, idx=0)  # gR(D,A1)
 0.05237190142858302
@@ -171,9 +186,11 @@ def information_gain_ratio(x, y, idx, base=2):
 
 ```python
 import collections
+from ._conditional_extropy import conditional_entropy
+from ._entropy import entropy
 
-class DecisionTreeID3:
-    """ID3生成算法构造的决策树（仅支持离散型特征）"""
+class DecisionTreeID3WithoutPruning:
+    """ID3生成算法构造的决策树（仅支持离散型特征）-不包括剪枝"""
 
     class Node:
         def __init__(self, mark, use_feature=None, children=None):
@@ -264,8 +281,10 @@ class DecisionTreeID3:
 ```
 
 ```python
->>> X, Y = load_example()
->>> decision_tree = DecisionTreeID3(X, Y, labels=["年龄", "有工作", "有自己的房子", "信贷情况"])
+>>> from code.dicision_tree import DecisionTreeID3WithoutPruning
+>>> from code.example import load_li_5_1
+>>> X, Y = load_li_5_1()
+>>> decision_tree = DecisionTreeID3WithoutPruning(X, Y, labels=["年龄", "有工作", "有自己的房子", "信贷情况"])
 >>> decision_tree
 有自己的房子 = 是 -> 是
 有自己的房子 = 否 :
@@ -277,11 +296,14 @@ class DecisionTreeID3:
 
 > 【补充说明】C4.5算法在生成的过程中，除了用信息增益比来选择特征外，还增加了通过动态定义将连续属性值分隔成一组离散间隔的离散属性，从而支持了连续属性的情况。**以下实现的内容为书中描述的C4.5生成算法！**
 
-#### C4.5的生成算法生成决策树（Python实现）
+#### C4.5的生成算法生成决策树-不包含剪枝（Python实现）
 
 ```python
-class DecisionTreeC45(DecisionTreeID3):
-    """C4.5生成算法构造的决策树（仅支持离散型特征）"""
+from ._decision_tree_id3_without_pruning import DecisionTreeID3WithoutPruning
+from ._entropy import entropy
+
+class DecisionTreeC45WithoutPruning(DecisionTreeID3WithoutPruning):
+    """C4.5生成算法构造的决策树（仅支持离散型特征）-不包含剪枝"""
 
     def information_gain(self, x, y, idx):
         """重写计算信息增益的方法，改为计算信息增益比"""
@@ -289,8 +311,10 @@ class DecisionTreeC45(DecisionTreeID3):
 ```
 
 ```python
->>> X, Y = load_example()
->>> decision_tree = DecisionTreeC45(X, Y, labels=["年龄", "有工作", "有自己的房子", "信贷情况"])
+>>> from code.dicision_tree import DecisionTreeC45WithoutPruning
+>>> from code.example import load_li_5_1
+>>> X, Y = load_li_5_1()
+>>> decision_tree = DecisionTreeC45WithoutPruning(X, Y, labels=["年龄", "有工作", "有自己的房子", "信贷情况"])
 >>> decision_tree
 有自己的房子 = 是 -> 是
 有自己的房子 = 否 :
@@ -310,6 +334,8 @@ class DecisionTreeC45(DecisionTreeID3):
 
 ```python
 import collections
+from ._conditional_extropy import conditional_entropy
+from ._entropy import entropy
 
 class DecisionTreeID3:
     """ID3生成算法构造的决策树（仅支持离散型特征）"""
@@ -327,7 +353,7 @@ class DecisionTreeID3:
         def is_leaf(self):
             return len(self.children) == 0
 
-    def __init__(self, x, y, labels=None, base=2, epsilon=0, alpha=0.1):
+    def __init__(self, x, y, labels=None, base=2, epsilon=0, alpha=0.05):
         if labels is None:
             labels = ["特征{}".format(i + 1) for i in range(len(x[0]))]
         self.labels = labels  # 特征的标签
@@ -432,7 +458,9 @@ class DecisionTreeID3:
 ```
 
 ```python
->>> X, Y = load_example()
+>>> from code.dicision_tree import DecisionTreeID3
+>>> from code.example import load_li_5_1
+>>> X, Y = load_li_5_1()
 >>> DecisionTreeID3(X, Y, labels=["年龄", "有工作", "有自己的房子", "信贷情况"], alpha=0.2)
 有自己的房子 = 是 -> 是
 有自己的房子 = 否 :
@@ -466,7 +494,10 @@ $$
 测试实例1（例5.1的测试集）
 
 ```python
->>> X, Y = load_example()
+>>> from sklearn.tree import DecisionTreeClassifier
+>>> from sklearn.tree import export_text
+>>> from code.example import load_li_5_1
+>>> X, Y = load_li_5_1()
 >>> N = len(X)
 >>> n = len(X[0])
 
