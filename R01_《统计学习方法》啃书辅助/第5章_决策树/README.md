@@ -56,7 +56,11 @@
 
 #### 例5.1数据集
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/example/_li.py)】code.example.load_li_5_1
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/example/_li.py
+
 import numpy as np
 
 def load_li_5_1():
@@ -83,7 +87,11 @@ def load_li_5_1():
 
 #### 熵（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_entropy.py)】code.dicision_tree.entropy
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_entropy.py
+
 import collections
 from math import log
 
@@ -97,6 +105,8 @@ def entropy(y, base=2):
     return ans
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/%E7%86%B5.py)】测试
+
 ```python
 >>> from code.dicision_tree import entropy
 >>> from code.example import load_li_5_1
@@ -107,7 +117,11 @@ def entropy(y, base=2):
 
 #### 条件熵（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_conditional_extropy.py)】code.dicision_tree.conditional_entropy
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_conditional_extropy.py
+
 import collections
 from math import log
 
@@ -128,6 +142,8 @@ def conditional_entropy(x, y, base=2):
     return ans
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/%E6%9D%A1%E4%BB%B6%E7%86%B5.py)】测试
+
 ```python
 >>> from code.dicision_tree import conditional_entropy
 >>> from code.example import load_li_5_1
@@ -138,14 +154,20 @@ def conditional_entropy(x, y, base=2):
 
 #### 信息增益（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_information_gain.py)】code.dicision_tree.information_gain
+
 ```python
-from ._conditional_extropy import conditional_entropy
-from ._entropy import entropy
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_information_gain.py
+
+from ._conditional_extropy import conditional_entropy  # code.dicision_tree.conditional_entropy
+from ._entropy import entropy  # code.dicision_tree.entropy
 
 def information_gain(x, y, idx, base=2):
     """计算特征A(第idx个特征)对训练数据集D(输入数据x,输出数据y)的信息增益"""
     return entropy(y, base=base) - conditional_entropy([x[i][idx] for i in range(len(x))], y, base=base)
 ```
+
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.py)】测试
 
 ```python
 >>> from code.dicision_tree import information_gain
@@ -157,14 +179,20 @@ def information_gain(x, y, idx, base=2):
 
 #### 信息增益比（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_information_gain_ratio.py)】code.dicision_tree.information_gain_ratio
+
 ```python
-from ._entropy import entropy
-from ._information_gain import information_gain
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_information_gain_ratio.py
+
+from ._entropy import entropy  # code.dicision_tree.entropy
+from ._information_gain import information_gain  # code.dicision_tree.information_gain
 
 def information_gain_ratio(x, y, idx, base=2):
     """计算特征A(第idx个特征)对训练数据集D(输入数据x,输出数据y)的信息增益比"""
     return information_gain(x, y, idx, base=base) / entropy([x[i][idx] for i in range(len(x))], base=base)
 ```
+
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E6%AF%94.py)】测试
 
 ```python
 >>> from code.dicision_tree import information_gain_ratio
@@ -184,10 +212,14 @@ def information_gain_ratio(x, y, idx, base=2):
 
 #### ID3算法生成决策树-不包含剪枝（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_decision_tree_id3_without_pruning.py)】code.dicision_tree.DecisionTreeID3WithoutPruning
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_decision_tree_id3_without_pruning.py
+
 import collections
-from ._conditional_extropy import conditional_entropy
-from ._entropy import entropy
+from ._conditional_extropy import conditional_entropy  # code.dicision_tree.conditional_entropy
+from ._entropy import entropy  # code.dicision_tree.entropy
 
 class DecisionTreeID3WithoutPruning:
     """ID3生成算法构造的决策树（仅支持离散型特征）-不包括剪枝"""
@@ -280,6 +312,8 @@ class DecisionTreeID3WithoutPruning:
         return entropy(y, base=self.base) - conditional_entropy([x[i][idx] for i in range(len(x))], y, base=self.base)
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/ID3%E7%AE%97%E6%B3%95%E7%94%9F%E6%88%90%E5%86%B3%E7%AD%96%E6%A0%91(%E4%B8%8D%E5%8C%85%E5%90%AB%E5%89%AA%E6%9E%9D).py)】测试
+
 ```python
 >>> from code.dicision_tree import DecisionTreeID3WithoutPruning
 >>> from code.example import load_li_5_1
@@ -298,9 +332,13 @@ class DecisionTreeID3WithoutPruning:
 
 #### C4.5的生成算法生成决策树-不包含剪枝（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_decision_tree_c45_without_pruning.py)】code.dicision_tree.DecisionTreeC45WithoutPruning
+
 ```python
-from ._decision_tree_id3_without_pruning import DecisionTreeID3WithoutPruning
-from ._entropy import entropy
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_decision_tree_c45_without_pruning.py
+
+from ._decision_tree_id3_without_pruning import DecisionTreeID3WithoutPruning  # code.dicision_tree.DecisionTreeID3WithoutPruning
+from ._entropy import entropy  # code.dicision_tree.entropy
 
 class DecisionTreeC45WithoutPruning(DecisionTreeID3WithoutPruning):
     """C4.5生成算法构造的决策树（仅支持离散型特征）-不包含剪枝"""
@@ -309,6 +347,8 @@ class DecisionTreeC45WithoutPruning(DecisionTreeID3WithoutPruning):
         """重写计算信息增益的方法，改为计算信息增益比"""
         return super().information_gain(x, y, idx) / entropy([x[i][idx] for i in range(len(x))], base=self.base)
 ```
+
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/C4.5%E7%9A%84%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95(%E4%B8%8D%E5%8C%85%E6%8B%AC%E5%89%AA%E6%9E%9D).py)】测试
 
 ```python
 >>> from code.dicision_tree import DecisionTreeC45WithoutPruning
@@ -332,10 +372,14 @@ class DecisionTreeC45WithoutPruning(DecisionTreeID3WithoutPruning):
 
 #### ID3算法生成决策树-包含剪枝（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_decision_tree_id3.py)】code.decision_tree.DecisionTreeID3
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_decision_tree_id3.py
+
 import collections
-from ._conditional_extropy import conditional_entropy
-from ._entropy import entropy
+from ._conditional_extropy import conditional_entropy  # code.dicision_tree.conditional_entropy
+from ._entropy import entropy  # code.dicision_tree.entropy
 
 class DecisionTreeID3:
     """ID3生成算法构造的决策树（仅支持离散型特征）"""
@@ -457,6 +501,8 @@ class DecisionTreeID3:
         return entropy(y, base=self.base) - conditional_entropy([x[i][idx] for i in range(len(x))], y, base=self.base)
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/ID3%E7%AE%97%E6%B3%95%E7%94%9F%E6%88%90%E5%86%B3%E7%AD%96%E6%A0%91(%E5%8C%85%E5%90%AB%E5%89%AA%E6%9E%9D).py)】测试
+
 ```python
 >>> from code.dicision_tree import DecisionTreeID3
 >>> from code.example import load_li_5_1
@@ -491,7 +537,7 @@ $$
 
 #### CART分类树（Python+sklearn实现）
 
-测试实例1（例5.1的测试集）
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/CART%E5%88%86%E7%B1%BB%E6%A0%91-%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B1(sklearn%E5%AE%9E%E7%8E%B0).py)】测试实例1（例5.1的测试集）
 
 ```python
 >>> from sklearn.tree import DecisionTreeClassifier
@@ -524,7 +570,7 @@ $$
 |   |--- weights: [0.00, 6.00] class: 1
 ```
 
-测试示例2（鸢尾花数据集）
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/CART%E5%88%86%E7%B1%BB%E6%A0%91-%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B2(sklearn%E5%AE%9E%E7%8E%B0).py)】测试示例2（鸢尾花数据集）
 
 ```python
 >>> from sklearn.datasets import load_iris
@@ -554,6 +600,8 @@ $$
 ```
 
 #### CART回归树（Python+sklearn实现）
+
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/CART%E5%9B%9E%E5%BD%92%E6%A0%91-%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B(sklearn%E5%AE%9E%E7%8E%B0).py)】测试示例（波士顿房价数据集）
 
 ```python
 >>> from sklearn.datasets import load_boston
