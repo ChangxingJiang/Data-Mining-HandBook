@@ -126,11 +126,11 @@ $$
 
 #### 朴素贝叶斯算法（原生Python实现）
 
-哈希表存储先验概率和条件概率。
-
-*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC4%E7%AB%A0%20%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95-%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AD%98%E5%82%A8.py)*
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/naive_bayes/_naive_bayes_algorithm_hashmap.py)】code.naive_bayes.NaiveBayesAlgorithmHashmap（哈希表存储先验概率和条件概率）
 
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/naive_bayes/_naive_bayes_algorithm_hashmap.py
+
 import collections
 
 class NaiveBayesAlgorithmHashmap:
@@ -159,17 +159,18 @@ class NaiveBayesAlgorithmHashmap:
             if score > best_score:
                 best_y, best_score = y, score
         return best_y
-
 ```
 
 二维数组存储先验概率和条件概率。
 
-*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC4%E7%AB%A0%20%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%AD%98%E5%82%A8.py)*
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/naive_bayes/_naive_bayes_algorithm_array.py)】code.naive_bayes.NaiveBayesAlgorithmArray
 
 ```python
-class NaiveBayesAlgorithm:
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/naive_bayes/_naive_bayes_algorithm_array.py
+
+class NaiveBayesAlgorithmArray:
     """朴素贝叶斯算法（仅支持离散型数据）"""
-    
+
     def __init__(self, x, y):
         self.N = len(x)  # 样本数 —— 先验概率的分母
         self.n = len(x[0])  # 维度数
@@ -221,21 +222,30 @@ class NaiveBayesAlgorithm:
         return best_y
 ```
 
+【[源码地址]()】测试
+
 ```python
+>>> from code.naive_bayes import NaiveBayesAlgorithmArray
+>>> from code.naive_bayes import NaiveBayesAlgorithmHashmap
 >>> dataset = [[(1, "S"), (1, "M"), (1, "M"), (1, "S"), (1, "S"),
-                (2, "S"), (2, "M"), (2, "M"), (2, "L"), (2, "L"),
-                (3, "L"), (3, "M"), (3, "M"), (3, "L"), (3, "L")],
-               [-1, -1, 1, 1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, -1]]
->>> naive_bayes = NaiveBayesAlgorithm(*dataset)
->>> naive_bayes.predict([2, "S"])
+...             (2, "S"), (2, "M"), (2, "M"), (2, "L"), (2, "L"),
+...             (3, "L"), (3, "M"), (3, "M"), (3, "L"), (3, "L")],
+...            [-1, -1, 1, 1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, -1]]
+>>> naive_bayes_1 = NaiveBayesAlgorithmHashmap(*dataset)
+>>> naive_bayes_1.predict([2, "S"])
+-1
+>>> naive_bayes_2 = NaiveBayesAlgorithmArray(*dataset)
+>>> naive_bayes_2.predict([2, "S"])
 -1
 ```
 
 #### 贝叶斯估计（原生Python实现）
 
-*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC4%E7%AB%A0%20%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%B0%E8%AE%A1.py)*
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/naive_bayes/_naive_bayes_algorithm_with_smoothing.py)】code.naive_bayes.NaiveBayesAlgorithmWithSmoothing
 
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/naive_bayes/_naive_bayes_algorithm_with_smoothing.py
+
 class NaiveBayesAlgorithmWithSmoothing:
     """贝叶斯估计（仅支持离散型数据）"""
     
@@ -291,7 +301,10 @@ class NaiveBayesAlgorithmWithSmoothing:
         return best_y
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/naive_bayes/_naive_bayes_algorithm_with_smoothing.py)】测试
+
 ```python
+>>> from code.naive_bayes import NaiveBayesAlgorithmWithSmoothing
 >>> dataset = [[(1, "S"), (1, "M"), (1, "M"), (1, "S"), (1, "S"),
                 (2, "S"), (2, "M"), (2, "M"), (2, "L"), (2, "L"),
                 (3, "L"), (3, "M"), (3, "M"), (3, "L"), (3, "L")],
@@ -312,7 +325,7 @@ class NaiveBayesAlgorithmWithSmoothing:
 
 #### 支持连续型特征的朴素贝叶斯（sklearn实现）
 
-*[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/02_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC4%E7%AB%A0%20%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/%E6%94%AF%E6%8C%81%E8%BF%9E%E7%BB%AD%E5%9E%8B%E7%89%B9%E5%BE%81%E7%9A%84%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF(sklearn%E5%AE%9E%E7%8E%B0).py)*
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC4%E7%AB%A0_%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/%E6%94%AF%E6%8C%81%E8%BF%9E%E7%BB%AD%E5%9E%8B%E7%89%B9%E5%BE%81%E7%9A%84%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF(sklearn%E5%AE%9E%E7%8E%B0).py)】测试
 
 ```python
 >>> from sklearn.datasets import load_breast_cancer

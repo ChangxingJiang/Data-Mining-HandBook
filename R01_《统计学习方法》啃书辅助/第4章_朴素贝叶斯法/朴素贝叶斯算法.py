@@ -1,3 +1,4 @@
+from code.naive_bayes import NaiveBayesAlgorithmArray
 from code.naive_bayes import NaiveBayesAlgorithmHashmap
 
 if __name__ == "__main__":
@@ -5,5 +6,8 @@ if __name__ == "__main__":
                 (2, "S"), (2, "M"), (2, "M"), (2, "L"), (2, "L"),
                 (3, "L"), (3, "M"), (3, "M"), (3, "L"), (3, "L")],
                [-1, -1, 1, 1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, -1]]
-    naive_bayes = NaiveBayesAlgorithmHashmap(*dataset)
-    print(naive_bayes.predict([2, "S"]))
+    naive_bayes_1 = NaiveBayesAlgorithmHashmap(*dataset)
+    print(naive_bayes_1.predict([2, "S"]))
+
+    naive_bayes_2 = NaiveBayesAlgorithmArray(*dataset)
+    print(naive_bayes_2.predict([2, "S"]))
