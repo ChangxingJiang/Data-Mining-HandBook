@@ -133,9 +133,9 @@ $$
 ```python
 import collections
 
-class NaiveBayesAlgorithm:
+class NaiveBayesAlgorithmHashmap:
     """朴素贝叶斯算法（仅支持离散型数据）"""
-    
+
     def __init__(self, x, y):
         self.N = len(x)  # 样本数
         self.n = len(x[0])  # 维度数
@@ -159,6 +159,7 @@ class NaiveBayesAlgorithm:
             if score > best_score:
                 best_y, best_score = y, score
         return best_y
+
 ```
 
 二维数组存储先验概率和条件概率。
