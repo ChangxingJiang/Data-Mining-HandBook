@@ -5,7 +5,7 @@ from ..gradient_descent import partial_derivative
 
 
 def bfgs_algorithm_with_sherman_morrison(func, n_features, epsilon=1e-6, distance=3, maximum=1000):
-    """DFP算法
+    """BFGS算法(Sherman-Morrison公式)
 
     :param func: [function] n元目标函数
     :param n_features: [int] 目标函数元数

@@ -87,7 +87,11 @@ $$
 >
 > 如果函数$z=f(x,y)$的两个二阶混合偏导数$\frac{\partial^2 z}{\partial x \partial y}$及$\frac{\partial^2 z}{\partial y \partial x}$在区域D内连续，那么在该区域内这两个二阶混合偏导数必相等。
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_get_hessian.py)】code.newton_method.get_hessian
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_get_hessian.py
+
 from scipy.misc import derivative
 
 def get_hessian(func, x0, dx=1e-6):
@@ -119,7 +123,10 @@ def get_hessian(func, x0, dx=1e-6):
     return ans
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95B_%E7%89%9B%E9%A1%BF%E6%B3%95%E5%92%8C%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/%E8%AE%A1%E7%AE%97%E9%BB%91%E5%A1%9E%E7%9F%A9%E9%98%B5.py)】测试
+
 ```python
+>>> from code.newton_method import get_hessian
 >>> get_hessian(lambda x: (x[0] ** 3) * (x[1] ** 2) - 3 * x[0] * (x[1] ** 3) - x[0] * x[1] + 1, [0, 2])
 [[0 ,  -37], [-37, 0]]
 >>> get_hessian(lambda x: (x[0] ** 3) * (x[1] ** 2) - 3 * x[0] * (x[1] ** 3) - x[0] * x[1] + 1, [1, 1])
@@ -127,6 +134,8 @@ def get_hessian(func, x0, dx=1e-6):
 ```
 
 #### 计算逆矩阵（Python+numpy实现）
+
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95B_%E7%89%9B%E9%A1%BF%E6%B3%95%E5%92%8C%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/%E8%AE%A1%E7%AE%97%E9%80%86%E7%9F%A9%E9%98%B5.py)】测试
 
 ```python
 >>> import numpy as np
@@ -138,7 +147,15 @@ def get_hessian(func, x0, dx=1e-6):
 
 #### 牛顿法（Python+numpy+scipy实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_newton_method.py)】code.newton_method.newton_method
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_newton_method.py
+
+import numpy as np
+from ._get_hessian import get_hessian  # code.newton_method.get_hessian
+from ..gradient_descent import partial_derivative  # code.gradient_descent.partial_derivative
+
 def newton_method(func, n_features, epsilon=1e-6, maximum=1000):
     """牛顿法
 
@@ -170,7 +187,10 @@ def newton_method(func, n_features, epsilon=1e-6, maximum=1000):
             x0[j] += float(pk[j][0])
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95B_%E7%89%9B%E9%A1%BF%E6%B3%95%E5%92%8C%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/%E7%89%9B%E9%A1%BF%E6%B3%95.py)】测试
+
 ```python
+>>> from code.newton_method import newton_method
 >>> newton_method(lambda x: x[0] ** 2, 1, epsilon=1e-6)
 [0]
 >>> newton_method(lambda x: ((x[0] + 3) ** 2 + (x[1] + 4) ** 2) / 2, 2, epsilon=1e-6)
@@ -212,7 +232,15 @@ $$
 
 #### DFP算法（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_dfp_algorithm.py)】code.newton_method.dfp_algorithm
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_dfp_algorithm.py
+
+import numpy as np
+from ..gradient_descent import golden_section_for_line_search  # code.gradient_descent.golden_section_for_line_search
+from ..gradient_descent import partial_derivative  # code.gradient_descent.partial_derivative
+
 def dfp_algorithm(func, n_features, epsilon=1e-6, distance=3, maximum=1000):
     """DFP算法
 
@@ -267,7 +295,10 @@ def dfp_algorithm(func, n_features, epsilon=1e-6, distance=3, maximum=1000):
         x0 = x1
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95B_%E7%89%9B%E9%A1%BF%E6%B3%95%E5%92%8C%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/DFP%E7%AE%97%E6%B3%95.py)】测试
+
 ```python
+>>> from code.newton_method import dfp_algorithm
 >>> dfp_algorithm(lambda x: x[0] ** 2, 1, epsilon=1e-6)
 [0]
 >>> dfp_algorithm(lambda x: ((x[0] + 3) ** 2 + (x[1] + 4) ** 2) / 2, 2, epsilon=1e-6)
@@ -280,7 +311,15 @@ def dfp_algorithm(func, n_features, epsilon=1e-6, distance=3, maximum=1000):
 
 #### BFGS算法（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_bfgs_algorithm.py)】code.newton_method.bfgs_algorithm
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_bfgs_algorithm.py
+
+import numpy as np
+from ..gradient_descent import golden_section_for_line_search  # code.gradient_descent.golden_section_for_line_search
+from ..gradient_descent import partial_derivative  # code.gradient_descent.partial_derivative
+
 def bfgs_algorithm(func, n_features, epsilon=1e-6, distance=3, maximum=1000):
     """BFGS算法
 
@@ -338,7 +377,10 @@ def bfgs_algorithm(func, n_features, epsilon=1e-6, distance=3, maximum=1000):
         x0 = x1
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95B_%E7%89%9B%E9%A1%BF%E6%B3%95%E5%92%8C%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/BFGS%E7%AE%97%E6%B3%95.py)】测试
+
 ```python
+>>> from code.newton_method import bfgs_algorithm
 >>> bfgs_algorithm(lambda x: x[0] ** 2, 1, epsilon=1e-6)
 [0]
 >>> bfgs_algorithm(lambda x: ((x[0] + 3) ** 2 + (x[1] + 4) ** 2) / 2, 2, epsilon=1e-6)
@@ -347,9 +389,17 @@ def bfgs_algorithm(func, n_features, epsilon=1e-6, distance=3, maximum=1000):
 
 #### BFGS算法(Sherman-Morrison公式)（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_bfgs_algorithm_with_sherman_morrison.py)】code.newton_method.bfgs_algorithm_with_sherman_morrison
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_bfgs_algorithm_with_sherman_morrison.py
+
+import numpy as np
+from ..gradient_descent import golden_section_for_line_search  # code.gradient_descent.golden_section_for_line_search
+from ..gradient_descent import partial_derivative  # code.gradient_descent.partial_derivative
+
 def bfgs_algorithm_with_sherman_morrison(func, n_features, epsilon=1e-6, distance=3, maximum=1000):
-    """DFP算法
+    """BFGS算法(Sherman-Morrison公式)
 
     :param func: [function] n元目标函数
     :param n_features: [int] 目标函数元数
@@ -403,7 +453,10 @@ def bfgs_algorithm_with_sherman_morrison(func, n_features, epsilon=1e-6, distanc
         x0 = x1
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95B_%E7%89%9B%E9%A1%BF%E6%B3%95%E5%92%8C%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/BFGS%E7%AE%97%E6%B3%95(Sherman-Morrison%E5%85%AC%E5%BC%8F).py)】测试
+
 ```python
+>>> from code.newton_method import bfgs_algorithm_with_sherman_morrison
 >>> bfgs_algorithm_with_sherman_morrison(lambda x: x[0] ** 2, 1, epsilon=1e-6)
 [0]
 >>> bfgs_algorithm_with_sherman_morrison(lambda x: ((x[0] + 3) ** 2 + (x[1] + 4) ** 2) / 2, 2, epsilon=1e-6)
@@ -412,7 +465,15 @@ def bfgs_algorithm_with_sherman_morrison(func, n_features, epsilon=1e-6, distanc
 
 ## B.5 Broyden类算法
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_broyden_algorithm.py)】code.newton_method.broyden_algorithm
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_broyden_algorithm.py
+
+import numpy as np
+from ..gradient_descent import golden_section_for_line_search  # code.gradient_descent.golden_section_for_line_search
+from ..gradient_descent import partial_derivative  # code.gradient_descent.partial_derivative
+
 def broyden_algorithm(func, n_features, alpha=0.5, epsilon=1e-6, distance=3, maximum=1000):
     """Broyden算法
 
@@ -470,10 +531,12 @@ def broyden_algorithm(func, n_features, alpha=0.5, epsilon=1e-6, distance=3, max
         x0 = x1
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95B_%E7%89%9B%E9%A1%BF%E6%B3%95%E5%92%8C%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/Broyden%E7%AE%97%E6%B3%95.py)】测试
+
 ```python
+>>> from code.newton_method import broyden_algorithm
 >>> broyden_algorithm(lambda x: x[0] ** 2, 1, epsilon=1e-6)
 [0]
 >>> broyden_algorithm(lambda x: ((x[0] + 3) ** 2 + (x[1] + 4) ** 2) / 2, 2, epsilon=1e-6)
 [-3.0000000003324554, -3.9999999998511546]
 ```
-
