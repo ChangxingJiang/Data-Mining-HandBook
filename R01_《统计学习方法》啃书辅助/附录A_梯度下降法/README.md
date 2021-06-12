@@ -48,7 +48,11 @@ $$
 
 #### 梯度向量计算（Python+scipy计算）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/gradient_descent/_partial_derivative.py)】code.gradient_descent.partial_derivative
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/gradient_descent/_partial_derivative.py
+
 from scipy.misc import derivative
 
 def partial_derivative(func, arr, dx=1e-6):
@@ -71,6 +75,8 @@ def partial_derivative(func, arr, dx=1e-6):
     return ans
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95A_%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95/%E6%A2%AF%E5%BA%A6%E5%90%91%E9%87%8F%E8%AE%A1%E7%AE%97.py)】测试
+
 ```python
 >>> from code.gradient_descent import partial_derivative
 >>> partial_derivative(lambda x: x[0] ** 2, [3])
@@ -81,7 +87,11 @@ def partial_derivative(func, arr, dx=1e-6):
 
 #### 基于黄金分割法的一维搜索（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/gradient_descent/_golden_section_for_line_search.py)】code.gradient_descent.golden_section_for_line_search
+
 ```python
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/gradient_descent/_golden_section_for_line_search.py
+
 def golden_section_for_line_search(func, a0, b0, epsilon):
     """一维搜索极小值点（黄金分割法）
 
@@ -106,6 +116,8 @@ def golden_section_for_line_search(func, a0, b0, epsilon):
     return (a1 + b1) / 2
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95A_%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95/%E5%9F%BA%E4%BA%8E%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2%E6%B3%95%E7%9A%84%E4%B8%80%E7%BB%B4%E6%90%9C%E7%B4%A2.py)】测试
+
 ```python
 >>> from code.gradient_descent import golden_section_for_line_search
 >>> golden_section_for_line_search(lambda x: x ** 2, -10, 5, epsilon=1e-6)
@@ -114,8 +126,12 @@ def golden_section_for_line_search(func, a0, b0, epsilon):
 
 #### 梯度下降法（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/gradient_descent/_gradient_descent.py)】code.gradient_descent.gradient_descent
+
 ```python
-from ._partial_derivative import partial_derivative
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/gradient_descent/_gradient_descent.py
+
+from ._partial_derivative import partial_derivative  # code.gradient_descent.partial_derivative
 
 def gradient_descent(func, n_features, eta, epsilon, maximum=1000):
     """梯度下降法
@@ -138,6 +154,8 @@ def gradient_descent(func, n_features, eta, epsilon, maximum=1000):
         x0, y0 = x1, y1
 ```
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95A_%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95.py)】测试
+
 ```python
 >>> from code.gradient_descent import gradient_descent
 >>> gradient_descent(lambda x: x[0] ** 2, 1, eta=0.1, epsilon=1e-6)
@@ -148,9 +166,13 @@ def gradient_descent(func, n_features, eta, epsilon, maximum=1000):
 
 #### 最速下降法（Python实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/gradient_descent/_steepest_descent.py)】code.gradient_descent.steepest_descent
+
 ```python
-from ._golden_section_for_line_search import golden_section_for_line_search
-from ._partial_derivative import partial_derivative
+# https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/gradient_descent/_steepest_descent.py
+
+from ._golden_section_for_line_search import golden_section_for_line_search  # code.gradient_descent.golden_section_for_line_search
+from ._partial_derivative import partial_derivative  # code.gradient_descent.partial_derivative
 
 def steepest_descent(func, n_features, epsilon, distance=3, maximum=1000):
     """梯度下降法
@@ -186,6 +208,8 @@ def steepest_descent(func, n_features, epsilon, distance=3, maximum=1000):
 
         x0, y0 = x1, y1
 ```
+
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95A_%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95/%E6%9C%80%E9%80%9F%E4%B8%8B%E9%99%8D%E6%B3%95.py)】测试
 
 ```python
 >>> from code.gradient_descent import steepest_descent
