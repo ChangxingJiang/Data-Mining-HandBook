@@ -17,9 +17,9 @@ def partial_derivative(func, arr, dx=1e-6):
     :param dx: [int/float] 计算时x的增量
     :return: [list] 偏导数
     """
-    dimension = len(arr)
+    n_features = len(arr)
     ans = []
-    for i in range(dimension):
+    for i in range(n_features):
         def f(x):
             arr2 = list(arr)
             arr2[i] = x
