@@ -22,9 +22,87 @@
 
 ## 2.2 感知机学习策略
 
-【延伸知识】[常见范数的定义和性质](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0_%E6%84%9F%E7%9F%A5%E6%9C%BA/%E3%80%90%E9%85%8D%E5%A5%97%E7%9F%A5%E8%AF%86%E3%80%91%E5%B8%B8%E8%A7%81%E8%8C%83%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%80%A7%E8%B4%A8.md)
+#### 常见范数的定义和性质
 
-【延伸知识】[点到超平面距离公式的推导过程](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC2%E7%AB%A0_%E6%84%9F%E7%9F%A5%E6%9C%BA/%E3%80%90%E9%85%8D%E5%A5%97%E7%9F%A5%E8%AF%86%E3%80%91%E7%82%B9%E5%88%B0%E8%B6%85%E5%B9%B3%E9%9D%A2%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F%E7%9A%84%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B.md)
+**范数** ，对应闵可夫斯基距离 (Minkowski distance) 。假设n维向量$x = (x_1,x_2,\cdots,x_n)^T$，其Lp范数记作$||x||_p$，定义为 $||x||_p = (|x_1|^p+|x_2|^p+\cdots+|x_n|^p)^{\frac{1}{p}}$ 。范数具有如下定义：
+
+* 正定性：$||x|| \ge 0$，且有$||x||=0 \Leftrightarrow x=0$；
+* 正齐次性：$||cx|| = |c| \ ||x||$；
+* 次可加性（三角不等式）：$||x+y|| \le ||x|| + ||y||$。
+
+**L0范数**
+
+假设n维向量$x = (x_1,x_2,\cdots,x_n)^T$，其L0范数记作$||x||_0$，定义为向量中非0元素的个数。
+
+**L1范数**
+
+假设n维向量$x = (x_1,x_2,\cdots,x_n)^T$，其L1范数记作$||x||_1$，定义为 $||x||_1 = |x_1|+|x_2|+\cdots+|x_n|$ 。向量的L1范数即为向量中各个元素绝对值之和，对应曼哈顿距离 (Manhattan distance)。
+
+**L2范数**
+
+假设n维向量$x = (x_1,x_2,\cdots,x_n)^T$，其L2范数记作$||x||_2$，定义为 $||x||_2 = (|x_1|^2+|x_2|^2+\cdots+|x_n|^2)^{\frac{1}{2}}$ 。向量的L2范数即为向量中各个元素平方和的平方根，对应欧式距离 (Manhattan distance)。
+
+**无穷范数**
+
+假设n维向量$x = (x_1,x_2,\cdots,x_n)^T$，其无穷范数记作$||x||_\infty$，定义为 $||x||_\infty = max(|x_1|,|x_2|,\cdots,|x_n|)$ 。向量的无穷范数即为向量中各个元素绝对值的最大值，对应切比雪夫距离 (Chebyshev distance)。
+
+#### 【配套知识】点到超平面距离公式的推导过程
+
+已知$S$为n维欧式空间中的n-1维超平面$\bold{w}·x + b =0$，其中 $\bold{w}$ 和 $x$ 均为n维向量；另有n维空间中的点 $x_0 = (x_0^{(1)},x_0^{(2)},\cdots,x_0^{(n)})$ 。求证：点 $P$ 到超平面 $S$ 的距离 $d = \frac{1}{||w||_2} |\bold{w}·x_0+b|$ ，其中 $||w||_2$ 为 $w$ 的2-范数。
+
+证明如下：
+
+由超平面 $S$ 的定义式可知 $w$ 为超平面 $S$ 的法向量， $b$ 为超平面 $S$ 的截距。
+
+设点 $x_0$ 在超平面 $S$ 上的投影为 $x_1 = (x_1^{(1)},x_1^{(2)},\cdots,x_1^{(n)})$ ，则有
+
+$$
+\bold{w} · x_1 + b = 0 \tag{1}
+$$
+
+点 $P$ 到超平面 $S$ 的距离 $d$ 即为向量 $\vec{x_0 x_1}$的长度。
+
+因为 $\vec{x_0 x_1}$ 与超平面 $S$ 的法向量 $w$ 平行，所以 $\vec{x_0 x_1}$ 与法向量夹角的余弦值 $cos \theta = 0$ ，故有 
+$$
+\begin{aligned}
+\bold{w} · \vec{x_0 x_1} 
+& = |\bold{w}| \ |\vec{x_0 x_1}| \ cos \theta \\
+& = |\bold{w}| \ |\vec{x_0 x_1}| \\
+& = [(w^{(1)})^2 + (w^{(2)})^2 + \cdots + (w^{(n)})^2]^\frac{1}{2} \ d \\
+& = ||w||_2 d
+\end{aligned}
+\tag{2}
+$$
+
+又有（应用向量点积的分配律）
+$$
+\begin{aligned}
+\bold{w} · \vec{x_0 x_1} 
+& = w^{(1)} (x_1^{(1)} - x_0^{(1)}) + w^{(2)} (x_1^{(2)} - x_0^{(2)}) + \cdots + w^{(n)} (x_1^{(n)} - x_0^{(n)}) \\
+& = (w^{(1)} x_1^{(1)} + w^{(2)} x_1^{(2)} + \cdots + w^{(n)} x_1^{(n)}) - (w^{(1)} x_0^{(1)} + w^{(2)} x_0^{(2)} + \cdots + w^{(n)} x_0^{(n)}) \\
+& = \bold{w}·x_1 - \bold{w}·x_0
+\end{aligned}
+\tag{3}
+$$
+
+由式(1)，有$w·x_1 = -b$，故式(3)可以写成
+$$
+\begin{aligned}
+\bold{w} · \vec{x_0 x_1} 
+& = \bold{w}·x_1 - \bold{w}·x_0 \\
+& = -b - \bold{w}·x_0
+\end{aligned}
+\tag{4}
+$$
+由式(2)和式(4)，得
+$$
+\begin{aligned}
+||w||_2 d = |-b - \bold{w}·x_0| \\
+d = \frac{1}{||w||_2} |\bold{w}·x_0+b|
+\end{aligned}
+$$
+
+得证。
 
 ## 2.3.1：感知机学习算法的原始形式
 
