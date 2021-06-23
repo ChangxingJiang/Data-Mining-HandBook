@@ -1,57 +1,59 @@
-# 《统计学习方法》啃书辅助：第3章 k近邻法
+# 《统计学习方法》啃书辅助：第 3 章 k 近邻法
 
-**k近邻法的学习过程**：没有显示的学习过程。
+**k 近邻法的学习过程**：没有显示的学习过程。
 
-**k近邻法（用于分类）的预测过程**：在训练数据集中找到与新的输入实例最邻近的k个实例，这k个实例的多数属于某个类，就把该输入实例分为这个类。
+**k 近邻法（用于分类）的预测过程**：在训练数据集中找到与新的输入实例最邻近的 k 个实例，这 k 个实例的多数属于某个类，就把该输入实例分为这个类。
 
-**k近邻法的类别划分**：
+**k 近邻法的类别划分**：
 
-* 用于解决分类或回归问题的监督学习模型
-* 非概率模型：模型取函数形式
-* 线性模型：模型函数为线性函数
-* 非参数化模型：假设模型参数的维度不固定
-* 判别模型：由数据直接学习决策函数$f(X)$
+- 用于解决分类或回归问题的监督学习模型
+- 非概率模型：模型取函数形式
+- 线性模型：模型函数为线性函数
+- 非参数化模型：假设模型参数的维度不固定
+- 判别模型：由数据直接学习决策函数 $f(X)$
 
-**k近邻法的主要优点**：精度高、对异常值不敏感、无数据输入假定。
+**k 近邻法的主要优点**：精度高、对异常值不敏感、无数据输入假定。
 
-**k近邻法的主要缺点**：计算复杂度高、空间复杂度高。
+**k 近邻法的主要缺点**：计算复杂度高、空间复杂度高。
 
-> 【扩展阅读】[sklearn中文文档：1.6 最近邻](https://sklearn.apachecn.org/docs/master/7.html)
+> 【扩展阅读】[sklearn 中文文档：1.6 最近邻](https://sklearn.apachecn.org/docs/master/7.html)
 
------
+---
 
-#### 用于回归的k近邻法
+#### 用于回归的 k 近邻法
 
-给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的k个实例，这k个实例的平均值，就是该输入实例的预测值。
+给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的 k 个实例，这 k 个实例的平均值，就是该输入实例的预测值。
 
-## 3.1： k近邻算法
+## 3.1： k 近邻算法
 
-> 【补充说明】$argmax$函数用于计算因变量取得最大值时对应的自变量的点集。求函数$f(x)$取得最大值时对应的自变量$x$的点集可以写作
->
-> $$
-> arg \max_{x} f(x)
-> $$
+【补充说明】$argmax$ 函数用于计算因变量取得最大值时对应的自变量的点集。求函数 $f(x)$ 取得最大值时对应的自变量 $x$ 的点集可以写作
 
-## 3.2： k近邻模型
+$$
+arg \max_{x} f(x)
+$$
 
-> 【补充说明】**多数表决规则的分类函数**
-> $$
-> f:R^n \rightarrow \{c_1,c_2,\cdots,c_K\}
-> $$
->
-> 上式中的“$\rightarrow$”表示映射。分类函数$f$为n维实数向量空间$R^n$到类别集合$\{c_1,c_2,\cdots,c_K\}$的映射。
+## 3.2： k 近邻模型
 
-> **【补充说明】多数表决规则的误分类率**
-> $$
-> \frac{1}{k} \sum_{x_i \in N_k(x)} I(y_i \ne c_j) = 1 - \frac{1}{k} \sum_{x_i \in N_k(x)} I(y_i=c_j)
-> $$
->
-> 其中$I$是指示函数，$I(y_i \ne c_j)$当$y_i \ne c_j$时为1，否则为0。
+【补充说明】多数表决规则的分类函数
 
-#### $L_p$距离的特征总结（例3-1）
+$$
+f:R^n \rightarrow \{c_1,c_2,\cdots,c_K\}
+$$
 
-* 当两个向量只有一个维度的值不同时，$L_p$距离的大小与$p$无关；
-* 当两个向量有超过一个维度的值不同时，$p$越大，两个向量之间的$L_p$距离越小。
+上式中的“$\rightarrow$”表示映射。分类函数 $f$ 为 n 维实数向量空间 $R^n$ 到类别集合 $\{c_1,c_2,\cdots,c_K\}$ 的映射。
+
+【补充说明】多数表决规则的误分类率
+
+$$
+\frac{1}{k} \sum_{x_i \in N_k(x)} I(y_i \ne c_j) = 1 - \frac{1}{k} \sum_{x_i \in N_k(x)} I(y_i=c_j)
+$$
+
+其中 $I$ 是指示函数，$I(y_i \ne c_j)$ 当 $y_i \ne c_j$ 时为 1，否则为 0。
+
+#### $L_p$ 距离的特征总结（例 3-1）
+
+- 当两个向量只有一个维度的值不同时，$L_p$ 距离的大小与 $p$ 无关；
+- 当两个向量有超过一个维度的值不同时，$p$ 越大，两个向量之间的 $L_p$ 距离越小。
 
 #### 近似误差和估计误差
 
@@ -61,11 +63,11 @@
 
 近似误差减小，模型能够更加地准确预测训练数据集中，但训练数据集中的噪音产生的影响也会增大，估计误差增大，容易过拟合。估计误差减小，模型估计值受更多样本的影响，单个噪声产生的影响也随着缩小，但模型估计值预测训练数据集的准确程度也随之下降，近似误差增大，容易欠拟合。
 
-#### k值的选择
+#### k 值的选择
 
-经验规则：k值一般小于训练样本量的平方根
+经验规则：k 值一般小于训练样本量的平方根
 
-#### Lp距离（Python实现）
+#### Lp 距离（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_lp_distance.py)】code.knn.lp_distance
 
@@ -84,7 +86,7 @@ def lp_distance(p, x1, x2):
     return pow(sum(pow(abs(x1[i] - x2[i]), p) for i in range(n_features)), 1 / p)
 ```
 
-#### 欧氏距离（Python实现）
+#### 欧氏距离（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_eucliean_distance.py)】code.knn.euclidean_distance
 
@@ -102,7 +104,7 @@ def euclidean_distance(x1, x2):
     return pow(sum(pow(x1[i] - x2[i], 2) for i in range(n_features)), 1 / 2)
 ```
 
-#### 曼哈顿距离（Python实现）
+#### 曼哈顿距离（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_manhattan_distance.py)】code.knn.manhattan_distance
 
@@ -120,11 +122,11 @@ def manhattan_distance(x1, x2):
     return sum(abs(x1[i] - x2[i]) for i in range(n_features))
 ```
 
-## 3.3： k近邻法的实现——kd树
+## 3.3： k 近邻法的实现——kd 树
 
-> 【算法3.3 补充说明】在每一次递归中，即使已经将当前结点保存的实例点作为“当前最近点”（3.a），也仍然需要检查另一个子结点对应的区域内是否存在更近点（3.b）。
+【算法 3.3 补充说明】在每一次递归中，即使已经将当前结点保存的实例点作为“当前最近点”（3.a），也仍然需要检查另一个子结点对应的区域内是否存在更近点（3.b）。
 
-#### 线性扫描实现的k近邻计算（Python实现）
+#### 线性扫描实现的 k 近邻计算（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_linear_sweep_knn.py)】code.knn.LinearSweepKNN
 
@@ -164,23 +166,23 @@ class LinearSweepKNN:
 1
 ```
 
-#### 搜索kd树的停止条件
+#### 搜索 kd 树的停止条件
 
-如果父结点的另一个子结点的超矩形区域与超球体不相交，只能说明是另一个子结点在被用于切分的维度上，在当前方向上，不再会有必当前最近点更近的点，但并不能说明在当前维度的另一个方向上，以及在其他方向上并不存在比当前最近点更近的点。例如例3.3中，F的区域的超矩形与超球体已不想交，但之后的搜索中还能找到更近的最近点E。
+如果父结点的另一个子结点的超矩形区域与超球体不相交，只能说明是另一个子结点在被用于切分的维度上，在当前方向上，不再会有必当前最近点更近的点，但并不能说明在当前维度的另一个方向上，以及在其他方向上并不存在比当前最近点更近的点。例如例 3.3 中，F 的区域的超矩形与超球体已不想交，但之后的搜索中还能找到更近的最近点 E。
 
 这个剪枝条件更应该被描述为：若当前结点距离目标位置的距离，在当前方向的分量上都已经超过超球体的半径，则不用考虑另一个子结点的情况。
 
-#### kd树的抽象数据类型
+#### kd 树的抽象数据类型
 
-kd树是存储k维空间数据的树形数据结构，并支持快速地近邻搜索。从形式上来说，kd树是将每一个元素存在一个结点上，kd树的抽象数据类型（ADT）支持以下访问方法，用T表示这一ADT实例：
+kd 树是存储 k 维空间数据的树形数据结构，并支持快速地近邻搜索。从形式上来说，kd 树是将每一个元素存在一个结点上，kd 树的抽象数据类型（ADT）支持以下访问方法，用 T 表示这一 ADT 实例：
 
-* T(data)：构造kd树实例。在Python中，我们用`__init__`这个特殊方法来实现它。
-* T._build_kd_tree(data)：根据k维空间数据data构造kd树，并返回构造的kd树的根结点。
-* T.search_nearest(x)：返回x的最近邻点。如果kd树p中没有元素，这个操作将出错。
-* T.search_knn(x,k)：返回距离x最近的k个点。如果kd树P中元素的数量不足k，这个操作这返回所有的点。
-* len(P)：返回kd树P中元素的数量。在Python中，我们用`__len__`这个特殊方法来实现它。
+- T(data)：构造 kd 树实例。在 Python 中，我们用`__init__`这个特殊方法来实现它。
+- T.\_build_kd_tree(data)：根据 k 维空间数据 data 构造 kd 树，并返回构造的 kd 树的根结点。
+- T.search_nearest(x)：返回 x 的最近邻点。如果 kd 树 p 中没有元素，这个操作将出错。
+- T.search_knn(x,k)：返回距离 x 最近的 k 个点。如果 kd 树 P 中元素的数量不足 k，这个操作这返回所有的点。
+- len(P)：返回 kd 树 P 中元素的数量。在 Python 中，我们用`__len__`这个特殊方法来实现它。
 
-#### KD树（原生Python实现）
+#### KD 树（原生 Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_kd_tree.py)】code.knn.KDTree
 
@@ -275,15 +277,15 @@ class KDTree:
         return self._size
 ```
 
-#### 基于kd树实现的k近邻计算（sklearn.neighbors.KDTree实现）
+#### 基于 kd 树实现的 k 近邻计算（sklearn.neighbors.KDTree 实现）
 
-【延伸知识】[sklearn.neighbors.KDTree用法详解](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/01_sklearn%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/kd%E6%A0%91%EF%BC%88KDTree%EF%BC%89.md)
+【延伸知识】[sklearn.neighbors.KDTree 用法详解](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/01_sklearn%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/kd%E6%A0%91%EF%BC%88KDTree%EF%BC%89.md)
 
-【延伸知识】[sklearn.neighbors.DistanceMetric用法详解](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/01_sklearn%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97(DistanceMetric).md)
+【延伸知识】[sklearn.neighbors.DistanceMetric 用法详解](<https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/01_sklearn%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97(DistanceMetric).md>)
 
-【官方API文档】[sklearn.neighbors.KDTree官方API文档](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KDTree.html#sklearn.neighbors.KDTree)
+【官方 API 文档】[sklearn.neighbors.KDTree 官方 API 文档](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KDTree.html#sklearn.neighbors.KDTree)
 
-【官方API文档】[sklearn.neighbors.DistanceMetric官方API文档](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric)
+【官方 API 文档】[sklearn.neighbors.DistanceMetric 官方 API 文档](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric)
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_kd_tree_knn.py)】code.knn.KDTreeKNN
 
@@ -319,9 +321,9 @@ class KDTreeKNN:
 1
 ```
 
-#### 简单交叉验证计算k最优的KNN分类器（sklearn.neighbors.KNeighborsClassifier实现）
+#### 简单交叉验证计算 k 最优的 KNN 分类器（sklearn.neighbors.KNeighborsClassifier 实现）
 
-【官方API文档】[sklearn.neighbors.KNeighborsClassifier官方API文档](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier)
+【官方 API 文档】[sklearn.neighbors.KNeighborsClassifier 官方 API 文档](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier)
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_build_best_knn_simple_cross_validation.py)】code.knn.build_best_knn_simple_cross_validation
 
@@ -363,9 +365,9 @@ def build_best_knn_simple_cross_validation(x, y):
 0.900
 ```
 
-#### S折交叉验证计算k最优的KNN分类器（sklearn.model_selection.cross_val_score实现）
+#### S 折交叉验证计算 k 最优的 KNN 分类器（sklearn.model_selection.cross_val_score 实现）
 
-【官方API文档】[sklearn.model_selection.cross_val_score官方API文档](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html?highlight=cross_val_score#sklearn.model_selection.cross_val_score)
+【官方 API 文档】[sklearn.model_selection.cross_val_score 官方 API 文档](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html?highlight=cross_val_score#sklearn.model_selection.cross_val_score)
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/knn/_build_best_knn_s_fold_cross_validation.py)】code.knn.build_best_knn_s_fold_cross_validation
 
@@ -409,28 +411,27 @@ def build_best_knn_s_fold_cross_validation(x, y):
 
 ## 延伸阅读
 
-【官方API文档】[随机数据集(datasets.make...)的官方API文档](https://scikit-learn.org/stable/modules/classes.html#samples-generator)
+【官方 API 文档】[随机数据集(datasets.make...)的官方 API 文档](https://scikit-learn.org/stable/modules/classes.html#samples-generator)
 
-【官方API文档】[经典数据集(datasets.load...)的官方API文档](https://scikit-learn.org/stable/modules/classes.html#loaders)
+【官方 API 文档】[经典数据集(datasets.load...)的官方 API 文档](https://scikit-learn.org/stable/modules/classes.html#loaders)
 
-首先，讨论k近邻法对随机数据集的准确率。随机数据集共包含10000个样本，所有随机使用随机种子为0。随机地将数据集切分为两部分，分别为训练集（8000个样本）和测试集（2000个样本）。采用S折交叉验证的方法选择最优k值。
+首先，讨论 k 近邻法对随机数据集的准确率。随机数据集共包含 10000 个样本，所有随机使用随机种子为 0。随机地将数据集切分为两部分，分别为训练集（8000 个样本）和测试集（2000 个样本）。采用 S 折交叉验证的方法选择最优 k 值。
 
-| 随机数据集形态 (省略随机种子)                                | 最优k | 最优k的准确率 |
-| ------------------------------------------------------------ | ----- | ------------- |
-| 各向同性的斑点状数据 : `make_blobs(n_samples=1000, n_features=10, centers=2, cluster_std=5000, center_box=(-10000, 10000), random_state=0)` | 58    | 0.980         |
-| 各向同性的斑点状数据 : `make_blobs(n_samples=1000, n_features=10, centers=5, cluster_std=5000, center_box=(-10000, 10000), random_state=0)` | 74    | 0.905         |
-| 各向同性的斑点状数据 : `make_blobs(n_samples=1000, n_features=10, centers=10, cluster_std=5000, center_box=(-10000, 10000), random_state=0)` | 32    | 0.900         |
-| 有噪声的同心环 : `make_circles(n_samples=1000, noise=0.1, random_state=0)` | 18    | 0.825         |
-| 有噪声的同心环 : `make_circles(n_samples=1000, noise=0.2, random_state=0)` | 62    | 0.670         |
-| 有噪声的两个月形半圆 : `make_moons(n_samples=1000, noise=0.2, random_state=0)` | 26    | 0.970         |
-| 有噪声的两个月形半圆 : `make_moons(n_samples=1000, noise=0.4, random_state=0)` | 9     | 0.865         |
+| 随机数据集形态 (省略随机种子)                                                                                                                | 最优 k | 最优 k 的准确率 |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --------------- |
+| 各向同性的斑点状数据 : `make_blobs(n_samples=1000, n_features=10, centers=2, cluster_std=5000, center_box=(-10000, 10000), random_state=0)`  | 58     | 0.980           |
+| 各向同性的斑点状数据 : `make_blobs(n_samples=1000, n_features=10, centers=5, cluster_std=5000, center_box=(-10000, 10000), random_state=0)`  | 74     | 0.905           |
+| 各向同性的斑点状数据 : `make_blobs(n_samples=1000, n_features=10, centers=10, cluster_std=5000, center_box=(-10000, 10000), random_state=0)` | 32     | 0.900           |
+| 有噪声的同心环 : `make_circles(n_samples=1000, noise=0.1, random_state=0)`                                                                   | 18     | 0.825           |
+| 有噪声的同心环 : `make_circles(n_samples=1000, noise=0.2, random_state=0)`                                                                   | 62     | 0.670           |
+| 有噪声的两个月形半圆 : `make_moons(n_samples=1000, noise=0.2, random_state=0)`                                                               | 26     | 0.970           |
+| 有噪声的两个月形半圆 : `make_moons(n_samples=1000, noise=0.4, random_state=0)`                                                               | 9      | 0.865           |
 
-接着，讨论k近邻法对经典数据集的准确率。所有随机使用随机种子为0。随机地将数据集切分为两部分，分别为训练集（2/3的样本）和测试集（1/3的样本）。采用S折交叉验证的方法选择最优k值。
+接着，讨论 k 近邻法对经典数据集的准确率。所有随机使用随机种子为 0。随机地将数据集切分为两部分，分别为训练集（2/3 的样本）和测试集（1/3 的样本）。采用 S 折交叉验证的方法选择最优 k 值。
 
-| 经典数据集                                      | 最优k | 最优k的准确率 |
-| ----------------------------------------------- | ----- | ------------- |
-| 鸢尾花数据集 : `load_iris()`                    | 5     | 0.98          |
-| 8×8数字数据集 : `load_digits()`                 | 1     | 0.9850        |
-| 威斯康星州乳腺癌数据集 : `load_breast_cancer()` | 8     | 0.9579        |
-| 葡萄酒数据集 : `load_wine()`                    | 1     | 0.7667        |
-
+| 经典数据集                                      | 最优 k | 最优 k 的准确率 |
+| ----------------------------------------------- | ------ | --------------- |
+| 鸢尾花数据集 : `load_iris()`                    | 5      | 0.98            |
+| 8×8 数字数据集 : `load_digits()`                | 1      | 0.9850          |
+| 威斯康星州乳腺癌数据集 : `load_breast_cancer()` | 8      | 0.9579          |
+| 葡萄酒数据集 : `load_wine()`                    | 1      | 0.7667          |
