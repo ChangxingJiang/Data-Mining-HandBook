@@ -4,17 +4,20 @@
 
 【基础知识】梯度
 
-【基础知识】[浅谈「正定矩阵」和「半正定矩阵」 - Xinyu Chen的文章 - 知乎](https://zhuanlan.zhihu.com/p/44860862)
+【基础知识】[浅谈「正定矩阵」和「半正定矩阵」 - Xinyu Chen 的文章 - 知乎](https://zhuanlan.zhihu.com/p/44860862)
 
 #### 二阶泰勒展开和黑塞矩阵
 
-若一元函数$f(x)$具有二阶连续导数，则$f(x)$在点$x_0$处的二阶泰勒展开式如下（省略高阶无穷小）：
+若一元函数 $f(x)$ 具有二阶连续导数，则 $f(x)$ 在点 $x_0$ 处的二阶泰勒展开式如下（省略高阶无穷小）：
+
 $$
 f(x) = f(x_0) + f'(x_0) \Delta x + \frac{1}{2} f''(x_0) (\Delta x)^2
 $$
-其中$\Delta x=x-x_0$。
 
-若二元函数$f(x^{(1)},x^{(2)})$具有二阶连续偏导数，则$f(x^{(1)},x^{(2)})$在点$(x_0^{(1)},x_0^{(2)})$处的二阶泰勒展开式如下（省略高阶无穷小）：
+其中 $\Delta x=x-x_0$。
+
+若二元函数 $f(x^{(1)},x^{(2)})$ 具有二阶连续偏导数，则 $f(x^{(1)},x^{(2)})$ 在点 $(x_0^{(1)},x_0^{(2)})$ 处的二阶泰勒展开式如下（省略高阶无穷小）：
+
 $$
 \begin{align}
 f(x^{(1)},x^{(2)}) = &
@@ -38,10 +41,12 @@ f(x_0^{(1)},x_0^{(2)}) +
 o
 \end{align}
 $$
-其中$\Delta x^{(1)} = x^{(1)} - x_0^{(1)}$，$\Delta x^{(2)} = x^{(2)} - x_0^{(2)}$。将上述展开式写成矩阵形式，有
+
+其中 $\Delta x^{(1)} = x^{(1)} - x_0^{(1)}$，$\Delta x^{(2)} = x^{(2)} - x_0^{(2)}$。将上述展开式写成矩阵形式，有
+
 $$
 f(X) = f(X_0)
-+ 
++
 \begin{bmatrix}
 \frac{\partial f}{\partial x^{(1)}} & \frac{\partial f}{\partial x^{(2)}}
 \end{bmatrix}
@@ -66,26 +71,30 @@ f(X) = f(X_0)
 \Delta x^{(2)}
 \end{bmatrix}
 $$
-其中$\begin{bmatrix}\frac{\partial f}{\partial x^{(1)}} & \frac{\partial f}{\partial x^{(2)}}\end{bmatrix}$是$f(X)$在点$X_0$的梯度向量的转置；$\begin{bmatrix}\frac{\partial^2 f}{\partial^2 x^{(1)}} & \frac{\partial^2 f}{\partial x^{(1)} \partial x^{(2)}} \\ \frac{\partial^2 f}{\partial x^{(2)} \partial x^{(1)}} & \frac{\partial^2 f}{\partial^2 x^{(2)}}\end{bmatrix}$是$f(x)$的黑塞矩阵在点$X_0$的值，记作$H(X_0)$。于是上式可以写成：
+
+其中 $\begin{bmatrix}\frac{\partial f}{\partial x^{(1)}} & \frac{\partial f}{\partial x^{(2)}}\end{bmatrix}$ 是 $f(X)$ 在点 $X_0$ 的梯度向量的转置；$\begin{bmatrix}\frac{\partial^2 f}{\partial^2 x^{(1)}} & \frac{\partial^2 f}{\partial x^{(1)} \partial x^{(2)}} \\ \frac{\partial^2 f}{\partial x^{(2)} \partial x^{(1)}} & \frac{\partial^2 f}{\partial^2 x^{(2)}}\end{bmatrix}$ 是 $f(x)$ 的黑塞矩阵在点 $X_0$ 的值，记作 $H(X_0)$。于是上式可以写成：
+
 $$
 f(X) = f(X_0) + \nabla f(X_0) ^T \Delta X + \frac{1}{2} \Delta X^T H(X_0) \Delta X
 $$
+
 以上结果可以推广到三元及三元以上的多元函数，多元函数的黑塞矩阵为：
+
 $$
-H(f) = 
+H(f) =
 \begin{bmatrix}
 \frac{\partial^2 f}{\partial^2 x^{(1)}} & \frac{\partial^2 f}{\partial x^{(1)} \partial x^{(2)}} & \cdots & \frac{\partial^2 f}{\partial x^{(1)} \partial x^{(n)}} \\
 \frac{\partial^2 f}{\partial x^{(2)} \partial^{(1)}} & \frac{\partial^2 f}{\partial^2 x^{(2)}} & \cdots & \frac{\partial^2 f}{\partial x^{(2)} \partial x^{(n)}} \\
-\vdots & \vdots & \ddots & \vdots \\ 
+\vdots & \vdots & \ddots & \vdots \\
 \frac{\partial^2 f}{\partial x^{(n)} \partial x^{(1)}} & \frac{\partial^2 f}{\partial x^{(n)} \partial x^{(2)}} & \cdots & \frac{\partial^2 f}{\partial^2 x^{(n)}}
 \end{bmatrix}
 $$
 
-#### 黑塞矩阵的计算（Python+scipy实现）
+#### 黑塞矩阵的计算（Python+scipy 实现）
 
 > **【定理】 （来自同济大学《高等数学》第七版下册 P. 70）**
 >
-> 如果函数$z=f(x,y)$的两个二阶混合偏导数$\frac{\partial^2 z}{\partial x \partial y}$及$\frac{\partial^2 z}{\partial y \partial x}$在区域D内连续，那么在该区域内这两个二阶混合偏导数必相等。
+> 如果函数 $z=f(x,y)$ 的两个二阶混合偏导数 $\frac{\partial^2 z}{\partial x \partial y}$ 及 $\frac{\partial^2 z}{\partial y \partial x}$ 在区域 D 内连续，那么在该区域内这两个二阶混合偏导数必相等。
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_get_hessian.py)】code.newton_method.get_hessian
 
@@ -133,7 +142,7 @@ def get_hessian(func, x0, dx=1e-6):
 [[6 ,  -4], [-4, -16]]
 ```
 
-#### 计算逆矩阵（Python+numpy实现）
+#### 计算逆矩阵（Python+numpy 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95B_%E7%89%9B%E9%A1%BF%E6%B3%95%E5%92%8C%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/%E8%AE%A1%E7%AE%97%E9%80%86%E7%9F%A9%E9%98%B5.py)】测试
 
@@ -145,7 +154,7 @@ def get_hessian(func, x0, dx=1e-6):
  [-0.03571429 -0.05357143]]
 ```
 
-#### 牛顿法（Python+numpy+scipy实现）
+#### 牛顿法（Python+numpy+scipy 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_newton_method.py)】code.newton_method.newton_method
 
@@ -199,38 +208,45 @@ def newton_method(func, n_features, epsilon=1e-6, maximum=1000):
 
 ## B.2 拟牛顿法的思路
 
-> 【补充说明】B14推导到B.15时，**近似**是因为忽略了二阶泰勒展开式。
+【补充说明】B14 推导到 B.15 时，**近似**是因为忽略了二阶泰勒展开式。
 
-#### 【问题】B.16的拟牛顿条件中为什么可以是$G_{k+1}$，而不是$G_k$？
+#### 【问题】B.16 的拟牛顿条件中为什么可以是 $G_{k+1}$，而不是 $G_k$？
 
-设经过$k+1$次迭代后得到$x^{(k+1)}$，此时将目标函数$f(x)$在$x^{(k+1)}$处做二阶泰勒展开，得（类似于B.2）：
+设经过 $k+1$ 次迭代后得到 $x^{(k+1)}$，此时将目标函数 $f(x)$ 在 $x^{(k+1)}$ 处做二阶泰勒展开，得（类似于 B.2）：
+
 $$
 f(x) =  f(x^{(k+1)}) + g_{(k+1)}^T (x-x^{(k+1)}) + \frac{1}{2} (x-x^{(k+1)})^T H(x^{(k+1)}) (x-x^{(k+1)})
 $$
-根据二阶导数的定义，于是有（类似于B.6）
+
+根据二阶导数的定义，于是有（类似于 B.6）
+
 $$
 \nabla f(x) = g_{k+1} + H_{k+1} (x-x^{(k+1)})
 $$
-在上式中取$x = x^{(k)}$（$x^{(k)}$也在$x^{(k+1)}$的邻域内），即得（类似于B.11）
+
+在上式中取 $x = x^{(k)}$（$x^{(k)}$ 也在 $x^{(k+1)}$ 的邻域内），即得（类似于 B.11）
+
 $$
 g_k - g_{k+1} = H_{k+1} (x_k-x^{(k+1)})
 $$
-记$y_k=g_{k+1} - g_k$，$\delta_k = x^{(k+1)}-x^{(k)}$，则（类似于B.13）
+
+记 $y_k=g_{k+1} - g_k$，$\delta_k = x^{(k+1)}-x^{(k)}$，则（类似于 B.13）
+
 $$
 H_{k+1}^{-1} y_k = \delta_k
 $$
 
-## B.3  DFP算法
+## B.3 DFP 算法
 
-> 【补充说明】正定对称的初始矩阵$G_0$，不妨取单位矩阵$I$。
+【补充说明】正定对称的初始矩阵 $G_0$，不妨取单位矩阵 $I$。
 
-#### 【问题】DFP算法和BFGS算法等为什么需要一维搜索？
+#### 【问题】DFP 算法和 BFGS 算法等为什么需要一维搜索？
 
 当目标函数是二次函数时，因为二阶泰勒展开函数与原目标函数是完全相同的，所以从任一初始点出发，只需要一次迭代即可达到极小值点。因此，牛顿法是一种具有二次收敛性的算法。对于非二次函数，若函数的二次性态较强，或迭代点已进入极小点的邻域，则其收敛速度是很快的。
 
-但是，由于迭代公式中没有步长因子，而是定步长迭代，对于非二次型目标函数，有时会使函数值上升，不能保证函数值稳定地下降，甚至可能造成无法收敛的情况。因此，人们提出了“阻尼牛顿法”，即每次迭代方向仍采用$p_k$，但每次迭代需沿此方向一维搜索，寻求最优的步长因子$\lambda_k$。
+但是，由于迭代公式中没有步长因子，而是定步长迭代，对于非二次型目标函数，有时会使函数值上升，不能保证函数值稳定地下降，甚至可能造成无法收敛的情况。因此，人们提出了“阻尼牛顿法”，即每次迭代方向仍采用 $p_k$，但每次迭代需沿此方向一维搜索，寻求最优的步长因子 $\lambda_k$。
 
-#### DFP算法（Python实现）
+#### DFP 算法（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_dfp_algorithm.py)】code.newton_method.dfp_algorithm
 
@@ -305,11 +321,11 @@ def dfp_algorithm(func, n_features, epsilon=1e-6, distance=3, maximum=1000):
 [-3.0000000003324554, -3.9999999998511546]
 ```
 
-## B.4 BFGS算法
+## B.4 BFGS 算法
 
-> 【补充说明】正定对称的初始矩阵$G_0$，不妨取单位矩阵$I$。
+【补充说明】正定对称的初始矩阵 $G_0$，不妨取单位矩阵 $I$。
 
-#### BFGS算法（Python实现）
+#### BFGS 算法（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_bfgs_algorithm.py)】code.newton_method.bfgs_algorithm
 
@@ -387,7 +403,7 @@ def bfgs_algorithm(func, n_features, epsilon=1e-6, distance=3, maximum=1000):
 [-3.0000000003324554, -3.9999999998511546]
 ```
 
-#### BFGS算法(Sherman-Morrison公式)（Python实现）
+#### BFGS 算法(Sherman-Morrison 公式)（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_bfgs_algorithm_with_sherman_morrison.py)】code.newton_method.bfgs_algorithm_with_sherman_morrison
 
@@ -453,7 +469,7 @@ def bfgs_algorithm_with_sherman_morrison(func, n_features, epsilon=1e-6, distanc
         x0 = x1
 ```
 
-【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95B_%E7%89%9B%E9%A1%BF%E6%B3%95%E5%92%8C%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/BFGS%E7%AE%97%E6%B3%95(Sherman-Morrison%E5%85%AC%E5%BC%8F).py)】测试
+【[源码地址](<https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E9%99%84%E5%BD%95B_%E7%89%9B%E9%A1%BF%E6%B3%95%E5%92%8C%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/BFGS%E7%AE%97%E6%B3%95(Sherman-Morrison%E5%85%AC%E5%BC%8F).py>)】测试
 
 ```python
 >>> from code.newton_method import bfgs_algorithm_with_sherman_morrison
@@ -463,7 +479,7 @@ def bfgs_algorithm_with_sherman_morrison(func, n_features, epsilon=1e-6, distanc
 [-3.0000000000105342, -4.000000000014043]
 ```
 
-## B.5 Broyden类算法
+## B.5 Broyden 类算法
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/newton_method/_broyden_algorithm.py)】code.newton_method.broyden_algorithm
 

@@ -1,6 +1,6 @@
 # 《统计学习方法》啃书辅助：附录A 梯度下降法
 
-> 【补充说明】书中没有区分“梯度下降法”和“最速下降法”，但实际上两者是存在区别的。算法A.1的梯度下降法实际上是最速下降法。
+【补充说明】书中没有区分“梯度下降法”和“最速下降法”，但实际上两者是存在区别的。算法A.1的梯度下降法实际上是最速下降法。
 
 #### 梯度下降法和最速下降法
 
@@ -10,22 +10,21 @@
 
 #### 梯度
 
-二元函数$z = f(x,y)$为例。如果函数在点$P_0(x_0,y_0)$可微分，$\bold{e}_l = (\cos \alpha,\cos \beta)$是与方向$l$同方向的单位向量，那么函数在点$P_0$沿方向$l$的方向导数
+二元函数$z = f(x,y)$为例。如果函数在点$P_0(x_0,y_0)$可微分，$e_l = (\cos \alpha,\cos \beta)$是与方向$l$同方向的单位向量，那么函数在点$P_0$沿方向$l$的方向导数
 $$
 \begin{align}
 \frac{\partial f}{\partial l}|_{(x_0,y_0)} 
 & = f_x(x_0,y_0) cos \ \alpha + f_y(x_0,y_0) cos \ \beta \\
 & = (f_x(x_0,y_0),f_y(x_0,y_0)) · (cos \ \alpha, cos \ \beta) \\
-& = (f_x(x_0,y_0),f_y(x_0,y_0)) · \bold{e}_l \\
+& = (f_x(x_0,y_0),f_y(x_0,y_0)) · e_l \\
 & = |(f_x(x_0,y_0),f_y(x_0,y_0))| \ cos \ \theta \\ 
 \end{align}
-\tag{22}
 $$
-其中$\theta$是$(f_x(x_0,y_0),f_y(x_0,y_0))$和$\bold{e}_l$的交角。上式(22)表明了函数在这一点的方向导数与向量$(f_x(x_0,y_0),f_y(x_0,y_0))$之间的关系。我们将向量$(f_x(x_0,y_0),f_y(x_0,y_0))$称为函数$f(x,y)$在点$P_0(x_0,y_0)$的梯度，记作$\bold{grad} \ f(x_0,y_0)$或$\nabla f(x_0,y_0)$。特别的有：
+其中$\theta$是$(f_x(x_0,y_0),f_y(x_0,y_0))$和$e_l$的交角。上式(22)表明了函数在这一点的方向导数与向量$(f_x(x_0,y_0),f_y(x_0,y_0))$之间的关系。我们将向量$(f_x(x_0,y_0),f_y(x_0,y_0))$称为函数$f(x,y)$在点$P_0(x_0,y_0)$的梯度，记作$grad \ f(x_0,y_0)$或$\nabla f(x_0,y_0)$。特别的有：
 
-* 当方向$\bold{e}_l$与梯度$\bold{grad} \ f(x_0,y_0)$方向一致时，函数$f(x,y)$增加最快，即函数在这个方向的方向导数取得最大值，这个最大值为梯度$\bold{grad} \ f(x_0,y_0)$的模；
-* 当方向$\bold{e}_l$与梯度$\bold{grad} \ f(x_0,y_0)$方向相反时，函数$f(x,y)$减少最快，即函数在这个方向的方向导数取得最小值，这个最小值为梯度$\bold{grad} \ f(x_0,y_0)$的模的相反数；
-* 当方向$\bold{e}_l$与梯度$\bold{grad} \ f(x_0,y_0)$方向正交时，函数$f(x,y)$的变化率为零。
+* 当方向$e_l$与梯度$grad \ f(x_0,y_0)$方向一致时，函数$f(x,y)$增加最快，即函数在这个方向的方向导数取得最大值，这个最大值为梯度$grad \ f(x_0,y_0)$的模；
+* 当方向$e_l$与梯度$grad \ f(x_0,y_0)$方向相反时，函数$f(x,y)$减少最快，即函数在这个方向的方向导数取得最小值，这个最小值为梯度$grad \ f(x_0,y_0)$的模的相反数；
+* 当方向$e_l$与梯度$grad \ f(x_0,y_0)$方向正交时，函数$f(x,y)$的变化率为零。
 
 在同济大学的《高等数学》中，对二元函数的**梯度**，给出如下定义：
 
@@ -34,17 +33,17 @@ $$
 > 设函数$f(x,y)$在平面区域$D$内具有一阶连续偏导数，则对于每一点$P_0(x_0,y_0) \in D$，都可定出一个向量
 >
 > $$
-> f_x(x_0,y_0) \bold{i} + f_y(x_0,y_0) \bold{j} \tag{22}
+> f_x(x_0,y_0) i + f_y(x_0,y_0) j
 > $$
 >
-> 这向量称为函数$f(x,y)$在点$P_0(x_0,y_0)$的梯度，记作$\bold{grad} \ f(x_0,y_0)$或$\nabla f(x_0,y_0)$，即
+> 这向量称为函数$f(x,y)$在点$P_0(x_0,y_0)$的梯度，记作$grad \ f(x_0,y_0)$或$\nabla f(x_0,y_0)$，即
 > $$
-> \bold{grad} \ f(x_0,y_0) = \nabla f(x_0,y_0) = f_x(x_0,y_0) \bold{i} + f_y(x_0,y_0) \bold{j} \tag{23}
+> grad \ f(x_0,y_0) = \nabla f(x_0,y_0) = f_x(x_0,y_0) i + f_y(x_0,y_0) j
 > $$
 >
-> 其中$\nabla = \frac{\partial}{\partial x} \bold{i} + \frac{\partial}{\partial y} \bold{j}$称为（二维的）向量微分算子或Nabla算子，$\nabla f = \frac{\partial f}{\partial x} \bold{i} + \frac{\partial f}{\partial y} \bold{j}$。
+> 其中$\nabla = \frac{\partial}{\partial x} i + \frac{\partial}{\partial y} j$称为（二维的）向量微分算子或Nabla算子，$\nabla f = \frac{\partial f}{\partial x} i + \frac{\partial f}{\partial y} j$。
 
-其中$\bold{i}$、$\bold{j}$分别为与第一坐标轴同方向和与第二坐标轴同方向的单位向量。
+其中$i$、$j$分别为与第一坐标轴同方向和与第二坐标轴同方向的单位向量。
 
 #### 梯度向量计算（Python+scipy计算）
 
