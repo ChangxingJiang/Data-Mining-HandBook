@@ -70,6 +70,8 @@
 
 #### 线性支持向量机（sklearn实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC7%E7%AB%A0_%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA(sklearn).py)】
+
 ```python
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
@@ -455,6 +457,8 @@ $$
 
 在当前字符相同时，额外增加使用当前相同字符的情况：`dp[l][i][j] += dp[l-1][i-1][j-1] * att * att`；同时，当前子序列长度的核函数的结果由这部分累加即可。
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC7%E7%AB%A0_%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%B8%E5%87%BD%E6%95%B0%E7%9A%84%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AE%A1%E7%AE%97.py)】
+
 ```python
 def count_kernel_function_for_string(s1, s2, length: int, att: float):
     """计算字串长度等于n的字符串核函数的值
@@ -503,6 +507,8 @@ def count_kernel_function_for_string(s1, s2, length: int, att: float):
 
 #### 非线性支持向量机（sklearn实现）
 
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC7%E7%AB%A0_%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA(sklearn).py)】
+
 ```python
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
@@ -545,6 +551,8 @@ $g(x)$为当前模型对输入$x$的预测值；
 $E_i$为当前模型对输入$x_i$的预测值与真实值之间的有符号的差。
 
 #### SMO实现的支持向量机（原生Python实现）
+
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/svm/_svm.py)】code.svm.SVM
 
 ```python
 import numpy as np
@@ -708,6 +716,8 @@ class SVM:
         else:
             return False
 ```
+
+【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC7%E7%AB%A0_%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/SMO%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA(%E5%8E%9F%E7%94%9FPython).py)】测试
 
 ```python
 import time
