@@ -1,4 +1,4 @@
-# 《统计学习方法》啃书辅助：第5章 决策树
+# 《统计学习方法》啃书辅助：第 5 章 决策树
 
 **决策树的学习过程**：利用训练数据，根据损失函数最小化的原则建立决策树模型。学习通常包括特征选择、决策树的生成、决策树的修剪三个步骤。
 
@@ -6,53 +6,53 @@
 
 **决策树的类别划分**：
 
-* 用于解决分类和回归问题的监督学习模型
-* 概率模型：模型取条件概率分布形式$P(y|x)$
-* 非参数化模型：假设模型参数的维度不固定
-* 判别模型：由数据直接学习决策函数$f(X)$
+- 用于解决分类和回归问题的监督学习模型
+- 概率模型：模型取条件概率分布形式 $P(y|x)$
+- 非参数化模型：假设模型参数的维度不固定
+- 判别模型：由数据直接学习决策函数 $f(X)$
 
 **决策树的主要优点**：模型具有可读性，分类速度快。
 
 **决策树的主要缺点**：
 
-> 【扩展阅读】[sklearn中文文档：1.10 决策树](https://sklearn.apachecn.org/docs/master/11.html)
+> 【扩展阅读】[sklearn 中文文档：1.10 决策树](https://sklearn.apachecn.org/docs/master/11.html)
 
 ## 5.1 决策树模型与学习
 
 > **【名词解释】划分 （以下定义来自浙江大学《概率论与数理统计》第四版 P. 17）**
 >
-> 设S为试验E的样本空间，$B_1,B_2,\cdots,B_n$为E的一组事件。若
+> 设 S 为试验 E 的样本空间，$B_1,B_2,\cdots,B_n$ 为 E 的一组事件。若
 >
 > 1. $B_i B_j = \varnothing$，$i \ne j$，$i,j=1,2,\cdots,n$；
 > 2. $B_1 \cup B_2 \cup \cdots \cup B_n = S$，
 >
-> 则称$B_1,B_2,\cdots,B_n$为样本空间S的一个划分。
+> 则称 $B_1,B_2,\cdots,B_n$ 为样本空间 S 的一个划分。
 
-> 【补充说明】图5.2 (b) 中左下角区域的条件概率分布似乎应为0。
+【补充说明】图 5.2 (b) 中左下角区域的条件概率分布似乎应为 0。
 
-#### NP完全问题
+#### NP 完全问题
 
-【扩展阅读】[什么是P问题、NP问题和NPC问题 - Matrix67](http://www.matrix67.com/blog/archives/105)
+【推荐阅读】[什么是 P 问题、NP 问题和 NPC 问题 - Matrix67](http://www.matrix67.com/blog/archives/105)
 
-> **【什么是P问题、NP问题和NPC问题 - Matrix67】摘要**
+> **【什么是 P 问题、NP 问题和 NPC 问题 - Matrix67】摘要**
 >
-> **多项式时间** 我们可以将时间复杂度分为两类；第一类我们称为多项式级的复杂度，其规模n出现在底数的位置，例如$O(1)$、$O(logN)$、$O(N^a)$等；第二类我们称为非多项式级的复杂度，例如$O(a^n)$、$O(N!)$等。我们将第一类时间复杂度称为多项式时间。
+> **多项式时间** 我们可以将时间复杂度分为两类；第一类我们称为多项式级的复杂度，其规模 n 出现在底数的位置，例如 $O(1)$、$O(logN)$、$O(N^a)$ 等；第二类我们称为非多项式级的复杂度，例如 $O(a^n)$、$O(N!)$ 等。我们将第一类时间复杂度称为多项式时间。
 >
-> **P问题** 如果一个问题可以找到一个能在多项式的时间里解决它的算法，那么这个问题就属于P问题。
+> **P 问题** 如果一个问题可以找到一个能在多项式的时间里解决它的算法，那么这个问题就属于 P 问题。
 >
-> **NP问题** NP问题有两种定义。第一种定义：如果一个问题可以在多项式的时间内验证一个解的问题，那么这个问题就属于NP问题。第二种定义：如果一个问题可以在多项式的时间内踩出一个解，那么这个问题就属于NP问题。
+> **NP 问题** NP 问题有两种定义。第一种定义：如果一个问题可以在多项式的时间内验证一个解的问题，那么这个问题就属于 NP 问题。第二种定义：如果一个问题可以在多项式的时间内踩出一个解，那么这个问题就属于 NP 问题。
 >
-> **约化** 一个问题A可以约化为问题B的含义是，可以用问题B的解法解决问题A。一般来说，B的时间复杂度高于或等于A的时间复杂度。另外，约化具有传递性，如果问题A可约化为问题B，问题B可约化为问题C，则问题A一定可约化为问题C。
+> **约化** 一个问题 A 可以约化为问题 B 的含义是，可以用问题 B 的解法解决问题 A。一般来说，B 的时间复杂度高于或等于 A 的时间复杂度。另外，约化具有传递性，如果问题 A 可约化为问题 B，问题 B 可约化为问题 C，则问题 A 一定可约化为问题 C。
 >
-> **NPC问题** NPC问题定义为同时满足如下两个条件的问题。首先，它必须是一个NP问题；然后，所有的NP问题都可以约化到它。在现阶段，我们可以直观地理解，NPC问题目前没有多项式的有效算法，只能用指数级甚至阶乘级复杂度的搜索。
+> **NPC 问题(NP 完全问题)** NPC 问题定义为同时满足如下两个条件的问题。首先，它必须是一个 NP 问题；然后，所有的 NP 问题都可以约化到它。在现阶段，我们可以直观地理解，NPC 问题目前没有多项式的有效算法，只能用指数级甚至阶乘级复杂度的搜索。
 >
-> **NP-Hard问题** NP-Hard问题不一定是一个NP问题，但是所有的NP问题都可以约化到它。
+> **NP-Hard 问题** NP-Hard 问题不一定是一个 NP 问题，但是所有的 NP 问题都可以约化到它。
 
 ## 5.2 特征选择
 
-> 【补充说明】训练数据集D关于特征A的值的熵$H_A(D)$即特征A的熵。
+【补充说明】训练数据集 D 关于特征 A 的值的熵 $H_A(D)$ 即特征 A 的熵。
 
-#### 例5.1数据集
+#### 例 5.1 数据集
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/example/_li.py)】code.example.load_li_5_1
 
@@ -83,7 +83,7 @@ def load_li_5_1():
                       "是", "是", "是", "是", "否"])]
 ```
 
-#### 熵（Python实现）
+#### 熵（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_entropy.py)】code.dicision_tree.entropy
 
@@ -113,7 +113,7 @@ def entropy(y, base=2):
 0.9709505944546686
 ```
 
-#### 条件熵（Python实现）
+#### 条件熵（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_conditional_extropy.py)】code.dicision_tree.conditional_entropy
 
@@ -150,7 +150,7 @@ def conditional_entropy(x, y, base=2):
 0.8879430945988998
 ```
 
-#### 信息增益（Python实现）
+#### 信息增益（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_information_gain.py)】code.dicision_tree.information_gain
 
@@ -175,7 +175,7 @@ def information_gain(x, y, idx, base=2):
 0.08300749985576883
 ```
 
-#### 信息增益比（Python实现）
+#### 信息增益比（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_information_gain_ratio.py)】code.dicision_tree.information_gain_ratio
 
@@ -206,9 +206,9 @@ def information_gain_ratio(x, y, idx, base=2):
 0.23185388128724224
 ```
 
-## 5.3.1 决策树的生成-ID3算法
+## 5.3.1 决策树的生成-ID3 算法
 
-#### ID3算法生成决策树-不包含剪枝（Python实现）
+#### ID3 算法生成决策树-不包含剪枝（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_decision_tree_id3_without_pruning.py)】code.dicision_tree.DecisionTreeID3WithoutPruning
 
@@ -310,7 +310,7 @@ class DecisionTreeID3WithoutPruning:
         return entropy(y, base=self.base) - conditional_entropy([x[i][idx] for i in range(len(x))], y, base=self.base)
 ```
 
-【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/ID3%E7%AE%97%E6%B3%95%E7%94%9F%E6%88%90%E5%86%B3%E7%AD%96%E6%A0%91(%E4%B8%8D%E5%8C%85%E5%90%AB%E5%89%AA%E6%9E%9D).py)】测试
+【[源码地址](<https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/ID3%E7%AE%97%E6%B3%95%E7%94%9F%E6%88%90%E5%86%B3%E7%AD%96%E6%A0%91(%E4%B8%8D%E5%8C%85%E5%90%AB%E5%89%AA%E6%9E%9D).py>)】测试
 
 ```python
 >>> from code.dicision_tree import DecisionTreeID3WithoutPruning
@@ -324,11 +324,11 @@ class DecisionTreeID3WithoutPruning:
   有工作 = 否 -> 否
 ```
 
-## 5.3.2 决策树的生成-C4.5的生成算法
+## 5.3.2 决策树的生成-C4.5 的生成算法
 
-> 【补充说明】C4.5算法在生成的过程中，除了用信息增益比来选择特征外，还增加了通过动态定义将连续属性值分隔成一组离散间隔的离散属性，从而支持了连续属性的情况。**以下实现的内容为书中描述的C4.5生成算法！**
+【补充说明】C4.5 算法在生成的过程中，除了用信息增益比来选择特征外，还增加了通过动态定义将连续属性值分隔成一组离散间隔的离散属性，从而支持了连续属性的情况。**以下实现的内容为书中描述的 C4.5 生成算法！**
 
-#### C4.5的生成算法生成决策树-不包含剪枝（Python实现）
+#### C4.5 的生成算法生成决策树-不包含剪枝（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_decision_tree_c45_without_pruning.py)】code.dicision_tree.DecisionTreeC45WithoutPruning
 
@@ -346,7 +346,7 @@ class DecisionTreeC45WithoutPruning(DecisionTreeID3WithoutPruning):
         return super().information_gain(x, y, idx) / entropy([x[i][idx] for i in range(len(x))], base=self.base)
 ```
 
-【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/C4.5%E7%9A%84%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95(%E4%B8%8D%E5%8C%85%E6%8B%AC%E5%89%AA%E6%9E%9D).py)】测试
+【[源码地址](<https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/C4.5%E7%9A%84%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95(%E4%B8%8D%E5%8C%85%E6%8B%AC%E5%89%AA%E6%9E%9D).py>)】测试
 
 ```python
 >>> from code.dicision_tree import DecisionTreeC45WithoutPruning
@@ -364,11 +364,11 @@ class DecisionTreeC45WithoutPruning(DecisionTreeID3WithoutPruning):
 
 #### 【问题】决策树的剪枝为什么可以使用动态规划？
 
-这是树形DP的标准案例，即每一个结点在计算时，先计算出所有子结点的最优解，然后其根据子结点的最优解计算当前结点的最优解。
+这是树形 DP 的标准案例，即每一个结点在计算时，先计算出所有子结点的最优解，然后其根据子结点的最优解计算当前结点的最优解。
 
-> 参考资料：[树形DP - OI Wiki](https://oi-wiki.org/dp/tree/)
+> 参考资料：[树形 DP - OI Wiki](https://oi-wiki.org/dp/tree/)
 
-#### ID3算法生成决策树-包含剪枝（Python实现）
+#### ID3 算法生成决策树-包含剪枝（Python 实现）
 
 【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/code/dicision_tree/_decision_tree_id3.py)】code.decision_tree.DecisionTreeID3
 
@@ -499,7 +499,7 @@ class DecisionTreeID3:
         return entropy(y, base=self.base) - conditional_entropy([x[i][idx] for i in range(len(x))], y, base=self.base)
 ```
 
-【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/ID3%E7%AE%97%E6%B3%95%E7%94%9F%E6%88%90%E5%86%B3%E7%AD%96%E6%A0%91(%E5%8C%85%E5%90%AB%E5%89%AA%E6%9E%9D).py)】测试
+【[源码地址](<https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/ID3%E7%AE%97%E6%B3%95%E7%94%9F%E6%88%90%E5%86%B3%E7%AD%96%E6%A0%91(%E5%8C%85%E5%90%AB%E5%89%AA%E6%9E%9D).py>)】测试
 
 ```python
 >>> from code.dicision_tree import DecisionTreeID3
@@ -514,28 +514,29 @@ class DecisionTreeID3:
  -> 是
 ```
 
-## 5.5 CART算法
+## 5.5 CART 算法
 
 #### 分类误差率
 
 分类误差率，即分类错误的实例数占总实例数的比例。因为在叶结点中，我们选择实例数最大的类作为标记，所以不是该类的实例均会被标记错误。因此，分类误差率可定义为：
+
 $$
 error(p) = 1 - \max_k \ p_k, \hspace{1em} k=1,2,\cdots,K
 $$
 
 #### 【问题】为什么不用分类误差率衡量信息增益？
 
-当某个结点中实例数最多的类，与其每个子结点中实例数最多的类均相同时；若用分类误差率衡量信息增益，因为不会考虑子结点中各类比例的变化，所以信息增益为0；但若用熵或基尼系数衡量信息增益，因为会考虑子结点中各类比例的变化，所以信息增益不为0。我们通过一个例子来看（以下“类标记”均表示以该结点为叶结点时的类标记，熵的单位均为比特）：
+当某个结点中实例数最多的类，与其每个子结点中实例数最多的类均相同时；若用分类误差率衡量信息增益，因为不会考虑子结点中各类比例的变化，所以信息增益为 0；但若用熵或基尼系数衡量信息增益，因为会考虑子结点中各类比例的变化，所以信息增益不为 0。我们通过一个例子来看（以下“类标记”均表示以该结点为叶结点时的类标记，熵的单位均为比特）：
 
-现有结点T0，其中包含A类实例80个，B类实例20个；当结点T0时，其类标记为A，分类误差率为0.2，熵为0.722。
+现有结点 T0，其中包含 A 类实例 80 个，B 类实例 20 个；当结点 T0 时，其类标记为 A，分类误差率为 0.2，熵为 0.722。
 
-现有一种分割方法，可以将结点T0分隔为结点T1和结点T2；其中结点T1包含A类实例60个，B类实例5个；结点T2包含A类实例20个，B类实例15个。此时结点T1的类标记为A，分类误差率为0.077，熵为0.391；结点T2的类标记为A，分类误差率为0.429，熵为0.985。对于结点T0，其分类误差率为$0.077×0.65+0.429×0.35=0.2$，其熵为$0.391×0.65+0.985×0.35=0.599$。
+现有一种分割方法，可以将结点 T0 分隔为结点 T1 和结点 T2；其中结点 T1 包含 A 类实例 60 个，B 类实例 5 个；结点 T2 包含 A 类实例 20 个，B 类实例 15 个。此时结点 T1 的类标记为 A，分类误差率为 0.077，熵为 0.391；结点 T2 的类标记为 A，分类误差率为 0.429，熵为 0.985。对于结点 T0，其分类误差率为 $0.077×0.65+0.429×0.35=0.2$，其熵为 $0.391×0.65+0.985×0.35=0.599$。
 
-此时，使用分类误差率衡量的信息增益为0，使用熵衡量的信息增益为0.123。
+此时，使用分类误差率衡量的信息增益为 0，使用熵衡量的信息增益为 0.123。
 
-#### CART分类树（Python+sklearn实现）
+#### CART 分类树（Python+sklearn 实现）
 
-【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/CART%E5%88%86%E7%B1%BB%E6%A0%91-%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B1(sklearn%E5%AE%9E%E7%8E%B0).py)】测试实例1（例5.1的测试集）
+【[源码地址](<https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/CART%E5%88%86%E7%B1%BB%E6%A0%91-%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B1(sklearn%E5%AE%9E%E7%8E%B0).py>)】测试实例 1（例 5.1 的测试集）
 
 ```python
 >>> from sklearn.tree import DecisionTreeClassifier
@@ -568,7 +569,7 @@ $$
 |   |--- weights: [0.00, 6.00] class: 1
 ```
 
-【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/CART%E5%88%86%E7%B1%BB%E6%A0%91-%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B2(sklearn%E5%AE%9E%E7%8E%B0).py)】测试示例2（鸢尾花数据集）
+【[源码地址](<https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/CART%E5%88%86%E7%B1%BB%E6%A0%91-%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B2(sklearn%E5%AE%9E%E7%8E%B0).py>)】测试示例 2（鸢尾花数据集）
 
 ```python
 >>> from sklearn.datasets import load_iris
@@ -597,9 +598,9 @@ $$
 0.98
 ```
 
-#### CART回归树（Python+sklearn实现）
+#### CART 回归树（Python+sklearn 实现）
 
-【[源码地址](https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/CART%E5%9B%9E%E5%BD%92%E6%A0%91-%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B(sklearn%E5%AE%9E%E7%8E%B0).py)】测试示例（波士顿房价数据集）
+【[源码地址](<https://github.com/ChangxingJiang/Data-Mining-HandBook/blob/master/R01_%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E5%95%83%E4%B9%A6%E8%BE%85%E5%8A%A9/%E7%AC%AC5%E7%AB%A0_%E5%86%B3%E7%AD%96%E6%A0%91/CART%E5%9B%9E%E5%BD%92%E6%A0%91-%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B(sklearn%E5%AE%9E%E7%8E%B0).py>)】测试示例（波士顿房价数据集）
 
 ```python
 >>> from sklearn.datasets import load_boston
@@ -621,4 +622,3 @@ $$
 >>> clf.score(x2, y2)  # 平方误差
 0.7217463605968275
 ```
-
